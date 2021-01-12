@@ -148,8 +148,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="2.3.1" data-path="titanic.html"><a href="titanic.html#missing-data"><i class="fa fa-check"></i><b>2.3.1</b> Missing Data</a></li>
 <li class="chapter" data-level="2.3.2" data-path="titanic.html"><a href="titanic.html#correlation"><i class="fa fa-check"></i><b>2.3.2</b> Correlation</a></li>
+<li class="chapter" data-level="2.3.3" data-path="titanic.html"><a href="titanic.html#pivot-features"><i class="fa fa-check"></i><b>2.3.3</b> Pivot Features</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="titanic.html"><a href="titanic.html#models"><i class="fa fa-check"></i><b>2.4</b> Models</a></li>
+<li class="chapter" data-level="2.4" data-path="titanic.html"><a href="titanic.html#visualization"><i class="fa fa-check"></i><b>2.4</b> Visualization</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="titanic.html"><a href="titanic.html#feature-engineering"><i class="fa fa-check"></i><b>2.4.1</b> Feature Engineering</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="titanic.html"><a href="titanic.html#models"><i class="fa fa-check"></i><b>2.5</b> Models</a>
+<ul>
+<li class="chapter" data-level="2.5.1" data-path="titanic.html"><a href="titanic.html#prepartion"><i class="fa fa-check"></i><b>2.5.1</b> Prepartion</a></li>
+<li class="chapter" data-level="2.5.2" data-path="titanic.html"><a href="titanic.html#run-models"><i class="fa fa-check"></i><b>2.5.2</b> Run Models</a></li>
+<li class="chapter" data-level="2.5.3" data-path="titanic.html"><a href="titanic.html#xgboost-model"><i class="fa fa-check"></i><b>2.5.3</b> Xgboost model</a></li>
+</ul></li>
 </ul></li>
 </ul>
 
@@ -201,7 +211,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#nmsxhgrxjn .gt_table {
+#gepaaxkgkj .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -226,7 +236,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-left-color: #D3D3D3;
 }
 
-#nmsxhgrxjn .gt_heading {
+#gepaaxkgkj .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -238,7 +248,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#nmsxhgrxjn .gt_title {
+#gepaaxkgkj .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -248,7 +258,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-width: 0;
 }
 
-#nmsxhgrxjn .gt_subtitle {
+#gepaaxkgkj .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -258,13 +268,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-width: 0;
 }
 
-#nmsxhgrxjn .gt_bottom_border {
+#gepaaxkgkj .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#nmsxhgrxjn .gt_col_headings {
+#gepaaxkgkj .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -279,7 +289,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#nmsxhgrxjn .gt_col_heading {
+#gepaaxkgkj .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 10;
@@ -299,7 +309,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-#nmsxhgrxjn .gt_column_spanner_outer {
+#gepaaxkgkj .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 10;
@@ -311,15 +321,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 4px;
 }
 
-#nmsxhgrxjn .gt_column_spanner_outer:first-child {
+#gepaaxkgkj .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#nmsxhgrxjn .gt_column_spanner_outer:last-child {
+#gepaaxkgkj .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#nmsxhgrxjn .gt_column_spanner {
+#gepaaxkgkj .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -331,7 +341,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   width: 100%;
 }
 
-#nmsxhgrxjn .gt_group_heading {
+#gepaaxkgkj .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -353,7 +363,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: middle;
 }
 
-#nmsxhgrxjn .gt_empty_group_heading {
+#gepaaxkgkj .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -368,15 +378,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: middle;
 }
 
-#nmsxhgrxjn .gt_from_md > :first-child {
+#gepaaxkgkj .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#nmsxhgrxjn .gt_from_md > :last-child {
+#gepaaxkgkj .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#nmsxhgrxjn .gt_row {
+#gepaaxkgkj .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -395,7 +405,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-#nmsxhgrxjn .gt_stub {
+#gepaaxkgkj .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -407,7 +417,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-left: 12px;
 }
 
-#nmsxhgrxjn .gt_summary_row {
+#gepaaxkgkj .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -417,7 +427,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#nmsxhgrxjn .gt_first_summary_row {
+#gepaaxkgkj .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -427,7 +437,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-color: #D3D3D3;
 }
 
-#nmsxhgrxjn .gt_grand_summary_row {
+#gepaaxkgkj .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -437,7 +447,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#nmsxhgrxjn .gt_first_grand_summary_row {
+#gepaaxkgkj .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -447,11 +457,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-color: #D3D3D3;
 }
 
-#nmsxhgrxjn .gt_striped {
+#gepaaxkgkj .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#nmsxhgrxjn .gt_table_body {
+#gepaaxkgkj .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -460,7 +470,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-#nmsxhgrxjn .gt_footnotes {
+#gepaaxkgkj .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -474,13 +484,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#nmsxhgrxjn .gt_footnote {
+#gepaaxkgkj .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#nmsxhgrxjn .gt_sourcenotes {
+#gepaaxkgkj .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -494,46 +504,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#nmsxhgrxjn .gt_sourcenote {
+#gepaaxkgkj .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#nmsxhgrxjn .gt_left {
+#gepaaxkgkj .gt_left {
   text-align: left;
 }
 
-#nmsxhgrxjn .gt_center {
+#gepaaxkgkj .gt_center {
   text-align: center;
 }
 
-#nmsxhgrxjn .gt_right {
+#gepaaxkgkj .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#nmsxhgrxjn .gt_font_normal {
+#gepaaxkgkj .gt_font_normal {
   font-weight: normal;
 }
 
-#nmsxhgrxjn .gt_font_bold {
+#gepaaxkgkj .gt_font_bold {
   font-weight: bold;
 }
 
-#nmsxhgrxjn .gt_font_italic {
+#gepaaxkgkj .gt_font_italic {
   font-style: italic;
 }
 
-#nmsxhgrxjn .gt_super {
+#gepaaxkgkj .gt_super {
   font-size: 65%;
 }
 
-#nmsxhgrxjn .gt_footnote_marks {
+#gepaaxkgkj .gt_footnote_marks {
   font-style: italic;
   font-size: 65%;
 }
 </style>
-<div id="nmsxhgrxjn" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+<div id="gepaaxkgkj" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
   <thead class="gt_header">
     <tr>
       <th colspan="12" class="gt_heading gt_title gt_font_normal" style><strong>Data Frame Head</strong></th>
@@ -560,142 +570,142 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </thead>
   <tbody class="gt_table_body">
     <tr>
-      <td class="gt_row gt_right">486</td>
+      <td class="gt_row gt_right">762</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">3</td>
-      <td class="gt_row gt_left">Lefebre, Miss. Jeannie</td>
-      <td class="gt_row gt_left">female</td>
+      <td class="gt_row gt_left">Nirva, Mr. Iisakki Antino Aijo</td>
+      <td class="gt_row gt_left">male</td>
+      <td class="gt_row gt_right">41</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_left">SOTON/O2 3101272</td>
+      <td class="gt_row gt_right">7.1250</td>
+      <td class="gt_row gt_center">NaN</td>
+      <td class="gt_row gt_left">S</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_right">935</td>
       <td class="gt_row gt_right">NaN</td>
-      <td class="gt_row gt_right">3</td>
-      <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_left">4133</td>
-      <td class="gt_row gt_right">25.4667</td>
-      <td class="gt_row gt_center">NaN</td>
-      <td class="gt_row gt_left">S</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_right">524</td>
-      <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_left">Hippach, Mrs. Louis Albert (Ida Sophia Fischer)</td>
-      <td class="gt_row gt_left">female</td>
-      <td class="gt_row gt_right">44</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_left">111361</td>
-      <td class="gt_row gt_right">57.9792</td>
-      <td class="gt_row gt_center">B18</td>
-      <td class="gt_row gt_left">C</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_right">50</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">3</td>
-      <td class="gt_row gt_left">Arnold-Franchi, Mrs. Josef (Josefine Franchi)</td>
-      <td class="gt_row gt_left">female</td>
-      <td class="gt_row gt_right">18</td>
-      <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_left">349237</td>
-      <td class="gt_row gt_right">17.8000</td>
-      <td class="gt_row gt_center">NaN</td>
-      <td class="gt_row gt_left">S</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_right">813</td>
-      <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">2</td>
-      <td class="gt_row gt_left">Slemen, Mr. Richard James</td>
-      <td class="gt_row gt_left">male</td>
-      <td class="gt_row gt_right">35</td>
+      <td class="gt_row gt_left">Corbett, Mrs. Walter H (Irene Colvin)</td>
+      <td class="gt_row gt_left">female</td>
+      <td class="gt_row gt_right">30</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_left">28206</td>
-      <td class="gt_row gt_right">10.5000</td>
+      <td class="gt_row gt_left">237249</td>
+      <td class="gt_row gt_right">13.0000</td>
       <td class="gt_row gt_center">NaN</td>
       <td class="gt_row gt_left">S</td>
     </tr>
     <tr>
-      <td class="gt_row gt_right">1242</td>
-      <td class="gt_row gt_right">NaN</td>
-      <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_left">Greenfield, Mrs. Leo David (Blanche Strouse)</td>
-      <td class="gt_row gt_left">female</td>
-      <td class="gt_row gt_right">45</td>
+      <td class="gt_row gt_right">402</td>
       <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_left">PC 17759</td>
-      <td class="gt_row gt_right">63.3583</td>
-      <td class="gt_row gt_center">D10 D12</td>
-      <td class="gt_row gt_left">C</td>
+      <td class="gt_row gt_right">3</td>
+      <td class="gt_row gt_left">Adams, Mr. John</td>
+      <td class="gt_row gt_left">male</td>
+      <td class="gt_row gt_right">26</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_left">341826</td>
+      <td class="gt_row gt_right">8.0500</td>
+      <td class="gt_row gt_center">NaN</td>
+      <td class="gt_row gt_left">S</td>
     </tr>
     <tr>
-      <td class="gt_row gt_right">1047</td>
-      <td class="gt_row gt_right">NaN</td>
+      <td class="gt_row gt_right">846</td>
+      <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">3</td>
-      <td class="gt_row gt_left">Duquemin, Mr. Joseph</td>
+      <td class="gt_row gt_left">Abbing, Mr. Anthony</td>
       <td class="gt_row gt_left">male</td>
-      <td class="gt_row gt_right">24</td>
+      <td class="gt_row gt_right">42</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_left">S.O./P.P. 752</td>
+      <td class="gt_row gt_left">C.A. 5547</td>
       <td class="gt_row gt_right">7.5500</td>
       <td class="gt_row gt_center">NaN</td>
       <td class="gt_row gt_left">S</td>
     </tr>
     <tr>
-      <td class="gt_row gt_right">1065</td>
+      <td class="gt_row gt_right">1098</td>
       <td class="gt_row gt_right">NaN</td>
       <td class="gt_row gt_right">3</td>
-      <td class="gt_row gt_left">Torfa, Mr. Assad</td>
-      <td class="gt_row gt_left">male</td>
-      <td class="gt_row gt_right">NaN</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_left">2673</td>
-      <td class="gt_row gt_right">7.2292</td>
-      <td class="gt_row gt_center">NaN</td>
-      <td class="gt_row gt_left">C</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_right">353</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">3</td>
-      <td class="gt_row gt_left">Elias, Mr. Tannous</td>
-      <td class="gt_row gt_left">male</td>
-      <td class="gt_row gt_right">15</td>
-      <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_left">2695</td>
-      <td class="gt_row gt_right">7.2292</td>
-      <td class="gt_row gt_center">NaN</td>
-      <td class="gt_row gt_left">C</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_right">888</td>
-      <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_left">Graham, Miss. Margaret Edith</td>
+      <td class="gt_row gt_left">McGowan, Miss. Katherine</td>
       <td class="gt_row gt_left">female</td>
-      <td class="gt_row gt_right">19</td>
+      <td class="gt_row gt_right">35</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_left">112053</td>
-      <td class="gt_row gt_right">30.0000</td>
-      <td class="gt_row gt_center">B42</td>
+      <td class="gt_row gt_left">9232</td>
+      <td class="gt_row gt_right">7.7500</td>
+      <td class="gt_row gt_center">NaN</td>
+      <td class="gt_row gt_left">Q</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_right">840</td>
+      <td class="gt_row gt_right">1</td>
+      <td class="gt_row gt_right">1</td>
+      <td class="gt_row gt_left">Marechal, Mr. Pierre</td>
+      <td class="gt_row gt_left">male</td>
+      <td class="gt_row gt_right">NaN</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_left">11774</td>
+      <td class="gt_row gt_right">29.7000</td>
+      <td class="gt_row gt_center">C47</td>
+      <td class="gt_row gt_left">C</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_right">65</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">1</td>
+      <td class="gt_row gt_left">Stewart, Mr. Albert A</td>
+      <td class="gt_row gt_left">male</td>
+      <td class="gt_row gt_right">NaN</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_left">PC 17605</td>
+      <td class="gt_row gt_right">27.7208</td>
+      <td class="gt_row gt_center">NaN</td>
+      <td class="gt_row gt_left">C</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_right">1256</td>
+      <td class="gt_row gt_right">NaN</td>
+      <td class="gt_row gt_right">1</td>
+      <td class="gt_row gt_left">Harder, Mrs. George Achilles (Dorothy Annan)</td>
+      <td class="gt_row gt_left">female</td>
+      <td class="gt_row gt_right">25</td>
+      <td class="gt_row gt_right">1</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_left">11765</td>
+      <td class="gt_row gt_right">55.4417</td>
+      <td class="gt_row gt_center">E50</td>
+      <td class="gt_row gt_left">C</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_right">679</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">3</td>
+      <td class="gt_row gt_left">Goodwin, Mrs. Frederick (Augusta Tyler)</td>
+      <td class="gt_row gt_left">female</td>
+      <td class="gt_row gt_right">43</td>
+      <td class="gt_row gt_right">1</td>
+      <td class="gt_row gt_right">6</td>
+      <td class="gt_row gt_left">CA 2144</td>
+      <td class="gt_row gt_right">46.9000</td>
+      <td class="gt_row gt_center">NaN</td>
       <td class="gt_row gt_left">S</td>
     </tr>
     <tr>
-      <td class="gt_row gt_right">955</td>
-      <td class="gt_row gt_right">NaN</td>
+      <td class="gt_row gt_right">6</td>
+      <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">3</td>
-      <td class="gt_row gt_left">Bradley, Miss. Bridget Delia</td>
-      <td class="gt_row gt_left">female</td>
-      <td class="gt_row gt_right">22</td>
+      <td class="gt_row gt_left">Moran, Mr. James</td>
+      <td class="gt_row gt_left">male</td>
+      <td class="gt_row gt_right">NaN</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_left">334914</td>
-      <td class="gt_row gt_right">7.7250</td>
+      <td class="gt_row gt_left">330877</td>
+      <td class="gt_row gt_right">8.4583</td>
       <td class="gt_row gt_center">NaN</td>
       <td class="gt_row gt_left">Q</td>
     </tr>
@@ -710,7 +720,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#hrisycpxut .gt_table {
+#wfodwuseci .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -735,7 +745,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-left-color: #D3D3D3;
 }
 
-#hrisycpxut .gt_heading {
+#wfodwuseci .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -747,7 +757,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#hrisycpxut .gt_title {
+#wfodwuseci .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -757,7 +767,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-width: 0;
 }
 
-#hrisycpxut .gt_subtitle {
+#wfodwuseci .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -767,13 +777,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-width: 0;
 }
 
-#hrisycpxut .gt_bottom_border {
+#wfodwuseci .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#hrisycpxut .gt_col_headings {
+#wfodwuseci .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -788,7 +798,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#hrisycpxut .gt_col_heading {
+#wfodwuseci .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 10;
@@ -808,7 +818,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-#hrisycpxut .gt_column_spanner_outer {
+#wfodwuseci .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 10;
@@ -820,15 +830,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 4px;
 }
 
-#hrisycpxut .gt_column_spanner_outer:first-child {
+#wfodwuseci .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#hrisycpxut .gt_column_spanner_outer:last-child {
+#wfodwuseci .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#hrisycpxut .gt_column_spanner {
+#wfodwuseci .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -840,7 +850,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   width: 100%;
 }
 
-#hrisycpxut .gt_group_heading {
+#wfodwuseci .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -862,7 +872,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: middle;
 }
 
-#hrisycpxut .gt_empty_group_heading {
+#wfodwuseci .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -877,15 +887,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: middle;
 }
 
-#hrisycpxut .gt_from_md > :first-child {
+#wfodwuseci .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#hrisycpxut .gt_from_md > :last-child {
+#wfodwuseci .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#hrisycpxut .gt_row {
+#wfodwuseci .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -904,7 +914,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-#hrisycpxut .gt_stub {
+#wfodwuseci .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -916,7 +926,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-left: 12px;
 }
 
-#hrisycpxut .gt_summary_row {
+#wfodwuseci .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -926,7 +936,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#hrisycpxut .gt_first_summary_row {
+#wfodwuseci .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -936,7 +946,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-color: #D3D3D3;
 }
 
-#hrisycpxut .gt_grand_summary_row {
+#wfodwuseci .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -946,7 +956,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#hrisycpxut .gt_first_grand_summary_row {
+#wfodwuseci .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -956,11 +966,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-color: #D3D3D3;
 }
 
-#hrisycpxut .gt_striped {
+#wfodwuseci .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#hrisycpxut .gt_table_body {
+#wfodwuseci .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -969,7 +979,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-#hrisycpxut .gt_footnotes {
+#wfodwuseci .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -983,13 +993,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#hrisycpxut .gt_footnote {
+#wfodwuseci .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#hrisycpxut .gt_sourcenotes {
+#wfodwuseci .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1003,46 +1013,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#hrisycpxut .gt_sourcenote {
+#wfodwuseci .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#hrisycpxut .gt_left {
+#wfodwuseci .gt_left {
   text-align: left;
 }
 
-#hrisycpxut .gt_center {
+#wfodwuseci .gt_center {
   text-align: center;
 }
 
-#hrisycpxut .gt_right {
+#wfodwuseci .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hrisycpxut .gt_font_normal {
+#wfodwuseci .gt_font_normal {
   font-weight: normal;
 }
 
-#hrisycpxut .gt_font_bold {
+#wfodwuseci .gt_font_bold {
   font-weight: bold;
 }
 
-#hrisycpxut .gt_font_italic {
+#wfodwuseci .gt_font_italic {
   font-style: italic;
 }
 
-#hrisycpxut .gt_super {
+#wfodwuseci .gt_super {
   font-size: 65%;
 }
 
-#hrisycpxut .gt_footnote_marks {
+#wfodwuseci .gt_footnote_marks {
   font-style: italic;
   font-size: 65%;
 }
 </style>
-<div id="hrisycpxut" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+<div id="wfodwuseci" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
   <thead class="gt_header">
     <tr>
       <th colspan="8" class="gt_heading gt_title gt_font_normal" style><strong>Numerical Features</strong></th>
@@ -1151,7 +1161,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#feeihglhij .gt_table {
+#ehptfpslzv .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1176,7 +1186,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-left-color: #D3D3D3;
 }
 
-#feeihglhij .gt_heading {
+#ehptfpslzv .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -1188,7 +1198,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#feeihglhij .gt_title {
+#ehptfpslzv .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1198,7 +1208,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-width: 0;
 }
 
-#feeihglhij .gt_subtitle {
+#ehptfpslzv .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1208,13 +1218,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-width: 0;
 }
 
-#feeihglhij .gt_bottom_border {
+#ehptfpslzv .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#feeihglhij .gt_col_headings {
+#ehptfpslzv .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1229,7 +1239,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#feeihglhij .gt_col_heading {
+#ehptfpslzv .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 10;
@@ -1249,7 +1259,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-#feeihglhij .gt_column_spanner_outer {
+#ehptfpslzv .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 10;
@@ -1261,15 +1271,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 4px;
 }
 
-#feeihglhij .gt_column_spanner_outer:first-child {
+#ehptfpslzv .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#feeihglhij .gt_column_spanner_outer:last-child {
+#ehptfpslzv .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#feeihglhij .gt_column_spanner {
+#ehptfpslzv .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1281,7 +1291,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   width: 100%;
 }
 
-#feeihglhij .gt_group_heading {
+#ehptfpslzv .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1303,7 +1313,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: middle;
 }
 
-#feeihglhij .gt_empty_group_heading {
+#ehptfpslzv .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1318,15 +1328,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: middle;
 }
 
-#feeihglhij .gt_from_md > :first-child {
+#ehptfpslzv .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#feeihglhij .gt_from_md > :last-child {
+#ehptfpslzv .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#feeihglhij .gt_row {
+#ehptfpslzv .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1345,7 +1355,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-#feeihglhij .gt_stub {
+#ehptfpslzv .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1357,7 +1367,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-left: 12px;
 }
 
-#feeihglhij .gt_summary_row {
+#ehptfpslzv .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1367,7 +1377,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#feeihglhij .gt_first_summary_row {
+#ehptfpslzv .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1377,7 +1387,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-color: #D3D3D3;
 }
 
-#feeihglhij .gt_grand_summary_row {
+#ehptfpslzv .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1387,7 +1397,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#feeihglhij .gt_first_grand_summary_row {
+#ehptfpslzv .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1397,11 +1407,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-color: #D3D3D3;
 }
 
-#feeihglhij .gt_striped {
+#ehptfpslzv .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#feeihglhij .gt_table_body {
+#ehptfpslzv .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1410,7 +1420,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-#feeihglhij .gt_footnotes {
+#ehptfpslzv .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1424,13 +1434,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#feeihglhij .gt_footnote {
+#ehptfpslzv .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#feeihglhij .gt_sourcenotes {
+#ehptfpslzv .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1444,46 +1454,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#feeihglhij .gt_sourcenote {
+#ehptfpslzv .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#feeihglhij .gt_left {
+#ehptfpslzv .gt_left {
   text-align: left;
 }
 
-#feeihglhij .gt_center {
+#ehptfpslzv .gt_center {
   text-align: center;
 }
 
-#feeihglhij .gt_right {
+#ehptfpslzv .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#feeihglhij .gt_font_normal {
+#ehptfpslzv .gt_font_normal {
   font-weight: normal;
 }
 
-#feeihglhij .gt_font_bold {
+#ehptfpslzv .gt_font_bold {
   font-weight: bold;
 }
 
-#feeihglhij .gt_font_italic {
+#ehptfpslzv .gt_font_italic {
   font-style: italic;
 }
 
-#feeihglhij .gt_super {
+#ehptfpslzv .gt_super {
   font-size: 65%;
 }
 
-#feeihglhij .gt_footnote_marks {
+#ehptfpslzv .gt_footnote_marks {
   font-style: italic;
   font-size: 65%;
 }
 </style>
-<div id="feeihglhij" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+<div id="ehptfpslzv" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
   <thead class="gt_header">
     <tr>
       <th colspan="5" class="gt_heading gt_title gt_font_normal" style><strong>Categorical Features</strong></th>
@@ -1572,7 +1582,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#yceiikkvfb .gt_table {
+#xggxlueqpr .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1597,7 +1607,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-left-color: #D3D3D3;
 }
 
-#yceiikkvfb .gt_heading {
+#xggxlueqpr .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -1609,7 +1619,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#yceiikkvfb .gt_title {
+#xggxlueqpr .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1619,7 +1629,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-width: 0;
 }
 
-#yceiikkvfb .gt_subtitle {
+#xggxlueqpr .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1629,13 +1639,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-width: 0;
 }
 
-#yceiikkvfb .gt_bottom_border {
+#xggxlueqpr .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#yceiikkvfb .gt_col_headings {
+#xggxlueqpr .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1650,7 +1660,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#yceiikkvfb .gt_col_heading {
+#xggxlueqpr .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 10;
@@ -1670,7 +1680,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-#yceiikkvfb .gt_column_spanner_outer {
+#xggxlueqpr .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 10;
@@ -1682,15 +1692,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 4px;
 }
 
-#yceiikkvfb .gt_column_spanner_outer:first-child {
+#xggxlueqpr .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#yceiikkvfb .gt_column_spanner_outer:last-child {
+#xggxlueqpr .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#yceiikkvfb .gt_column_spanner {
+#xggxlueqpr .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1702,7 +1712,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   width: 100%;
 }
 
-#yceiikkvfb .gt_group_heading {
+#xggxlueqpr .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1724,7 +1734,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: middle;
 }
 
-#yceiikkvfb .gt_empty_group_heading {
+#xggxlueqpr .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1739,15 +1749,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   vertical-align: middle;
 }
 
-#yceiikkvfb .gt_from_md > :first-child {
+#xggxlueqpr .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#yceiikkvfb .gt_from_md > :last-child {
+#xggxlueqpr .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#yceiikkvfb .gt_row {
+#xggxlueqpr .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1766,7 +1776,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   overflow-x: hidden;
 }
 
-#yceiikkvfb .gt_stub {
+#xggxlueqpr .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1778,7 +1788,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-left: 12px;
 }
 
-#yceiikkvfb .gt_summary_row {
+#xggxlueqpr .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1788,7 +1798,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#yceiikkvfb .gt_first_summary_row {
+#xggxlueqpr .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1798,7 +1808,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-color: #D3D3D3;
 }
 
-#yceiikkvfb .gt_grand_summary_row {
+#xggxlueqpr .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1808,7 +1818,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   padding-right: 5px;
 }
 
-#yceiikkvfb .gt_first_grand_summary_row {
+#xggxlueqpr .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1818,11 +1828,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-top-color: #D3D3D3;
 }
 
-#yceiikkvfb .gt_striped {
+#xggxlueqpr .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#yceiikkvfb .gt_table_body {
+#xggxlueqpr .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1831,7 +1841,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-bottom-color: #D3D3D3;
 }
 
-#yceiikkvfb .gt_footnotes {
+#xggxlueqpr .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1845,13 +1855,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#yceiikkvfb .gt_footnote {
+#xggxlueqpr .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#yceiikkvfb .gt_sourcenotes {
+#xggxlueqpr .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1865,46 +1875,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   border-right-color: #D3D3D3;
 }
 
-#yceiikkvfb .gt_sourcenote {
+#xggxlueqpr .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#yceiikkvfb .gt_left {
+#xggxlueqpr .gt_left {
   text-align: left;
 }
 
-#yceiikkvfb .gt_center {
+#xggxlueqpr .gt_center {
   text-align: center;
 }
 
-#yceiikkvfb .gt_right {
+#xggxlueqpr .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#yceiikkvfb .gt_font_normal {
+#xggxlueqpr .gt_font_normal {
   font-weight: normal;
 }
 
-#yceiikkvfb .gt_font_bold {
+#xggxlueqpr .gt_font_bold {
   font-weight: bold;
 }
 
-#yceiikkvfb .gt_font_italic {
+#xggxlueqpr .gt_font_italic {
   font-style: italic;
 }
 
-#yceiikkvfb .gt_super {
+#xggxlueqpr .gt_super {
   font-size: 65%;
 }
 
-#yceiikkvfb .gt_footnote_marks {
+#xggxlueqpr .gt_footnote_marks {
   font-style: italic;
   font-size: 65%;
 }
 </style>
-<div id="yceiikkvfb" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+<div id="xggxlueqpr" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
   <thead class="gt_header">
     <tr>
       <th colspan="3" class="gt_heading gt_title gt_font_normal" style><strong>Missing values</strong></th>
@@ -1981,17 +1991,604 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb8-17"><a href="titanic.html#cb8-17" aria-hidden="true"></a>plt.savefig(<span class="st">&quot;correlation_map&quot;</span>)</span>
 <span id="cb8-18"><a href="titanic.html#cb8-18" aria-hidden="true"></a>plt.show()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-13-1.png" width="1344" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="titanic.html#cb9-1" aria-hidden="true"></a><span class="co"># &lt;&lt;pivot_features&gt;&gt;</span></span>
-<span id="cb9-2"><a href="titanic.html#cb9-2" aria-hidden="true"></a><span class="co"># &lt;&lt;data_cleaning&gt;&gt;</span></span>
-<span id="cb9-3"><a href="titanic.html#cb9-3" aria-hidden="true"></a><span class="co"># &lt;&lt;extract_title&gt;&gt;</span></span></code></pre></div>
+</div>
+<div id="pivot-features" class="section level3" number="2.3.3">
+<h3><span class="header-section-number">2.3.3</span> Pivot Features</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="titanic.html#cb9-1" aria-hidden="true"></a><span class="kw">def</span> pivot_feature(df, TARGET, FEATURE):</span>
+<span id="cb9-2"><a href="titanic.html#cb9-2" aria-hidden="true"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb9-3"><a href="titanic.html#cb9-3" aria-hidden="true"></a><span class="co">    Input the</span></span>
+<span id="cb9-4"><a href="titanic.html#cb9-4" aria-hidden="true"></a><span class="co">    - data frame</span></span>
+<span id="cb9-5"><a href="titanic.html#cb9-5" aria-hidden="true"></a><span class="co">    - target feature</span></span>
+<span id="cb9-6"><a href="titanic.html#cb9-6" aria-hidden="true"></a><span class="co">    - relevant feature (only for features which are categorical (Sex),</span></span>
+<span id="cb9-7"><a href="titanic.html#cb9-7" aria-hidden="true"></a><span class="co">    ordinal (Passenger class) or discrete (Sibbling count)).</span></span>
+<span id="cb9-8"><a href="titanic.html#cb9-8" aria-hidden="true"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb9-9"><a href="titanic.html#cb9-9" aria-hidden="true"></a>    <span class="cf">return</span> (df[[FEATURE, TARGET</span>
+<span id="cb9-10"><a href="titanic.html#cb9-10" aria-hidden="true"></a>                ]].groupby([FEATURE]).mean().sort_values(by<span class="op">=</span>FEATURE,</span>
+<span id="cb9-11"><a href="titanic.html#cb9-11" aria-hidden="true"></a>                                                         ascending<span class="op">=</span><span class="va">False</span>))</span>
+<span id="cb9-12"><a href="titanic.html#cb9-12" aria-hidden="true"></a></span>
+<span id="cb9-13"><a href="titanic.html#cb9-13" aria-hidden="true"></a>pivot_feature(df, <span class="st">&quot;Survived&quot;</span>, <span class="st">&quot;Pclass&quot;</span>)</span></code></pre></div>
+<pre><code>#&gt;         Survived
+#&gt; Pclass          
+#&gt; 3       0.242363
+#&gt; 2       0.472826
+#&gt; 1       0.629630</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="titanic.html#cb11-1" aria-hidden="true"></a>pivot_feature(df, <span class="st">&quot;Survived&quot;</span>, <span class="st">&quot;Sex&quot;</span>)</span></code></pre></div>
+<pre><code>#&gt;         Survived
+#&gt; Sex             
+#&gt; male    0.188908
+#&gt; female  0.742038</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="titanic.html#cb13-1" aria-hidden="true"></a>pivot_feature(df, <span class="st">&quot;Survived&quot;</span>, <span class="st">&quot;SibSp&quot;</span>)</span></code></pre></div>
+<pre><code>#&gt;        Survived
+#&gt; SibSp          
+#&gt; 8      0.000000
+#&gt; 5      0.000000
+#&gt; 4      0.166667
+#&gt; 3      0.250000
+#&gt; 2      0.464286
+#&gt; 1      0.535885
+#&gt; 0      0.345395</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="titanic.html#cb15-1" aria-hidden="true"></a>pivot_feature(df, <span class="st">&quot;Survived&quot;</span>, <span class="st">&quot;Parch&quot;</span>)</span></code></pre></div>
+<pre><code>#&gt;        Survived
+#&gt; Parch          
+#&gt; 9           NaN
+#&gt; 6      0.000000
+#&gt; 5      0.200000
+#&gt; 4      0.000000
+#&gt; 3      0.600000
+#&gt; 2      0.500000
+#&gt; 1      0.550847
+#&gt; 0      0.343658</code></pre>
 </div>
 </div>
-<div id="models" class="section level2" number="2.4">
-<h2><span class="header-section-number">2.4</span> Models</h2>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="titanic.html#cb10-1" aria-hidden="true"></a><span class="co"># &lt;&lt;model_setup&gt;&gt;</span></span>
-<span id="cb10-2"><a href="titanic.html#cb10-2" aria-hidden="true"></a><span class="co"># &lt;&lt;model_basics&gt;&gt;</span></span>
-<span id="cb10-3"><a href="titanic.html#cb10-3" aria-hidden="true"></a><span class="co"># &lt;&lt;model_xgboost&gt;&gt;</span></span></code></pre></div>
+<div id="visualization" class="section level2" number="2.4">
+<h2><span class="header-section-number">2.4</span> Visualization</h2>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="titanic.html#cb17-1" aria-hidden="true"></a><span class="kw">def</span> plot_corr_numerical(df, TARGET, FEATURE):</span>
+<span id="cb17-2"><a href="titanic.html#cb17-2" aria-hidden="true"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb17-3"><a href="titanic.html#cb17-3" aria-hidden="true"></a><span class="co">    Data Frame</span></span>
+<span id="cb17-4"><a href="titanic.html#cb17-4" aria-hidden="true"></a><span class="co">    Target feature</span></span>
+<span id="cb17-5"><a href="titanic.html#cb17-5" aria-hidden="true"></a><span class="co">    Feature of intrest</span></span>
+<span id="cb17-6"><a href="titanic.html#cb17-6" aria-hidden="true"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb17-7"><a href="titanic.html#cb17-7" aria-hidden="true"></a>    g <span class="op">=</span> sns.FacetGrid(df, col<span class="op">=</span>TARGET)</span>
+<span id="cb17-8"><a href="titanic.html#cb17-8" aria-hidden="true"></a>    g.<span class="bu">map</span>(plt.hist, FEATURE, bins<span class="op">=</span><span class="dv">20</span>)</span>
+<span id="cb17-9"><a href="titanic.html#cb17-9" aria-hidden="true"></a>    plt.savefig(<span class="st">&quot;04_corr_numerical_&quot;</span> <span class="op">+</span> TARGET <span class="op">+</span> <span class="st">&quot;_&quot;</span> <span class="op">+</span> FEATURE)</span>
+<span id="cb17-10"><a href="titanic.html#cb17-10" aria-hidden="true"></a>    plt.show()</span>
+<span id="cb17-11"><a href="titanic.html#cb17-11" aria-hidden="true"></a></span>
+<span id="cb17-12"><a href="titanic.html#cb17-12" aria-hidden="true"></a></span>
+<span id="cb17-13"><a href="titanic.html#cb17-13" aria-hidden="true"></a>plot_corr_numerical(df, <span class="st">&quot;Survived&quot;</span>, <span class="st">&quot;Age&quot;</span>)</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-15-1.png" width="576" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="titanic.html#cb18-1" aria-hidden="true"></a><span class="kw">def</span> plot_corr_num_ord(df, TARGET, numerical_FEATURE, ordinal_FEATURE):</span>
+<span id="cb18-2"><a href="titanic.html#cb18-2" aria-hidden="true"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb18-3"><a href="titanic.html#cb18-3" aria-hidden="true"></a><span class="co">    Data Frame</span></span>
+<span id="cb18-4"><a href="titanic.html#cb18-4" aria-hidden="true"></a><span class="co">    Target feature</span></span>
+<span id="cb18-5"><a href="titanic.html#cb18-5" aria-hidden="true"></a><span class="co">    numerical feature of intrest</span></span>
+<span id="cb18-6"><a href="titanic.html#cb18-6" aria-hidden="true"></a><span class="co">    ordinal feature of intrest</span></span>
+<span id="cb18-7"><a href="titanic.html#cb18-7" aria-hidden="true"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb18-8"><a href="titanic.html#cb18-8" aria-hidden="true"></a>    g <span class="op">=</span> sns.FacetGrid(df,</span>
+<span id="cb18-9"><a href="titanic.html#cb18-9" aria-hidden="true"></a>                      col<span class="op">=</span>TARGET,</span>
+<span id="cb18-10"><a href="titanic.html#cb18-10" aria-hidden="true"></a>                      row<span class="op">=</span>ordinal_FEATURE,</span>
+<span id="cb18-11"><a href="titanic.html#cb18-11" aria-hidden="true"></a>                      size<span class="op">=</span><span class="fl">2.2</span>,</span>
+<span id="cb18-12"><a href="titanic.html#cb18-12" aria-hidden="true"></a>                      aspect<span class="op">=</span><span class="fl">1.6</span>)</span>
+<span id="cb18-13"><a href="titanic.html#cb18-13" aria-hidden="true"></a>    g.<span class="bu">map</span>(plt.hist, numerical_FEATURE, alpha<span class="op">=</span><span class="fl">0.5</span>, bins<span class="op">=</span><span class="dv">20</span>)</span>
+<span id="cb18-14"><a href="titanic.html#cb18-14" aria-hidden="true"></a>    g.add_legend()</span>
+<span id="cb18-15"><a href="titanic.html#cb18-15" aria-hidden="true"></a>    plt.savefig(<span class="st">&quot;04_corr_num_ord_&quot;</span> <span class="op">+</span> TARGET <span class="op">+</span> <span class="st">&quot;_&quot;</span> <span class="op">+</span> numerical_FEATURE <span class="op">+</span> <span class="st">&quot;_&quot;</span> <span class="op">+</span></span>
+<span id="cb18-16"><a href="titanic.html#cb18-16" aria-hidden="true"></a>                ordinal_FEATURE)</span>
+<span id="cb18-17"><a href="titanic.html#cb18-17" aria-hidden="true"></a>    plt.show()</span>
+<span id="cb18-18"><a href="titanic.html#cb18-18" aria-hidden="true"></a></span>
+<span id="cb18-19"><a href="titanic.html#cb18-19" aria-hidden="true"></a></span>
+<span id="cb18-20"><a href="titanic.html#cb18-20" aria-hidden="true"></a>plot_corr_num_ord(df, <span class="st">&quot;Survived&quot;</span>, <span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Pclass&quot;</span>)</span></code></pre></div>
+<pre><code>#&gt; /nix/store/lz8yaf1c80c6zb3qj11j58x3qq366wxx-python3.8-seaborn-0.11.0/lib/python3.8/site-packages/seaborn/axisgrid.py:316: UserWarning: The `size` parameter has been renamed to `height`; please update your code.
+#&gt;   warnings.warn(msg, UserWarning)</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-15-2.png" width="686" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="titanic.html#cb20-1" aria-hidden="true"></a><span class="kw">def</span> plot_corr_cat(</span>
+<span id="cb20-2"><a href="titanic.html#cb20-2" aria-hidden="true"></a>    df,</span>
+<span id="cb20-3"><a href="titanic.html#cb20-3" aria-hidden="true"></a>    TARGET,</span>
+<span id="cb20-4"><a href="titanic.html#cb20-4" aria-hidden="true"></a>    categorical_FEATURE,</span>
+<span id="cb20-5"><a href="titanic.html#cb20-5" aria-hidden="true"></a>    categorical_FEATURE_x_axis,</span>
+<span id="cb20-6"><a href="titanic.html#cb20-6" aria-hidden="true"></a>    categorical_FEATURE_new_line,</span>
+<span id="cb20-7"><a href="titanic.html#cb20-7" aria-hidden="true"></a>):</span>
+<span id="cb20-8"><a href="titanic.html#cb20-8" aria-hidden="true"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb20-9"><a href="titanic.html#cb20-9" aria-hidden="true"></a><span class="co">    Data Frame</span></span>
+<span id="cb20-10"><a href="titanic.html#cb20-10" aria-hidden="true"></a><span class="co">    Target feature - y axis</span></span>
+<span id="cb20-11"><a href="titanic.html#cb20-11" aria-hidden="true"></a><span class="co">    categorical feature - facet row</span></span>
+<span id="cb20-12"><a href="titanic.html#cb20-12" aria-hidden="true"></a><span class="co">    feature of intrest</span></span>
+<span id="cb20-13"><a href="titanic.html#cb20-13" aria-hidden="true"></a><span class="co">    feature of intrest</span></span>
+<span id="cb20-14"><a href="titanic.html#cb20-14" aria-hidden="true"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb20-15"><a href="titanic.html#cb20-15" aria-hidden="true"></a>    g <span class="op">=</span> sns.FacetGrid(df, row<span class="op">=</span>categorical_FEATURE, size<span class="op">=</span><span class="fl">2.2</span>, aspect<span class="op">=</span><span class="fl">1.6</span>)</span>
+<span id="cb20-16"><a href="titanic.html#cb20-16" aria-hidden="true"></a>    g.<span class="bu">map</span>(</span>
+<span id="cb20-17"><a href="titanic.html#cb20-17" aria-hidden="true"></a>        sns.pointplot,</span>
+<span id="cb20-18"><a href="titanic.html#cb20-18" aria-hidden="true"></a>        categorical_FEATURE_x_axis,</span>
+<span id="cb20-19"><a href="titanic.html#cb20-19" aria-hidden="true"></a>        TARGET,</span>
+<span id="cb20-20"><a href="titanic.html#cb20-20" aria-hidden="true"></a>        categorical_FEATURE_new_line,</span>
+<span id="cb20-21"><a href="titanic.html#cb20-21" aria-hidden="true"></a>        palette<span class="op">=</span><span class="st">&quot;deep&quot;</span>,</span>
+<span id="cb20-22"><a href="titanic.html#cb20-22" aria-hidden="true"></a>    )</span>
+<span id="cb20-23"><a href="titanic.html#cb20-23" aria-hidden="true"></a>    g.add_legend()</span>
+<span id="cb20-24"><a href="titanic.html#cb20-24" aria-hidden="true"></a>    plt.savefig(<span class="st">&quot;04_corr_cat_&quot;</span> <span class="op">+</span> TARGET <span class="op">+</span> <span class="st">&quot;_&quot;</span> <span class="op">+</span> categorical_FEATURE_x_axis <span class="op">+</span></span>
+<span id="cb20-25"><a href="titanic.html#cb20-25" aria-hidden="true"></a>                <span class="st">&quot;_&quot;</span> <span class="op">+</span> categorical_FEATURE_new_line)</span>
+<span id="cb20-26"><a href="titanic.html#cb20-26" aria-hidden="true"></a></span>
+<span id="cb20-27"><a href="titanic.html#cb20-27" aria-hidden="true"></a>plot_corr_cat(df, <span class="st">&quot;Survived&quot;</span>, <span class="st">&quot;Embarked&quot;</span>, <span class="st">&quot;Pclass&quot;</span>, <span class="st">&quot;Sex&quot;</span>)</span></code></pre></div>
+<pre><code>#&gt; /nix/store/lz8yaf1c80c6zb3qj11j58x3qq366wxx-python3.8-seaborn-0.11.0/lib/python3.8/site-packages/seaborn/axisgrid.py:316: UserWarning: The `size` parameter has been renamed to `height`; please update your code.
+#&gt;   warnings.warn(msg, UserWarning)
+#&gt; /nix/store/lz8yaf1c80c6zb3qj11j58x3qq366wxx-python3.8-seaborn-0.11.0/lib/python3.8/site-packages/seaborn/axisgrid.py:645: UserWarning: Using the pointplot function without specifying `order` is likely to produce an incorrect plot.
+#&gt;   warnings.warn(warning)
+#&gt; /nix/store/lz8yaf1c80c6zb3qj11j58x3qq366wxx-python3.8-seaborn-0.11.0/lib/python3.8/site-packages/seaborn/axisgrid.py:650: UserWarning: Using the pointplot function without specifying `hue_order` is likely to produce an incorrect plot.
+#&gt;   warnings.warn(warning)</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="titanic.html#cb22-1" aria-hidden="true"></a><span class="kw">def</span> plot_corr_cat_num(</span>
+<span id="cb22-2"><a href="titanic.html#cb22-2" aria-hidden="true"></a>    df,</span>
+<span id="cb22-3"><a href="titanic.html#cb22-3" aria-hidden="true"></a>    TARGET,</span>
+<span id="cb22-4"><a href="titanic.html#cb22-4" aria-hidden="true"></a>    categorical_FEATURE_facet_row,</span>
+<span id="cb22-5"><a href="titanic.html#cb22-5" aria-hidden="true"></a>    categorical_FEATURE_y_axis,</span>
+<span id="cb22-6"><a href="titanic.html#cb22-6" aria-hidden="true"></a>    categorical_FEATURE_x_axis,</span>
+<span id="cb22-7"><a href="titanic.html#cb22-7" aria-hidden="true"></a>):</span>
+<span id="cb22-8"><a href="titanic.html#cb22-8" aria-hidden="true"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb22-9"><a href="titanic.html#cb22-9" aria-hidden="true"></a><span class="co">    Data Frame</span></span>
+<span id="cb22-10"><a href="titanic.html#cb22-10" aria-hidden="true"></a><span class="co">    Target feature - y axis</span></span>
+<span id="cb22-11"><a href="titanic.html#cb22-11" aria-hidden="true"></a><span class="co">    categorical feature - facet row</span></span>
+<span id="cb22-12"><a href="titanic.html#cb22-12" aria-hidden="true"></a><span class="co">    feature of intrest</span></span>
+<span id="cb22-13"><a href="titanic.html#cb22-13" aria-hidden="true"></a><span class="co">    feature of intrest</span></span>
+<span id="cb22-14"><a href="titanic.html#cb22-14" aria-hidden="true"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb22-15"><a href="titanic.html#cb22-15" aria-hidden="true"></a>    g <span class="op">=</span> sns.FacetGrid(df,</span>
+<span id="cb22-16"><a href="titanic.html#cb22-16" aria-hidden="true"></a>                      row<span class="op">=</span>categorical_FEATURE_facet_row,</span>
+<span id="cb22-17"><a href="titanic.html#cb22-17" aria-hidden="true"></a>                      col<span class="op">=</span>TARGET,</span>
+<span id="cb22-18"><a href="titanic.html#cb22-18" aria-hidden="true"></a>                      size<span class="op">=</span><span class="fl">2.2</span>,</span>
+<span id="cb22-19"><a href="titanic.html#cb22-19" aria-hidden="true"></a>                      aspect<span class="op">=</span><span class="fl">1.6</span>)</span>
+<span id="cb22-20"><a href="titanic.html#cb22-20" aria-hidden="true"></a>    g.<span class="bu">map</span>(</span>
+<span id="cb22-21"><a href="titanic.html#cb22-21" aria-hidden="true"></a>        sns.barplot,</span>
+<span id="cb22-22"><a href="titanic.html#cb22-22" aria-hidden="true"></a>        categorical_FEATURE_x_axis,</span>
+<span id="cb22-23"><a href="titanic.html#cb22-23" aria-hidden="true"></a>        categorical_FEATURE_y_axis,</span>
+<span id="cb22-24"><a href="titanic.html#cb22-24" aria-hidden="true"></a>        palette<span class="op">=</span><span class="st">&quot;deep&quot;</span>,</span>
+<span id="cb22-25"><a href="titanic.html#cb22-25" aria-hidden="true"></a>        alpha<span class="op">=</span><span class="fl">0.5</span>,</span>
+<span id="cb22-26"><a href="titanic.html#cb22-26" aria-hidden="true"></a>        ci<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb22-27"><a href="titanic.html#cb22-27" aria-hidden="true"></a>    )</span>
+<span id="cb22-28"><a href="titanic.html#cb22-28" aria-hidden="true"></a>    g.add_legend()</span>
+<span id="cb22-29"><a href="titanic.html#cb22-29" aria-hidden="true"></a>    plt.savefig(<span class="st">&quot;04_corr_cat_num_&quot;</span> <span class="op">+</span> TARGET <span class="op">+</span> <span class="st">&quot;_&quot;</span> <span class="op">+</span></span>
+<span id="cb22-30"><a href="titanic.html#cb22-30" aria-hidden="true"></a>                categorical_FEATURE_x_axis <span class="op">+</span> <span class="st">&quot;_&quot;</span> <span class="op">+</span> categorical_FEATURE_y_axis)</span>
+<span id="cb22-31"><a href="titanic.html#cb22-31" aria-hidden="true"></a>    plt.show()</span>
+<span id="cb22-32"><a href="titanic.html#cb22-32" aria-hidden="true"></a></span>
+<span id="cb22-33"><a href="titanic.html#cb22-33" aria-hidden="true"></a></span>
+<span id="cb22-34"><a href="titanic.html#cb22-34" aria-hidden="true"></a>plot_corr_cat_num(df, <span class="st">&quot;Survived&quot;</span>, <span class="st">&quot;Embarked&quot;</span>, <span class="st">&quot;Fare&quot;</span>, <span class="st">&quot;Sex&quot;</span>)</span></code></pre></div>
+<pre><code>#&gt; /nix/store/lz8yaf1c80c6zb3qj11j58x3qq366wxx-python3.8-seaborn-0.11.0/lib/python3.8/site-packages/seaborn/axisgrid.py:316: UserWarning: The `size` parameter has been renamed to `height`; please update your code.
+#&gt;   warnings.warn(msg, UserWarning)
+#&gt; /nix/store/lz8yaf1c80c6zb3qj11j58x3qq366wxx-python3.8-seaborn-0.11.0/lib/python3.8/site-packages/seaborn/axisgrid.py:645: UserWarning: Using the barplot function without specifying `order` is likely to produce an incorrect plot.
+#&gt;   warnings.warn(warning)</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-15-3.png" width="686" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="titanic.html#cb24-1" aria-hidden="true"></a>df.drop([<span class="st">&quot;Ticket&quot;</span>, <span class="st">&quot;Cabin&quot;</span>, <span class="st">&quot;PassengerId&quot;</span>], inplace<span class="op">=</span><span class="va">True</span>, axis<span class="op">=</span><span class="dv">1</span>)</span></code></pre></div>
+<div id="feature-engineering" class="section level3" number="2.4.1">
+<h3><span class="header-section-number">2.4.1</span> Feature Engineering</h3>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="titanic.html#cb25-1" aria-hidden="true"></a>df[<span class="st">&quot;Title&quot;</span>] <span class="op">=</span> df[<span class="st">&quot;Name&quot;</span>].<span class="bu">str</span>.extract(<span class="st">&quot; ([A-Za-z]+)\.&quot;</span>,</span>
+<span id="cb25-2"><a href="titanic.html#cb25-2" aria-hidden="true"></a>                                     expand<span class="op">=</span><span class="va">False</span>)  <span class="co">## get word before the .</span></span>
+<span id="cb25-3"><a href="titanic.html#cb25-3" aria-hidden="true"></a></span>
+<span id="cb25-4"><a href="titanic.html#cb25-4" aria-hidden="true"></a>pd.crosstab(df[<span class="st">&quot;Title&quot;</span>], df[<span class="st">&quot;Sex&quot;</span>])</span></code></pre></div>
+<pre><code>#&gt; Sex       female  male
+#&gt; Title                 
+#&gt; Capt           0     1
+#&gt; Col            0     4
+#&gt; Countess       1     0
+#&gt; Don            0     1
+#&gt; Dona           1     0
+#&gt; Dr             1     7
+#&gt; Jonkheer       0     1
+#&gt; Lady           1     0
+#&gt; Major          0     2
+#&gt; Master         0    61
+#&gt; Miss         260     0
+#&gt; Mlle           2     0
+#&gt; Mme            1     0
+#&gt; Mr             0   757
+#&gt; Mrs          197     0
+#&gt; Ms             2     0
+#&gt; Rev            0     8
+#&gt; Sir            0     1</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="titanic.html#cb27-1" aria-hidden="true"></a>df[<span class="st">&quot;Title&quot;</span>].unique()</span></code></pre></div>
+<pre><code>#&gt; array([&#39;Mr&#39;, &#39;Mrs&#39;, &#39;Miss&#39;, &#39;Master&#39;, &#39;Don&#39;, &#39;Rev&#39;, &#39;Dr&#39;, &#39;Mme&#39;, &#39;Ms&#39;,
+#&gt;        &#39;Major&#39;, &#39;Lady&#39;, &#39;Sir&#39;, &#39;Mlle&#39;, &#39;Col&#39;, &#39;Capt&#39;, &#39;Countess&#39;,
+#&gt;        &#39;Jonkheer&#39;, &#39;Dona&#39;], dtype=object)</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="titanic.html#cb29-1" aria-hidden="true"></a><span class="kw">def</span> repace_values_with(df, FEATURE, LIST, REPLACE_WITH):</span>
+<span id="cb29-2"><a href="titanic.html#cb29-2" aria-hidden="true"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb29-3"><a href="titanic.html#cb29-3" aria-hidden="true"></a><span class="co">    Replace values in a column with ...</span></span>
+<span id="cb29-4"><a href="titanic.html#cb29-4" aria-hidden="true"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb29-5"><a href="titanic.html#cb29-5" aria-hidden="true"></a>    df[FEATURE] <span class="op">=</span> df[FEATURE].replace(LIST, REPLACE_WITH)</span>
+<span id="cb29-6"><a href="titanic.html#cb29-6" aria-hidden="true"></a></span>
+<span id="cb29-7"><a href="titanic.html#cb29-7" aria-hidden="true"></a>repace_values_with(</span>
+<span id="cb29-8"><a href="titanic.html#cb29-8" aria-hidden="true"></a>    df,</span>
+<span id="cb29-9"><a href="titanic.html#cb29-9" aria-hidden="true"></a>    <span class="st">&quot;Title&quot;</span>,</span>
+<span id="cb29-10"><a href="titanic.html#cb29-10" aria-hidden="true"></a>    [</span>
+<span id="cb29-11"><a href="titanic.html#cb29-11" aria-hidden="true"></a>        <span class="st">&quot;Don&quot;</span>, <span class="st">&quot;Rev&quot;</span>, <span class="st">&quot;Dr&quot;</span>, <span class="st">&quot;Major&quot;</span>, <span class="st">&quot;Lady&quot;</span>, <span class="st">&quot;Sir&quot;</span>, <span class="st">&quot;Col&quot;</span>, <span class="st">&quot;Capt&quot;</span>, <span class="st">&quot;Countess&quot;</span>,</span>
+<span id="cb29-12"><a href="titanic.html#cb29-12" aria-hidden="true"></a>        <span class="st">&quot;Jonkheer&quot;</span></span>
+<span id="cb29-13"><a href="titanic.html#cb29-13" aria-hidden="true"></a>    ],</span>
+<span id="cb29-14"><a href="titanic.html#cb29-14" aria-hidden="true"></a>    <span class="st">&quot;Rare&quot;</span>,</span>
+<span id="cb29-15"><a href="titanic.html#cb29-15" aria-hidden="true"></a>)</span>
+<span id="cb29-16"><a href="titanic.html#cb29-16" aria-hidden="true"></a>repace_values_with(df, <span class="st">&quot;Title&quot;</span>, <span class="st">&quot;Mlle&quot;</span>, <span class="st">&quot;Miss&quot;</span>)</span>
+<span id="cb29-17"><a href="titanic.html#cb29-17" aria-hidden="true"></a>repace_values_with(df, <span class="st">&quot;Title&quot;</span>, <span class="st">&quot;Ms&quot;</span>, <span class="st">&quot;Miss&quot;</span>)</span>
+<span id="cb29-18"><a href="titanic.html#cb29-18" aria-hidden="true"></a>repace_values_with(df, <span class="st">&quot;Title&quot;</span>, <span class="st">&quot;Mme&quot;</span>, <span class="st">&quot;Mrs&quot;</span>)</span>
+<span id="cb29-19"><a href="titanic.html#cb29-19" aria-hidden="true"></a></span>
+<span id="cb29-20"><a href="titanic.html#cb29-20" aria-hidden="true"></a>df[[<span class="st">&quot;Title&quot;</span>, <span class="st">&quot;Survived&quot;</span>]].groupby([<span class="st">&quot;Title&quot;</span>], as_index<span class="op">=</span><span class="va">False</span>).mean()</span></code></pre></div>
+<pre><code>#&gt;     Title  Survived
+#&gt; 0    Dona       NaN
+#&gt; 1  Master  0.575000
+#&gt; 2    Miss  0.702703
+#&gt; 3      Mr  0.156673
+#&gt; 4     Mrs  0.793651
+#&gt; 5    Rare  0.347826</code></pre>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="titanic.html#cb31-1" aria-hidden="true"></a><span class="kw">def</span> cat_to_ord(df, FEATURE, DICT):</span>
+<span id="cb31-2"><a href="titanic.html#cb31-2" aria-hidden="true"></a>    df[FEATURE] <span class="op">=</span> df[FEATURE].<span class="bu">map</span>(DICT).fillna(<span class="dv">0</span>)</span>
+<span id="cb31-3"><a href="titanic.html#cb31-3" aria-hidden="true"></a></span>
+<span id="cb31-4"><a href="titanic.html#cb31-4" aria-hidden="true"></a></span>
+<span id="cb31-5"><a href="titanic.html#cb31-5" aria-hidden="true"></a>cat_to_ord(df, <span class="st">&quot;Title&quot;</span>, {</span>
+<span id="cb31-6"><a href="titanic.html#cb31-6" aria-hidden="true"></a>    <span class="st">&quot;Master&quot;</span>: <span class="dv">1</span>,</span>
+<span id="cb31-7"><a href="titanic.html#cb31-7" aria-hidden="true"></a>    <span class="st">&quot;Miss&quot;</span>: <span class="dv">2</span>,</span>
+<span id="cb31-8"><a href="titanic.html#cb31-8" aria-hidden="true"></a>    <span class="st">&quot;Mr&quot;</span>: <span class="dv">3</span>,</span>
+<span id="cb31-9"><a href="titanic.html#cb31-9" aria-hidden="true"></a>    <span class="st">&quot;Mrs&quot;</span>: <span class="dv">4</span>,</span>
+<span id="cb31-10"><a href="titanic.html#cb31-10" aria-hidden="true"></a>    <span class="st">&quot;Rare&quot;</span>: <span class="dv">5</span>,</span>
+<span id="cb31-11"><a href="titanic.html#cb31-11" aria-hidden="true"></a>})</span>
+<span id="cb31-12"><a href="titanic.html#cb31-12" aria-hidden="true"></a></span>
+<span id="cb31-13"><a href="titanic.html#cb31-13" aria-hidden="true"></a>df.drop([<span class="st">&quot;Name&quot;</span>], inplace<span class="op">=</span><span class="va">True</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb31-14"><a href="titanic.html#cb31-14" aria-hidden="true"></a></span>
+<span id="cb31-15"><a href="titanic.html#cb31-15" aria-hidden="true"></a><span class="kw">def</span> dummify(df, features_list):</span>
+<span id="cb31-16"><a href="titanic.html#cb31-16" aria-hidden="true"></a>    <span class="cf">return</span> pd.get_dummies(</span>
+<span id="cb31-17"><a href="titanic.html#cb31-17" aria-hidden="true"></a>        df,</span>
+<span id="cb31-18"><a href="titanic.html#cb31-18" aria-hidden="true"></a>        columns<span class="op">=</span>features_list,</span>
+<span id="cb31-19"><a href="titanic.html#cb31-19" aria-hidden="true"></a>        drop_first<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb31-20"><a href="titanic.html#cb31-20" aria-hidden="true"></a>    )</span>
+<span id="cb31-21"><a href="titanic.html#cb31-21" aria-hidden="true"></a></span>
+<span id="cb31-22"><a href="titanic.html#cb31-22" aria-hidden="true"></a>df <span class="op">=</span> dummify(df, [<span class="st">&quot;Sex&quot;</span>])</span>
+<span id="cb31-23"><a href="titanic.html#cb31-23" aria-hidden="true"></a></span>
+<span id="cb31-24"><a href="titanic.html#cb31-24" aria-hidden="true"></a>g <span class="op">=</span> sns.FacetGrid(df, row<span class="op">=</span><span class="st">&quot;Pclass&quot;</span>, col<span class="op">=</span><span class="st">&quot;Sex_male&quot;</span>, size<span class="op">=</span><span class="fl">2.2</span>, aspect<span class="op">=</span><span class="fl">1.6</span>)</span></code></pre></div>
+<pre><code>#&gt; /nix/store/lz8yaf1c80c6zb3qj11j58x3qq366wxx-python3.8-seaborn-0.11.0/lib/python3.8/site-packages/seaborn/axisgrid.py:316: UserWarning: The `size` parameter has been renamed to `height`; please update your code.
+#&gt;   warnings.warn(msg, UserWarning)</code></pre>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="titanic.html#cb33-1" aria-hidden="true"></a>g.<span class="bu">map</span>(plt.hist, <span class="st">&quot;Age&quot;</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, bins<span class="op">=</span><span class="dv">20</span>)</span></code></pre></div>
+<pre><code>#&gt; &lt;seaborn.axisgrid.FacetGrid object at 0x7f268c9f68b0&gt;</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="titanic.html#cb35-1" aria-hidden="true"></a>g.add_legend()</span></code></pre></div>
+<pre><code>#&gt; &lt;seaborn.axisgrid.FacetGrid object at 0x7f268c9f68b0&gt;</code></pre>
+<div class="sourceCode" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb37-1"><a href="titanic.html#cb37-1" aria-hidden="true"></a>plt.savefig(<span class="st">&quot;06_hist_&quot;</span>)</span>
+<span id="cb37-2"><a href="titanic.html#cb37-2" aria-hidden="true"></a>plt.show()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-16-1.png" width="686" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb38-1"><a href="titanic.html#cb38-1" aria-hidden="true"></a>guess_ages <span class="op">=</span> np.zeros((<span class="dv">2</span>, <span class="dv">3</span>))</span>
+<span id="cb38-2"><a href="titanic.html#cb38-2" aria-hidden="true"></a></span>
+<span id="cb38-3"><a href="titanic.html#cb38-3" aria-hidden="true"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">2</span>):</span>
+<span id="cb38-4"><a href="titanic.html#cb38-4" aria-hidden="true"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">3</span>):</span>
+<span id="cb38-5"><a href="titanic.html#cb38-5" aria-hidden="true"></a>        guess_df <span class="op">=</span> df[(df[<span class="st">&quot;Sex_male&quot;</span>] <span class="op">==</span> i)</span>
+<span id="cb38-6"><a href="titanic.html#cb38-6" aria-hidden="true"></a>                      <span class="op">&amp;</span> (df[<span class="st">&quot;Pclass&quot;</span>] <span class="op">==</span> j <span class="op">+</span> <span class="dv">1</span>)][<span class="st">&quot;Age&quot;</span>].dropna()</span>
+<span id="cb38-7"><a href="titanic.html#cb38-7" aria-hidden="true"></a></span>
+<span id="cb38-8"><a href="titanic.html#cb38-8" aria-hidden="true"></a>        <span class="co">## age_mean = guess_df.mean()</span></span>
+<span id="cb38-9"><a href="titanic.html#cb38-9" aria-hidden="true"></a>        <span class="co"># age_std = guess_df.std()</span></span>
+<span id="cb38-10"><a href="titanic.html#cb38-10" aria-hidden="true"></a>        <span class="co">## age_guess = rnd.uniform(age_mean - age_std, age_mean + age_std)</span></span>
+<span id="cb38-11"><a href="titanic.html#cb38-11" aria-hidden="true"></a></span>
+<span id="cb38-12"><a href="titanic.html#cb38-12" aria-hidden="true"></a>        age_guess <span class="op">=</span> guess_df.median()</span>
+<span id="cb38-13"><a href="titanic.html#cb38-13" aria-hidden="true"></a></span>
+<span id="cb38-14"><a href="titanic.html#cb38-14" aria-hidden="true"></a>        <span class="co">## Convert random age float to nearest .5 age</span></span>
+<span id="cb38-15"><a href="titanic.html#cb38-15" aria-hidden="true"></a>        guess_ages[i, j] <span class="op">=</span> <span class="bu">int</span>(age_guess <span class="op">/</span> <span class="fl">0.5</span> <span class="op">+</span> <span class="fl">0.5</span>) <span class="op">*</span> <span class="fl">0.5</span></span>
+<span id="cb38-16"><a href="titanic.html#cb38-16" aria-hidden="true"></a></span>
+<span id="cb38-17"><a href="titanic.html#cb38-17" aria-hidden="true"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">2</span>):</span>
+<span id="cb38-18"><a href="titanic.html#cb38-18" aria-hidden="true"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">3</span>):</span>
+<span id="cb38-19"><a href="titanic.html#cb38-19" aria-hidden="true"></a>        df.loc[(df.Age.isnull()) <span class="op">&amp;</span> (df.Sex_male <span class="op">==</span> i) <span class="op">&amp;</span> (df.Pclass <span class="op">==</span> j <span class="op">+</span> <span class="dv">1</span>),</span>
+<span id="cb38-20"><a href="titanic.html#cb38-20" aria-hidden="true"></a>               <span class="st">&quot;Age&quot;</span>, ] <span class="op">=</span> guess_ages[i, j]</span>
+<span id="cb38-21"><a href="titanic.html#cb38-21" aria-hidden="true"></a></span>
+<span id="cb38-22"><a href="titanic.html#cb38-22" aria-hidden="true"></a>df[<span class="st">&quot;Age&quot;</span>] <span class="op">=</span> df[<span class="st">&quot;Age&quot;</span>].astype(<span class="bu">int</span>)</span>
+<span id="cb38-23"><a href="titanic.html#cb38-23" aria-hidden="true"></a></span>
+<span id="cb38-24"><a href="titanic.html#cb38-24" aria-hidden="true"></a>df.head()</span></code></pre></div>
+<pre><code>#&gt;    Survived  Pclass  Age  SibSp  Parch     Fare Embarked  Title  Sex_male
+#&gt; 0       0.0       3   22      1      0   7.2500        S    3.0         1
+#&gt; 1       1.0       1   38      1      0  71.2833        C    4.0         0
+#&gt; 2       1.0       3   26      0      0   7.9250        S    2.0         0
+#&gt; 3       1.0       1   35      1      0  53.1000        S    4.0         0
+#&gt; 4       0.0       3   35      0      0   8.0500        S    3.0         1</code></pre>
+<div class="sourceCode" id="cb40"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb40-1"><a href="titanic.html#cb40-1" aria-hidden="true"></a>df[<span class="st">&quot;Age_Band&quot;</span>] <span class="op">=</span> pd.cut(df[<span class="st">&quot;Age&quot;</span>], <span class="dv">5</span>)</span>
+<span id="cb40-2"><a href="titanic.html#cb40-2" aria-hidden="true"></a>df[[<span class="st">&quot;Age_Band&quot;</span>,</span>
+<span id="cb40-3"><a href="titanic.html#cb40-3" aria-hidden="true"></a>    <span class="st">&quot;Survived&quot;</span>]].groupby([<span class="st">&quot;Age_Band&quot;</span>],</span>
+<span id="cb40-4"><a href="titanic.html#cb40-4" aria-hidden="true"></a>                         as_index<span class="op">=</span><span class="va">False</span>).mean().sort_values(by<span class="op">=</span><span class="st">&quot;Age_Band&quot;</span>,</span>
+<span id="cb40-5"><a href="titanic.html#cb40-5" aria-hidden="true"></a>                                                            ascending<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
+<pre><code>#&gt;         Age_Band  Survived
+#&gt; 0  (-0.08, 16.0]  0.550000
+#&gt; 1   (16.0, 32.0]  0.337374
+#&gt; 2   (32.0, 48.0]  0.412037
+#&gt; 3   (48.0, 64.0]  0.434783
+#&gt; 4   (64.0, 80.0]  0.090909</code></pre>
+<div class="sourceCode" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb42-1"><a href="titanic.html#cb42-1" aria-hidden="true"></a>DATA_FRAME <span class="op">=</span> df</span>
+<span id="cb42-2"><a href="titanic.html#cb42-2" aria-hidden="true"></a>COL <span class="op">=</span> <span class="st">&quot;Age&quot;</span></span>
+<span id="cb42-3"><a href="titanic.html#cb42-3" aria-hidden="true"></a></span>
+<span id="cb42-4"><a href="titanic.html#cb42-4" aria-hidden="true"></a><span class="kw">def</span> function1(col_value):</span>
+<span id="cb42-5"><a href="titanic.html#cb42-5" aria-hidden="true"></a>    <span class="cf">if</span> col_value <span class="op">&lt;=</span> <span class="dv">16</span>:</span>
+<span id="cb42-6"><a href="titanic.html#cb42-6" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb42-7"><a href="titanic.html#cb42-7" aria-hidden="true"></a>    <span class="cf">elif</span> (col_value <span class="op">&gt;</span> <span class="dv">16</span>) <span class="op">&amp;</span> (col_value <span class="op">&lt;=</span> <span class="dv">32</span>):</span>
+<span id="cb42-8"><a href="titanic.html#cb42-8" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb42-9"><a href="titanic.html#cb42-9" aria-hidden="true"></a>    <span class="cf">elif</span> (col_value <span class="op">&gt;</span> <span class="dv">32</span>) <span class="op">&amp;</span> (col_value <span class="op">&lt;=</span> <span class="dv">48</span>):</span>
+<span id="cb42-10"><a href="titanic.html#cb42-10" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">2</span></span>
+<span id="cb42-11"><a href="titanic.html#cb42-11" aria-hidden="true"></a>    <span class="cf">elif</span> (col_value <span class="op">&gt;</span> <span class="dv">48</span>) <span class="op">&amp;</span> (col_value <span class="op">&lt;=</span> <span class="dv">64</span>):</span>
+<span id="cb42-12"><a href="titanic.html#cb42-12" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">3</span></span>
+<span id="cb42-13"><a href="titanic.html#cb42-13" aria-hidden="true"></a>    <span class="cf">else</span>:</span>
+<span id="cb42-14"><a href="titanic.html#cb42-14" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">4</span></span>
+<span id="cb42-15"><a href="titanic.html#cb42-15" aria-hidden="true"></a></span>
+<span id="cb42-16"><a href="titanic.html#cb42-16" aria-hidden="true"></a>df[<span class="st">&quot;Age_Bands&quot;</span>] <span class="op">=</span> DATA_FRAME[COL].<span class="bu">apply</span>(<span class="kw">lambda</span> col_value: function1(col_value))</span>
+<span id="cb42-17"><a href="titanic.html#cb42-17" aria-hidden="true"></a></span>
+<span id="cb42-18"><a href="titanic.html#cb42-18" aria-hidden="true"></a>df[<span class="st">&quot;Family_size&quot;</span>] <span class="op">=</span> df[<span class="st">&quot;SibSp&quot;</span>] <span class="op">+</span> df[<span class="st">&quot;Parch&quot;</span>] <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb42-19"><a href="titanic.html#cb42-19" aria-hidden="true"></a></span>
+<span id="cb42-20"><a href="titanic.html#cb42-20" aria-hidden="true"></a>df[[<span class="st">&quot;Family_size&quot;</span>,</span>
+<span id="cb42-21"><a href="titanic.html#cb42-21" aria-hidden="true"></a>    <span class="st">&quot;Survived&quot;</span>]].groupby([<span class="st">&quot;Family_size&quot;</span>],</span>
+<span id="cb42-22"><a href="titanic.html#cb42-22" aria-hidden="true"></a>                         as_index<span class="op">=</span><span class="va">False</span>).mean().sort_values(by<span class="op">=</span><span class="st">&quot;Survived&quot;</span>,</span>
+<span id="cb42-23"><a href="titanic.html#cb42-23" aria-hidden="true"></a>                                                            ascending<span class="op">=</span><span class="va">False</span>)</span></code></pre></div>
+<pre><code>#&gt;    Family_size  Survived
+#&gt; 3            4  0.724138
+#&gt; 2            3  0.578431
+#&gt; 1            2  0.552795
+#&gt; 6            7  0.333333
+#&gt; 0            1  0.303538
+#&gt; 4            5  0.200000
+#&gt; 5            6  0.136364
+#&gt; 7            8  0.000000
+#&gt; 8           11  0.000000</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb44-1"><a href="titanic.html#cb44-1" aria-hidden="true"></a>DATA_FRAME <span class="op">=</span> df</span>
+<span id="cb44-2"><a href="titanic.html#cb44-2" aria-hidden="true"></a>COL <span class="op">=</span> <span class="st">&quot;Family_size&quot;</span></span>
+<span id="cb44-3"><a href="titanic.html#cb44-3" aria-hidden="true"></a></span>
+<span id="cb44-4"><a href="titanic.html#cb44-4" aria-hidden="true"></a><span class="kw">def</span> function1(col_value):</span>
+<span id="cb44-5"><a href="titanic.html#cb44-5" aria-hidden="true"></a>    <span class="cf">if</span> col_value <span class="op">&gt;=</span> <span class="dv">2</span>:</span>
+<span id="cb44-6"><a href="titanic.html#cb44-6" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb44-7"><a href="titanic.html#cb44-7" aria-hidden="true"></a>    <span class="cf">else</span>:</span>
+<span id="cb44-8"><a href="titanic.html#cb44-8" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb44-9"><a href="titanic.html#cb44-9" aria-hidden="true"></a></span>
+<span id="cb44-10"><a href="titanic.html#cb44-10" aria-hidden="true"></a>df[<span class="st">&quot;Is_alone&quot;</span>] <span class="op">=</span> DATA_FRAME[COL].<span class="bu">apply</span>(<span class="kw">lambda</span> col_value: function1(col_value))</span>
+<span id="cb44-11"><a href="titanic.html#cb44-11" aria-hidden="true"></a></span>
+<span id="cb44-12"><a href="titanic.html#cb44-12" aria-hidden="true"></a>df[[<span class="st">&quot;Is_alone&quot;</span>,</span>
+<span id="cb44-13"><a href="titanic.html#cb44-13" aria-hidden="true"></a>    <span class="st">&quot;Survived&quot;</span>]].groupby([<span class="st">&quot;Is_alone&quot;</span>]).mean().sort_values(by<span class="op">=</span><span class="st">&quot;Survived&quot;</span>)</span></code></pre></div>
+<pre><code>#&gt;           Survived
+#&gt; Is_alone          
+#&gt; 1         0.303538
+#&gt; 0         0.505650</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb46-1"><a href="titanic.html#cb46-1" aria-hidden="true"></a>df[<span class="st">&quot;Embarked&quot;</span>].fillna(<span class="st">&quot;S&quot;</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb46-2"><a href="titanic.html#cb46-2" aria-hidden="true"></a></span>
+<span id="cb46-3"><a href="titanic.html#cb46-3" aria-hidden="true"></a>df[<span class="st">&quot;Embarked&quot;</span>] <span class="op">=</span> df[<span class="st">&quot;Embarked&quot;</span>].<span class="bu">map</span>({<span class="st">&quot;S&quot;</span>: <span class="dv">0</span>, <span class="st">&quot;C&quot;</span>: <span class="dv">1</span>, <span class="st">&quot;Q&quot;</span>: <span class="dv">2</span>}).astype(<span class="bu">int</span>)</span>
+<span id="cb46-4"><a href="titanic.html#cb46-4" aria-hidden="true"></a></span>
+<span id="cb46-5"><a href="titanic.html#cb46-5" aria-hidden="true"></a><span class="bu">print</span>(pd.qcut(df[<span class="st">&quot;Fare&quot;</span>], <span class="dv">4</span>)[[]])</span></code></pre></div>
+<pre><code>#&gt; Series([], Name: Fare, dtype: category
+#&gt; Categories (4, interval[float64]): [(-0.001, 7.896] &lt; (7.896, 14.454] &lt; (14.454, 31.275] &lt;
+#&gt;                                     (31.275, 512.329]])</code></pre>
+<div class="sourceCode" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb48-1"><a href="titanic.html#cb48-1" aria-hidden="true"></a>DATA_FRAME <span class="op">=</span> df</span>
+<span id="cb48-2"><a href="titanic.html#cb48-2" aria-hidden="true"></a>COL <span class="op">=</span> <span class="st">&quot;Fare&quot;</span></span>
+<span id="cb48-3"><a href="titanic.html#cb48-3" aria-hidden="true"></a></span>
+<span id="cb48-4"><a href="titanic.html#cb48-4" aria-hidden="true"></a><span class="kw">def</span> function1(col_value):</span>
+<span id="cb48-5"><a href="titanic.html#cb48-5" aria-hidden="true"></a>    <span class="cf">if</span> col_value <span class="op">&lt;=</span> <span class="fl">7.91</span>:</span>
+<span id="cb48-6"><a href="titanic.html#cb48-6" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb48-7"><a href="titanic.html#cb48-7" aria-hidden="true"></a>    <span class="cf">elif</span> (col_value <span class="op">&gt;=</span> <span class="fl">7.91</span>) <span class="op">&amp;</span> (col_value <span class="op">&lt;=</span> <span class="fl">14.454</span>):</span>
+<span id="cb48-8"><a href="titanic.html#cb48-8" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb48-9"><a href="titanic.html#cb48-9" aria-hidden="true"></a>    <span class="cf">elif</span> (col_value <span class="op">&gt;=</span> <span class="fl">14.454</span>) <span class="op">&amp;</span> (col_value <span class="op">&lt;=</span> <span class="fl">31.0</span>):</span>
+<span id="cb48-10"><a href="titanic.html#cb48-10" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">2</span></span>
+<span id="cb48-11"><a href="titanic.html#cb48-11" aria-hidden="true"></a>    <span class="cf">else</span>:</span>
+<span id="cb48-12"><a href="titanic.html#cb48-12" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">3</span></span>
+<span id="cb48-13"><a href="titanic.html#cb48-13" aria-hidden="true"></a></span>
+<span id="cb48-14"><a href="titanic.html#cb48-14" aria-hidden="true"></a>df[<span class="st">&quot;Fare_bands&quot;</span>] <span class="op">=</span> DATA_FRAME[COL].<span class="bu">apply</span>(</span>
+<span id="cb48-15"><a href="titanic.html#cb48-15" aria-hidden="true"></a>    <span class="kw">lambda</span> col_value: function1(col_value))</span>
+<span id="cb48-16"><a href="titanic.html#cb48-16" aria-hidden="true"></a></span>
+<span id="cb48-17"><a href="titanic.html#cb48-17" aria-hidden="true"></a>df.drop([<span class="st">&quot;SibSp&quot;</span>, <span class="st">&quot;Parch&quot;</span>, <span class="st">&quot;Age_Band&quot;</span>, <span class="st">&quot;Is_alone&quot;</span>, <span class="st">&quot;Fare&quot;</span>, <span class="st">&quot;Age&quot;</span>],</span>
+<span id="cb48-18"><a href="titanic.html#cb48-18" aria-hidden="true"></a>        inplace<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb48-19"><a href="titanic.html#cb48-19" aria-hidden="true"></a>        axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb48-20"><a href="titanic.html#cb48-20" aria-hidden="true"></a></span>
+<span id="cb48-21"><a href="titanic.html#cb48-21" aria-hidden="true"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">12</span>))</span>
+<span id="cb48-22"><a href="titanic.html#cb48-22" aria-hidden="true"></a>plt.title(<span class="st">&#39;Correlation of Features&#39;</span>, y<span class="op">=</span><span class="fl">1.05</span>, size<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb48-23"><a href="titanic.html#cb48-23" aria-hidden="true"></a>mask <span class="op">=</span> np.zeros_like(df.corr())</span>
+<span id="cb48-24"><a href="titanic.html#cb48-24" aria-hidden="true"></a>mask[np.triu_indices_from(mask)] <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb48-25"><a href="titanic.html#cb48-25" aria-hidden="true"></a>sns.heatmap(</span>
+<span id="cb48-26"><a href="titanic.html#cb48-26" aria-hidden="true"></a>    df.astype(<span class="bu">float</span>).corr(),</span>
+<span id="cb48-27"><a href="titanic.html#cb48-27" aria-hidden="true"></a>    annot<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb48-28"><a href="titanic.html#cb48-28" aria-hidden="true"></a>    linewidths<span class="op">=</span><span class="fl">0.2</span>,</span>
+<span id="cb48-29"><a href="titanic.html#cb48-29" aria-hidden="true"></a>    linecolor<span class="op">=</span><span class="st">&#39;white&#39;</span>,</span>
+<span id="cb48-30"><a href="titanic.html#cb48-30" aria-hidden="true"></a>    cmap<span class="op">=</span><span class="st">&quot;RdBu&quot;</span>,</span>
+<span id="cb48-31"><a href="titanic.html#cb48-31" aria-hidden="true"></a>    center<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb48-32"><a href="titanic.html#cb48-32" aria-hidden="true"></a>    mask<span class="op">=</span>mask,</span>
+<span id="cb48-33"><a href="titanic.html#cb48-33" aria-hidden="true"></a>    vmax<span class="op">=</span><span class="fl">1.0</span>,</span>
+<span id="cb48-34"><a href="titanic.html#cb48-34" aria-hidden="true"></a>    vmin<span class="op">=-</span><span class="fl">1.0</span>,</span>
+<span id="cb48-35"><a href="titanic.html#cb48-35" aria-hidden="true"></a>    square<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb48-36"><a href="titanic.html#cb48-36" aria-hidden="true"></a>)</span>
+<span id="cb48-37"><a href="titanic.html#cb48-37" aria-hidden="true"></a>plt.savefig(<span class="st">&quot;03_correlation_map_2&quot;</span>)</span>
+<span id="cb48-38"><a href="titanic.html#cb48-38" aria-hidden="true"></a>plt.show()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-16-2.png" width="1344" style="display: block; margin: auto;" /></p>
+</div>
+</div>
+<div id="models" class="section level2" number="2.5">
+<h2><span class="header-section-number">2.5</span> Models</h2>
+<div id="prepartion" class="section level3" number="2.5.1">
+<h3><span class="header-section-number">2.5.1</span> Prepartion</h3>
+<div class="sourceCode" id="cb49"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb49-1"><a href="titanic.html#cb49-1" aria-hidden="true"></a>TARGET_COL <span class="op">=</span> <span class="st">&quot;Survived&quot;</span></span>
+<span id="cb49-2"><a href="titanic.html#cb49-2" aria-hidden="true"></a>df <span class="op">=</span> df[<span class="op">~</span>df[TARGET_COL].isna()]  <span class="co">## ~ = not</span></span>
+<span id="cb49-3"><a href="titanic.html#cb49-3" aria-hidden="true"></a></span>
+<span id="cb49-4"><a href="titanic.html#cb49-4" aria-hidden="true"></a><span class="co">## df = df.sample(frac=0.2,random_state=101)</span></span>
+<span id="cb49-5"><a href="titanic.html#cb49-5" aria-hidden="true"></a>feat <span class="op">=</span> df.drop(TARGET_COL, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb49-6"><a href="titanic.html#cb49-6" aria-hidden="true"></a>tar <span class="op">=</span> df[TARGET_COL]</span>
+<span id="cb49-7"><a href="titanic.html#cb49-7" aria-hidden="true"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb49-8"><a href="titanic.html#cb49-8" aria-hidden="true"></a></span>
+<span id="cb49-9"><a href="titanic.html#cb49-9" aria-hidden="true"></a>feat_train, feat_test, tar_train, tar_test <span class="op">=</span> train_test_split(feat, tar, test_size<span class="op">=</span><span class="fl">0.3</span>)</span></code></pre></div>
+</div>
+<div id="run-models" class="section level3" number="2.5.2">
+<h3><span class="header-section-number">2.5.2</span> Run Models</h3>
+<div class="sourceCode" id="cb50"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb50-1"><a href="titanic.html#cb50-1" aria-hidden="true"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestClassifier</span>
+<span id="cb50-2"><a href="titanic.html#cb50-2" aria-hidden="true"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LogisticRegression, Perceptron, SGDClassifier</span>
+<span id="cb50-3"><a href="titanic.html#cb50-3" aria-hidden="true"></a><span class="im">from</span> sklearn.naive_bayes <span class="im">import</span> GaussianNB</span>
+<span id="cb50-4"><a href="titanic.html#cb50-4" aria-hidden="true"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsClassifier</span>
+<span id="cb50-5"><a href="titanic.html#cb50-5" aria-hidden="true"></a><span class="im">from</span> sklearn.svm <span class="im">import</span> SVC, LinearSVC</span>
+<span id="cb50-6"><a href="titanic.html#cb50-6" aria-hidden="true"></a><span class="im">from</span> sklearn.tree <span class="im">import</span> DecisionTreeClassifier</span>
+<span id="cb50-7"><a href="titanic.html#cb50-7" aria-hidden="true"></a><span class="im">import</span> xgboost <span class="im">as</span> xgb</span>
+<span id="cb50-8"><a href="titanic.html#cb50-8" aria-hidden="true"></a></span>
+<span id="cb50-9"><a href="titanic.html#cb50-9" aria-hidden="true"></a><span class="kw">def</span> knn_value_plot(feat_train, tar_train, feat_test, tar_test, max_range):</span>
+<span id="cb50-10"><a href="titanic.html#cb50-10" aria-hidden="true"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb50-11"><a href="titanic.html#cb50-11" aria-hidden="true"></a><span class="co">    Iterate to get the best k value and plot it,</span></span>
+<span id="cb50-12"><a href="titanic.html#cb50-12" aria-hidden="true"></a><span class="co">    between 1 and the max_range</span></span>
+<span id="cb50-13"><a href="titanic.html#cb50-13" aria-hidden="true"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb50-14"><a href="titanic.html#cb50-14" aria-hidden="true"></a>    error_rate <span class="op">=</span> []</span>
+<span id="cb50-15"><a href="titanic.html#cb50-15" aria-hidden="true"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, max_range):</span>
+<span id="cb50-16"><a href="titanic.html#cb50-16" aria-hidden="true"></a>        model_knn <span class="op">=</span> KNeighborsClassifier(n_neighbors<span class="op">=</span>i)</span>
+<span id="cb50-17"><a href="titanic.html#cb50-17" aria-hidden="true"></a>        model_knn.fit(feat_train, tar_train)</span>
+<span id="cb50-18"><a href="titanic.html#cb50-18" aria-hidden="true"></a>        pred_knn <span class="op">=</span> model_knn.predict(feat_test)</span>
+<span id="cb50-19"><a href="titanic.html#cb50-19" aria-hidden="true"></a>        error_rate.append(np.mean(pred_knn <span class="op">!=</span> tar_test))</span>
+<span id="cb50-20"><a href="titanic.html#cb50-20" aria-hidden="true"></a>    plt.clf()</span>
+<span id="cb50-21"><a href="titanic.html#cb50-21" aria-hidden="true"></a>    sns.lineplot(x<span class="op">=</span><span class="bu">range</span>(<span class="dv">1</span>, max_range), y<span class="op">=</span>error_rate)</span>
+<span id="cb50-22"><a href="titanic.html#cb50-22" aria-hidden="true"></a>    plt.savefig(<span class="st">&quot;model_knn_n_values&quot;</span>)</span>
+<span id="cb50-23"><a href="titanic.html#cb50-23" aria-hidden="true"></a></span>
+<span id="cb50-24"><a href="titanic.html#cb50-24" aria-hidden="true"></a></span>
+<span id="cb50-25"><a href="titanic.html#cb50-25" aria-hidden="true"></a><span class="co"># knn_value_plot(feat_train, tar_train, feat_test, tar_test, 30)</span></span>
+<span id="cb50-26"><a href="titanic.html#cb50-26" aria-hidden="true"></a></span>
+<span id="cb50-27"><a href="titanic.html#cb50-27" aria-hidden="true"></a><span class="co">#</span></span>
+<span id="cb50-28"><a href="titanic.html#cb50-28" aria-hidden="true"></a></span>
+<span id="cb50-29"><a href="titanic.html#cb50-29" aria-hidden="true"></a>knn_n_value <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb50-30"><a href="titanic.html#cb50-30" aria-hidden="true"></a><span class="kw">def</span> basic_models(feat_train, tar_train, feat_test, tar_test, knn_neighbours):</span>
+<span id="cb50-31"><a href="titanic.html#cb50-31" aria-hidden="true"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb50-32"><a href="titanic.html#cb50-32" aria-hidden="true"></a><span class="co">    A set of all the basic models to be easily applied,</span></span>
+<span id="cb50-33"><a href="titanic.html#cb50-33" aria-hidden="true"></a><span class="co">    Returns the logistic correlation, and the % score of each model</span></span>
+<span id="cb50-34"><a href="titanic.html#cb50-34" aria-hidden="true"></a><span class="co">    Also globally exports the predications of each model as ex. pred_logreg</span></span>
+<span id="cb50-35"><a href="titanic.html#cb50-35" aria-hidden="true"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb50-36"><a href="titanic.html#cb50-36" aria-hidden="true"></a>    <span class="co"># Imports</span></span>
+<span id="cb50-37"><a href="titanic.html#cb50-37" aria-hidden="true"></a>    <span class="co"># Values to be exported</span></span>
+<span id="cb50-38"><a href="titanic.html#cb50-38" aria-hidden="true"></a>    <span class="kw">global</span> pred_rfc</span>
+<span id="cb50-39"><a href="titanic.html#cb50-39" aria-hidden="true"></a>    <span class="kw">global</span> pred_logreg</span>
+<span id="cb50-40"><a href="titanic.html#cb50-40" aria-hidden="true"></a>    <span class="kw">global</span> pred_svc</span>
+<span id="cb50-41"><a href="titanic.html#cb50-41" aria-hidden="true"></a>    <span class="kw">global</span> pred_rfc</span>
+<span id="cb50-42"><a href="titanic.html#cb50-42" aria-hidden="true"></a>    <span class="kw">global</span> pred_gaus</span>
+<span id="cb50-43"><a href="titanic.html#cb50-43" aria-hidden="true"></a>    <span class="kw">global</span> pred_perc</span>
+<span id="cb50-44"><a href="titanic.html#cb50-44" aria-hidden="true"></a>    <span class="kw">global</span> pred_sgd</span>
+<span id="cb50-45"><a href="titanic.html#cb50-45" aria-hidden="true"></a>    <span class="kw">global</span> pred_linear_svc</span>
+<span id="cb50-46"><a href="titanic.html#cb50-46" aria-hidden="true"></a>    <span class="kw">global</span> pred_dtree</span>
+<span id="cb50-47"><a href="titanic.html#cb50-47" aria-hidden="true"></a>    <span class="kw">global</span> pred_knn</span>
+<span id="cb50-48"><a href="titanic.html#cb50-48" aria-hidden="true"></a>    <span class="kw">global</span> pred_xgb</span>
+<span id="cb50-49"><a href="titanic.html#cb50-49" aria-hidden="true"></a>    <span class="co"># LogisticRegression</span></span>
+<span id="cb50-50"><a href="titanic.html#cb50-50" aria-hidden="true"></a>    model_logreg <span class="op">=</span> LogisticRegression().fit(feat_train, tar_train)</span>
+<span id="cb50-51"><a href="titanic.html#cb50-51" aria-hidden="true"></a>    pred_logreg <span class="op">=</span> model_logreg.predict(feat_test)</span>
+<span id="cb50-52"><a href="titanic.html#cb50-52" aria-hidden="true"></a>    <span class="co"># knn</span></span>
+<span id="cb50-53"><a href="titanic.html#cb50-53" aria-hidden="true"></a>    model_knn <span class="op">=</span> KNeighborsClassifier(n_neighbors<span class="op">=</span>knn_neighbours).fit(</span>
+<span id="cb50-54"><a href="titanic.html#cb50-54" aria-hidden="true"></a>        feat_train, tar_train)</span>
+<span id="cb50-55"><a href="titanic.html#cb50-55" aria-hidden="true"></a>    pred_knn <span class="op">=</span> model_knn.predict(feat_test)</span>
+<span id="cb50-56"><a href="titanic.html#cb50-56" aria-hidden="true"></a>    <span class="co"># SVM</span></span>
+<span id="cb50-57"><a href="titanic.html#cb50-57" aria-hidden="true"></a>    model_svc <span class="op">=</span> SVC().fit(feat_train, tar_train)</span>
+<span id="cb50-58"><a href="titanic.html#cb50-58" aria-hidden="true"></a>    pred_svc <span class="op">=</span> model_svc.predict(feat_test)</span>
+<span id="cb50-59"><a href="titanic.html#cb50-59" aria-hidden="true"></a>    <span class="co"># GaussianNB</span></span>
+<span id="cb50-60"><a href="titanic.html#cb50-60" aria-hidden="true"></a>    model_gaus <span class="op">=</span> GaussianNB().fit(feat_train, tar_train)</span>
+<span id="cb50-61"><a href="titanic.html#cb50-61" aria-hidden="true"></a>    pred_gaus <span class="op">=</span> model_gaus.predict(feat_test)</span>
+<span id="cb50-62"><a href="titanic.html#cb50-62" aria-hidden="true"></a>    <span class="co"># Perceptron</span></span>
+<span id="cb50-63"><a href="titanic.html#cb50-63" aria-hidden="true"></a>    model_perc <span class="op">=</span> Perceptron().fit(feat_train, tar_train)</span>
+<span id="cb50-64"><a href="titanic.html#cb50-64" aria-hidden="true"></a>    pred_perc <span class="op">=</span> model_perc.predict(feat_test)</span>
+<span id="cb50-65"><a href="titanic.html#cb50-65" aria-hidden="true"></a>    <span class="co"># LinearSVC</span></span>
+<span id="cb50-66"><a href="titanic.html#cb50-66" aria-hidden="true"></a>    model_linear_svc <span class="op">=</span> LinearSVC().fit(feat_train, tar_train)</span>
+<span id="cb50-67"><a href="titanic.html#cb50-67" aria-hidden="true"></a>    pred_linear_svc <span class="op">=</span> model_perc.predict(feat_test)</span>
+<span id="cb50-68"><a href="titanic.html#cb50-68" aria-hidden="true"></a>    <span class="co"># Stochastic Gradient Descent</span></span>
+<span id="cb50-69"><a href="titanic.html#cb50-69" aria-hidden="true"></a>    model_sgd <span class="op">=</span> SGDClassifier().fit(feat_train, tar_train)</span>
+<span id="cb50-70"><a href="titanic.html#cb50-70" aria-hidden="true"></a>    pred_sgd <span class="op">=</span> model_perc.predict(feat_test)</span>
+<span id="cb50-71"><a href="titanic.html#cb50-71" aria-hidden="true"></a>    <span class="co"># DecisionTreeClassifier</span></span>
+<span id="cb50-72"><a href="titanic.html#cb50-72" aria-hidden="true"></a>    model_dtree <span class="op">=</span> DecisionTreeClassifier().fit(feat_train, tar_train)</span>
+<span id="cb50-73"><a href="titanic.html#cb50-73" aria-hidden="true"></a>    pred_dtree <span class="op">=</span> model_dtree.predict(feat_test)</span>
+<span id="cb50-74"><a href="titanic.html#cb50-74" aria-hidden="true"></a>    <span class="co"># RandomForestClassifier</span></span>
+<span id="cb50-75"><a href="titanic.html#cb50-75" aria-hidden="true"></a>    model_rfc <span class="op">=</span> RandomForestClassifier(n_estimators<span class="op">=</span><span class="dv">200</span>).fit(feat_train, tar_train)</span>
+<span id="cb50-76"><a href="titanic.html#cb50-76" aria-hidden="true"></a>    pred_rfc <span class="op">=</span> model_rfc.predict(feat_test)</span>
+<span id="cb50-77"><a href="titanic.html#cb50-77" aria-hidden="true"></a>    <span class="co"># </span></span>
+<span id="cb50-78"><a href="titanic.html#cb50-78" aria-hidden="true"></a>    model_xgb <span class="op">=</span> xgb.XGBClassifier().fit(feat_train, tar_train)</span>
+<span id="cb50-79"><a href="titanic.html#cb50-79" aria-hidden="true"></a>    pred_xgb <span class="op">=</span> model_xgb.predict(feat_test)</span>
+<span id="cb50-80"><a href="titanic.html#cb50-80" aria-hidden="true"></a>    <span class="co">#  LogisticRegression Correlations</span></span>
+<span id="cb50-81"><a href="titanic.html#cb50-81" aria-hidden="true"></a>    coeff_df <span class="op">=</span> pd.DataFrame(feat_train.columns)</span>
+<span id="cb50-82"><a href="titanic.html#cb50-82" aria-hidden="true"></a>    coeff_df.columns <span class="op">=</span> [<span class="st">&quot;Feature&quot;</span>]</span>
+<span id="cb50-83"><a href="titanic.html#cb50-83" aria-hidden="true"></a>    coeff_df[<span class="st">&quot;Correlation&quot;</span>] <span class="op">=</span> pd.Series(model_logreg.coef_[<span class="dv">0</span>])</span>
+<span id="cb50-84"><a href="titanic.html#cb50-84" aria-hidden="true"></a>    coeff_df <span class="op">=</span> coeff_df.sort_values(by<span class="op">=</span><span class="st">&quot;Correlation&quot;</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb50-85"><a href="titanic.html#cb50-85" aria-hidden="true"></a>    <span class="co"># Result score</span></span>
+<span id="cb50-86"><a href="titanic.html#cb50-86" aria-hidden="true"></a>    models <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb50-87"><a href="titanic.html#cb50-87" aria-hidden="true"></a>        <span class="st">&quot;Model&quot;</span>: [</span>
+<span id="cb50-88"><a href="titanic.html#cb50-88" aria-hidden="true"></a>            <span class="st">&quot;Logistic Regression&quot;</span>,</span>
+<span id="cb50-89"><a href="titanic.html#cb50-89" aria-hidden="true"></a>            <span class="st">&quot;Support Vector Machines&quot;</span>,</span>
+<span id="cb50-90"><a href="titanic.html#cb50-90" aria-hidden="true"></a>            <span class="st">&quot;Random Forest&quot;</span>,</span>
+<span id="cb50-91"><a href="titanic.html#cb50-91" aria-hidden="true"></a>            <span class="st">&quot;Naive Bayes&quot;</span>,</span>
+<span id="cb50-92"><a href="titanic.html#cb50-92" aria-hidden="true"></a>            <span class="st">&quot;Perceptron&quot;</span>,</span>
+<span id="cb50-93"><a href="titanic.html#cb50-93" aria-hidden="true"></a>            <span class="st">&quot;Stochastic Gradient Decent&quot;</span>,</span>
+<span id="cb50-94"><a href="titanic.html#cb50-94" aria-hidden="true"></a>            <span class="st">&quot;Linear SVC&quot;</span>,</span>
+<span id="cb50-95"><a href="titanic.html#cb50-95" aria-hidden="true"></a>            <span class="st">&quot;Decision Tree&quot;</span>,</span>
+<span id="cb50-96"><a href="titanic.html#cb50-96" aria-hidden="true"></a>            <span class="st">&quot;KNN&quot;</span>,</span>
+<span id="cb50-97"><a href="titanic.html#cb50-97" aria-hidden="true"></a>            <span class="st">&quot;Xgboost&quot;</span></span>
+<span id="cb50-98"><a href="titanic.html#cb50-98" aria-hidden="true"></a>        ],</span>
+<span id="cb50-99"><a href="titanic.html#cb50-99" aria-hidden="true"></a>        <span class="st">&quot;Score&quot;</span>: [</span>
+<span id="cb50-100"><a href="titanic.html#cb50-100" aria-hidden="true"></a>            <span class="bu">round</span>(model_logreg.score(feat_test,     tar_test) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>),</span>
+<span id="cb50-101"><a href="titanic.html#cb50-101" aria-hidden="true"></a>            <span class="bu">round</span>(model_svc.score(feat_test,        tar_test) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>),</span>
+<span id="cb50-102"><a href="titanic.html#cb50-102" aria-hidden="true"></a>            <span class="bu">round</span>(model_rfc.score(feat_test,        tar_test) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>),</span>
+<span id="cb50-103"><a href="titanic.html#cb50-103" aria-hidden="true"></a>            <span class="bu">round</span>(model_gaus.score(feat_test,       tar_test) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>),</span>
+<span id="cb50-104"><a href="titanic.html#cb50-104" aria-hidden="true"></a>            <span class="bu">round</span>(model_perc.score(feat_test,       tar_test) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>),</span>
+<span id="cb50-105"><a href="titanic.html#cb50-105" aria-hidden="true"></a>            <span class="bu">round</span>(model_sgd.score(feat_test,        tar_test) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>),</span>
+<span id="cb50-106"><a href="titanic.html#cb50-106" aria-hidden="true"></a>            <span class="bu">round</span>(model_linear_svc.score(feat_test, tar_test) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>),</span>
+<span id="cb50-107"><a href="titanic.html#cb50-107" aria-hidden="true"></a>            <span class="bu">round</span>(model_dtree.score(feat_test,      tar_test) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>),</span>
+<span id="cb50-108"><a href="titanic.html#cb50-108" aria-hidden="true"></a>            <span class="bu">round</span>(model_knn.score(feat_test,        tar_test) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>),</span>
+<span id="cb50-109"><a href="titanic.html#cb50-109" aria-hidden="true"></a>            <span class="bu">round</span>(model_xgb.score(feat_test,        tar_test) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>),</span>
+<span id="cb50-110"><a href="titanic.html#cb50-110" aria-hidden="true"></a>        ],</span>
+<span id="cb50-111"><a href="titanic.html#cb50-111" aria-hidden="true"></a>    }).sort_values(by<span class="op">=</span><span class="st">&quot;Score&quot;</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb50-112"><a href="titanic.html#cb50-112" aria-hidden="true"></a>    <span class="cf">return</span> (coeff_df, <span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n\n</span><span class="st">&quot;</span>), models)</span>
+<span id="cb50-113"><a href="titanic.html#cb50-113" aria-hidden="true"></a></span>
+<span id="cb50-114"><a href="titanic.html#cb50-114" aria-hidden="true"></a></span>
+<span id="cb50-115"><a href="titanic.html#cb50-115" aria-hidden="true"></a>basic_models(feat_train, tar_train, feat_test, tar_test, knn_n_value)</span>
+<span id="cb50-116"><a href="titanic.html#cb50-116" aria-hidden="true"></a></span>
+<span id="cb50-117"><a href="titanic.html#cb50-117" aria-hidden="true"></a><span class="co">## ##</span></span>
+<span id="cb50-118"><a href="titanic.html#cb50-118" aria-hidden="true"></a><span class="co"># import xgboost as xgb</span></span>
+<span id="cb50-119"><a href="titanic.html#cb50-119" aria-hidden="true"></a><span class="co"># ## @knitr model_xgboost</span></span>
+<span id="cb50-120"><a href="titanic.html#cb50-120" aria-hidden="true"></a></span>
+<span id="cb50-121"><a href="titanic.html#cb50-121" aria-hidden="true"></a><span class="co"># RANGE = np.arange(.5, 1.5, .1)</span></span>
+<span id="cb50-122"><a href="titanic.html#cb50-122" aria-hidden="true"></a><span class="co"># error_rate = []</span></span>
+<span id="cb50-123"><a href="titanic.html#cb50-123" aria-hidden="true"></a><span class="co"># for i in RANGE:</span></span>
+<span id="cb50-124"><a href="titanic.html#cb50-124" aria-hidden="true"></a>    <span class="co"># model_xgb = xgb.XGBClassifier(</span></span>
+<span id="cb50-125"><a href="titanic.html#cb50-125" aria-hidden="true"></a>            <span class="co"># learning_rate = 0.5,</span></span>
+<span id="cb50-126"><a href="titanic.html#cb50-126" aria-hidden="true"></a>            <span class="co"># # n_estimators= 2000,</span></span>
+<span id="cb50-127"><a href="titanic.html#cb50-127" aria-hidden="true"></a>            <span class="co"># # max_depth= i,</span></span>
+<span id="cb50-128"><a href="titanic.html#cb50-128" aria-hidden="true"></a>            <span class="co"># # min_child_weight= 2,</span></span>
+<span id="cb50-129"><a href="titanic.html#cb50-129" aria-hidden="true"></a>            <span class="co"># gamma= .77, #gamma=1,</span></span>
+<span id="cb50-130"><a href="titanic.html#cb50-130" aria-hidden="true"></a>            <span class="co"># subsample=.5,</span></span>
+<span id="cb50-131"><a href="titanic.html#cb50-131" aria-hidden="true"></a>            <span class="co"># colsample_bytree=1,</span></span>
+<span id="cb50-132"><a href="titanic.html#cb50-132" aria-hidden="true"></a>            <span class="co"># # objective= &#39;binary:logistic&#39;,</span></span>
+<span id="cb50-133"><a href="titanic.html#cb50-133" aria-hidden="true"></a>            <span class="co"># # nthread= -1,</span></span>
+<span id="cb50-134"><a href="titanic.html#cb50-134" aria-hidden="true"></a>            <span class="co"># scale_pos_weight=i,</span></span>
+<span id="cb50-135"><a href="titanic.html#cb50-135" aria-hidden="true"></a>            <span class="co"># ).fit(feat_train, tar_train)</span></span>
+<span id="cb50-136"><a href="titanic.html#cb50-136" aria-hidden="true"></a>    <span class="co"># pred_xgb = model_xgb.predict(feat_test)</span></span>
+<span id="cb50-137"><a href="titanic.html#cb50-137" aria-hidden="true"></a>    <span class="co"># # error_rate.append(round(model_xgb.score(feat_test, tar_test) * 100, 2))</span></span>
+<span id="cb50-138"><a href="titanic.html#cb50-138" aria-hidden="true"></a>    <span class="co"># print(&#39;value: &#39;, round(i, 3), &#39;result: &#39;, round(model_xgb.score(feat_test, tar_test) * 100, 2))</span></span>
+<span id="cb50-139"><a href="titanic.html#cb50-139" aria-hidden="true"></a></span>
+<span id="cb50-140"><a href="titanic.html#cb50-140" aria-hidden="true"></a><span class="co"># sns.lineplot(x=RANGE, y=error_rate)</span></span>
+<span id="cb50-141"><a href="titanic.html#cb50-141" aria-hidden="true"></a><span class="co"># plt.savefig(&quot;model_xgb_scale_pos&quot;)</span></span>
+<span id="cb50-142"><a href="titanic.html#cb50-142" aria-hidden="true"></a><span class="co"># plt.cla()</span></span>
+<span id="cb50-143"><a href="titanic.html#cb50-143" aria-hidden="true"></a><span class="co">##</span></span></code></pre></div>
+<pre><code>#&gt; 
+#&gt; 
+#&gt; 
+#&gt; (       Feature  Correlation
+#&gt; 6   Fare_bands     0.289020
+#&gt; 1     Embarked     0.097210
+#&gt; 5  Family_size    -0.235243
+#&gt; 2        Title    -0.262175
+#&gt; 4    Age_Bands    -0.541106
+#&gt; 0       Pclass    -1.033056
+#&gt; 3     Sex_male    -2.503792, None,                         Model  Score
+#&gt; 1     Support Vector Machines  85.07
+#&gt; 9                     Xgboost  81.72
+#&gt; 7               Decision Tree  81.34
+#&gt; 2               Random Forest  80.97
+#&gt; 4                  Perceptron  80.60
+#&gt; 8                         KNN  80.60
+#&gt; 6                  Linear SVC  79.48
+#&gt; 0         Logistic Regression  77.61
+#&gt; 3                 Naive Bayes  77.24
+#&gt; 5  Stochastic Gradient Decent  72.01)
+#&gt; 
+#&gt; /nix/store/64ka5flvkgi6rw2xz1bxp28prrks09dg-python3.8-scikit-learn-0.23.2/lib/python3.8/site-packages/sklearn/svm/_base.py:976: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+#&gt;   warnings.warn(&quot;Liblinear failed to converge, increase &quot;</code></pre>
+</div>
+<div id="xgboost-model" class="section level3" number="2.5.3">
+<h3><span class="header-section-number">2.5.3</span> Xgboost model</h3>
+<div class="sourceCode" id="cb52"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb52-1"><a href="titanic.html#cb52-1" aria-hidden="true"></a><span class="im">import</span> xgboost <span class="im">as</span> xgb</span>
+<span id="cb52-2"><a href="titanic.html#cb52-2" aria-hidden="true"></a>model_xgb <span class="op">=</span> xgb.XGBClassifier(</span>
+<span id="cb52-3"><a href="titanic.html#cb52-3" aria-hidden="true"></a>        ).fit(feat_train, tar_train)</span>
+<span id="cb52-4"><a href="titanic.html#cb52-4" aria-hidden="true"></a>pred_xgb <span class="op">=</span> model_xgb.predict(feat_test)</span>
+<span id="cb52-5"><a href="titanic.html#cb52-5" aria-hidden="true"></a></span>
+<span id="cb52-6"><a href="titanic.html#cb52-6" aria-hidden="true"></a><span class="bu">print</span>(<span class="st">&#39;baseline&#39;</span>, <span class="bu">round</span>(model_xgb.score(feat_test, tar_test) <span class="op">*</span> <span class="dv">100</span>,<span class="dv">2</span>))</span></code></pre></div>
+<pre><code>#&gt; baseline 81.72</code></pre>
+<div class="sourceCode" id="cb54"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb54-1"><a href="titanic.html#cb54-1" aria-hidden="true"></a><span class="im">import</span> xgboost <span class="im">as</span> xgb</span>
+<span id="cb54-2"><a href="titanic.html#cb54-2" aria-hidden="true"></a>model_xgb <span class="op">=</span> xgb.XGBClassifier(</span>
+<span id="cb54-3"><a href="titanic.html#cb54-3" aria-hidden="true"></a>        learning_rate <span class="op">=</span> <span class="fl">.5</span>,</span>
+<span id="cb54-4"><a href="titanic.html#cb54-4" aria-hidden="true"></a>        gamma<span class="op">=</span><span class="fl">0.77</span>, <span class="co">#gamma=1,</span></span>
+<span id="cb54-5"><a href="titanic.html#cb54-5" aria-hidden="true"></a>        subsample<span class="op">=</span><span class="fl">0.5</span>,</span>
+<span id="cb54-6"><a href="titanic.html#cb54-6" aria-hidden="true"></a>        ).fit(feat_train, tar_train)</span>
+<span id="cb54-7"><a href="titanic.html#cb54-7" aria-hidden="true"></a>pred_xgb <span class="op">=</span> model_xgb.predict(feat_test)</span>
+<span id="cb54-8"><a href="titanic.html#cb54-8" aria-hidden="true"></a><span class="bu">print</span>(<span class="st">&#39;personal&#39;</span>, <span class="bu">round</span>(model_xgb.score(feat_test, tar_test) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>))</span>
+<span id="cb54-9"><a href="titanic.html#cb54-9" aria-hidden="true"></a></span>
+<span id="cb54-10"><a href="titanic.html#cb54-10" aria-hidden="true"></a></span>
+<span id="cb54-11"><a href="titanic.html#cb54-11" aria-hidden="true"></a><span class="co">##</span></span></code></pre></div>
+<pre><code>#&gt; personal 79.85</code></pre>
 
+</div>
 </div>
 </div>
             </section>
