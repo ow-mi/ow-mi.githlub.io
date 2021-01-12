@@ -168,7 +168,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="5" data-path="titanic.html"><a href="titanic.html"><i class="fa fa-check"></i><b>5</b> Titanic</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="titanic.html"><a href="titanic.html#models"><i class="fa fa-check"></i><b>5.1</b> Models</a></li>
+<li class="chapter" data-level="5.1" data-path="titanic.html"><a href="titanic.html#setup"><i class="fa fa-check"></i><b>5.1</b> Setup</a></li>
+<li class="chapter" data-level="5.2" data-path="titanic.html"><a href="titanic.html#models"><i class="fa fa-check"></i><b>5.2</b> Models</a></li>
 </ul></li>
 </ul>
 
@@ -189,34 +190,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="titanic" class="section level1" number="5">
 <h1><span class="header-section-number">Chapter 5</span> Titanic</h1>
-<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="titanic.html#cb10-1" aria-hidden="true"></a><span class="im">import</span> os</span>
-<span id="cb10-2"><a href="titanic.html#cb10-2" aria-hidden="true"></a><span class="im">import</span> random <span class="im">as</span> rnd</span>
-<span id="cb10-3"><a href="titanic.html#cb10-3" aria-hidden="true"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb10-4"><a href="titanic.html#cb10-4" aria-hidden="true"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb10-5"><a href="titanic.html#cb10-5" aria-hidden="true"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb10-6"><a href="titanic.html#cb10-6" aria-hidden="true"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb10-7"><a href="titanic.html#cb10-7" aria-hidden="true"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> (</span>
-<span id="cb10-8"><a href="titanic.html#cb10-8" aria-hidden="true"></a>    classification_report,</span>
-<span id="cb10-9"><a href="titanic.html#cb10-9" aria-hidden="true"></a>    confusion_matrix,</span>
-<span id="cb10-10"><a href="titanic.html#cb10-10" aria-hidden="true"></a>    explained_variance_score,</span>
-<span id="cb10-11"><a href="titanic.html#cb10-11" aria-hidden="true"></a>    mean_absolute_error,</span>
-<span id="cb10-12"><a href="titanic.html#cb10-12" aria-hidden="true"></a>    mean_squared_error,</span>
-<span id="cb10-13"><a href="titanic.html#cb10-13" aria-hidden="true"></a>)</span>
-<span id="cb10-14"><a href="titanic.html#cb10-14" aria-hidden="true"></a><span class="im">from</span> xgboost <span class="im">import</span> XGBRegressor</span>
-<span id="cb10-15"><a href="titanic.html#cb10-15" aria-hidden="true"></a>df_train <span class="op">=</span> pd.read_csv(<span class="st">&quot;~/docs/codeing/python/titanic/train.csv&quot;</span>)</span>
-<span id="cb10-16"><a href="titanic.html#cb10-16" aria-hidden="true"></a>df_test  <span class="op">=</span> pd.read_csv(<span class="st">&quot;~/docs/codeing/python/titanic/test.csv&quot;</span>)</span>
-<span id="cb10-17"><a href="titanic.html#cb10-17" aria-hidden="true"></a>df <span class="op">=</span> pd.concat([df_train, df_test])</span>
-<span id="cb10-18"><a href="titanic.html#cb10-18" aria-hidden="true"></a></span>
-<span id="cb10-19"><a href="titanic.html#cb10-19" aria-hidden="true"></a><span class="co">## @knirt features_info</span></span>
-<span id="cb10-20"><a href="titanic.html#cb10-20" aria-hidden="true"></a></span>
-<span id="cb10-21"><a href="titanic.html#cb10-21" aria-hidden="true"></a><span class="bu">print</span>(</span>
-<span id="cb10-22"><a href="titanic.html#cb10-22" aria-hidden="true"></a>    <span class="st">&quot;--------------</span><span class="ch">\n</span><span class="st">&quot;</span>,</span>
-<span id="cb10-23"><a href="titanic.html#cb10-23" aria-hidden="true"></a>    <span class="st">&quot;Numeric features </span><span class="ch">\n\n</span><span class="st">&quot;</span>,</span>
-<span id="cb10-24"><a href="titanic.html#cb10-24" aria-hidden="true"></a>    df.select_dtypes(include<span class="op">=</span>[<span class="st">&quot;float64&quot;</span>, <span class="st">&quot;uint8&quot;</span>, <span class="st">&quot;int64&quot;</span>]).columns,</span>
-<span id="cb10-25"><a href="titanic.html#cb10-25" aria-hidden="true"></a>    <span class="st">&quot;</span><span class="ch">\n</span><span class="st">--------------</span><span class="ch">\n</span><span class="st">&quot;</span>,</span>
-<span id="cb10-26"><a href="titanic.html#cb10-26" aria-hidden="true"></a>    <span class="st">&quot;Categorical features </span><span class="ch">\n\n</span><span class="st">&quot;</span>,</span>
-<span id="cb10-27"><a href="titanic.html#cb10-27" aria-hidden="true"></a>    df.select_dtypes(exclude<span class="op">=</span>[<span class="st">&quot;float64&quot;</span>, <span class="st">&quot;uint8&quot;</span>, <span class="st">&quot;int64&quot;</span>]).columns,</span>
-<span id="cb10-28"><a href="titanic.html#cb10-28" aria-hidden="true"></a>)</span></code></pre></div>
+<div id="setup" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Setup</h2>
+<p>Import Packages</p>
+<p>Import the data</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="titanic.html#cb10-1" aria-hidden="true"></a>df_train <span class="op">=</span> pd.read_csv(<span class="st">&quot;~/docs/codeing/python/titanic/train.csv&quot;</span>)</span>
+<span id="cb10-2"><a href="titanic.html#cb10-2" aria-hidden="true"></a>df_test  <span class="op">=</span> pd.read_csv(<span class="st">&quot;~/docs/codeing/python/titanic/test.csv&quot;</span>)</span>
+<span id="cb10-3"><a href="titanic.html#cb10-3" aria-hidden="true"></a>df <span class="op">=</span> pd.concat([df_train, df_test])</span>
+<span id="cb10-4"><a href="titanic.html#cb10-4" aria-hidden="true"></a></span>
+<span id="cb10-5"><a href="titanic.html#cb10-5" aria-hidden="true"></a><span class="co">## @knirt features_info</span></span>
+<span id="cb10-6"><a href="titanic.html#cb10-6" aria-hidden="true"></a></span>
+<span id="cb10-7"><a href="titanic.html#cb10-7" aria-hidden="true"></a><span class="bu">print</span>(</span>
+<span id="cb10-8"><a href="titanic.html#cb10-8" aria-hidden="true"></a>    <span class="st">&quot;--------------</span><span class="ch">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb10-9"><a href="titanic.html#cb10-9" aria-hidden="true"></a>    <span class="st">&quot;Numeric features </span><span class="ch">\n\n</span><span class="st">&quot;</span>,</span>
+<span id="cb10-10"><a href="titanic.html#cb10-10" aria-hidden="true"></a>    df.select_dtypes(include<span class="op">=</span>[<span class="st">&quot;float64&quot;</span>, <span class="st">&quot;uint8&quot;</span>, <span class="st">&quot;int64&quot;</span>]).columns,</span>
+<span id="cb10-11"><a href="titanic.html#cb10-11" aria-hidden="true"></a>    <span class="st">&quot;</span><span class="ch">\n</span><span class="st">--------------</span><span class="ch">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb10-12"><a href="titanic.html#cb10-12" aria-hidden="true"></a>    <span class="st">&quot;Categorical features </span><span class="ch">\n\n</span><span class="st">&quot;</span>,</span>
+<span id="cb10-13"><a href="titanic.html#cb10-13" aria-hidden="true"></a>    df.select_dtypes(exclude<span class="op">=</span>[<span class="st">&quot;float64&quot;</span>, <span class="st">&quot;uint8&quot;</span>, <span class="st">&quot;int64&quot;</span>]).columns,</span>
+<span id="cb10-14"><a href="titanic.html#cb10-14" aria-hidden="true"></a>)</span></code></pre></div>
 <pre><code>#&gt; --------------
 #&gt;  Numeric features 
 #&gt; 
@@ -254,36 +245,51 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; Ticket    1309    929              CA. 2343   11
 #&gt; Cabin      295    186           C23 C25 C27    6
 #&gt; Embarked  1307      3                     S  914</code></pre>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="titanic.html#cb14-1" aria-hidden="true"></a>f, ax <span class="op">=</span> plt.subplots(nrows<span class="op">=</span><span class="dv">1</span>, ncols<span class="op">=</span><span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">10</span>))</span>
-<span id="cb14-2"><a href="titanic.html#cb14-2" aria-hidden="true"></a>sns.heatmap(df.isnull(), </span>
-<span id="cb14-3"><a href="titanic.html#cb14-3" aria-hidden="true"></a>        yticklabels<span class="op">=</span><span class="va">False</span>, </span>
-<span id="cb14-4"><a href="titanic.html#cb14-4" aria-hidden="true"></a>        cbar<span class="op">=</span><span class="va">False</span>, </span>
-<span id="cb14-5"><a href="titanic.html#cb14-5" aria-hidden="true"></a>        cmap<span class="op">=</span><span class="st">&quot;Blues&quot;</span></span>
-<span id="cb14-6"><a href="titanic.html#cb14-6" aria-hidden="true"></a>        )</span>
-<span id="cb14-7"><a href="titanic.html#cb14-7" aria-hidden="true"></a>ax.set_title(<span class="st">&#39;Fields with Missing Values&#39;</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
-<span id="cb14-8"><a href="titanic.html#cb14-8" aria-hidden="true"></a><span class="co">#for tick in ax.xaxis.get_major_ticks():</span></span>
-<span id="cb14-9"><a href="titanic.html#cb14-9" aria-hidden="true"></a><span class="co">#    tick.label.set_fontsize(14) </span></span>
-<span id="cb14-10"><a href="titanic.html#cb14-10" aria-hidden="true"></a><span class="cf">for</span> tick <span class="kw">in</span> ax.yaxis.get_major_ticks():</span>
-<span id="cb14-11"><a href="titanic.html#cb14-11" aria-hidden="true"></a>    tick.label.set_fontsize(<span class="dv">14</span>)</span>
-<span id="cb14-12"><a href="titanic.html#cb14-12" aria-hidden="true"></a></span>
-<span id="cb14-13"><a href="titanic.html#cb14-13" aria-hidden="true"></a>plt.savefig(<span class="st">&quot;01_missing_data_heatmap&quot;</span>)</span>
-<span id="cb14-14"><a href="titanic.html#cb14-14" aria-hidden="true"></a>plt.show()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-9-1.png" width="1152" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="titanic.html#cb15-1" aria-hidden="true"></a>na_per <span class="op">=</span> np.<span class="bu">round</span>((df.isna().<span class="bu">sum</span>() <span class="op">/</span> df.count().<span class="bu">max</span>()) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>)</span>
-<span id="cb15-2"><a href="titanic.html#cb15-2" aria-hidden="true"></a>na_count <span class="op">=</span> np.<span class="bu">round</span>(df.isna().<span class="bu">sum</span>(), <span class="dv">2</span>)</span>
-<span id="cb15-3"><a href="titanic.html#cb15-3" aria-hidden="true"></a></span>
-<span id="cb15-4"><a href="titanic.html#cb15-4" aria-hidden="true"></a><span class="bu">print</span>(</span>
-<span id="cb15-5"><a href="titanic.html#cb15-5" aria-hidden="true"></a>    <span class="st">&quot;--------------</span><span class="ch">\n</span><span class="st">&quot;</span>,</span>
-<span id="cb15-6"><a href="titanic.html#cb15-6" aria-hidden="true"></a>    <span class="st">&quot;total df count: &quot;</span>,</span>
-<span id="cb15-7"><a href="titanic.html#cb15-7" aria-hidden="true"></a>    df.count().<span class="bu">max</span>(),</span>
-<span id="cb15-8"><a href="titanic.html#cb15-8" aria-hidden="true"></a>    <span class="st">&quot;</span><span class="ch">\n</span><span class="st">--------------</span><span class="ch">\n</span><span class="st">&quot;</span>,</span>
-<span id="cb15-9"><a href="titanic.html#cb15-9" aria-hidden="true"></a>    <span class="st">&quot;missing values count: </span><span class="ch">\n\n</span><span class="st">&quot;</span>,</span>
-<span id="cb15-10"><a href="titanic.html#cb15-10" aria-hidden="true"></a>    na_count[na_count <span class="op">!=</span> <span class="dv">0</span>],</span>
-<span id="cb15-11"><a href="titanic.html#cb15-11" aria-hidden="true"></a>    <span class="st">&quot;</span><span class="ch">\n</span><span class="st">--------------</span><span class="ch">\n</span><span class="st">&quot;</span>,</span>
-<span id="cb15-12"><a href="titanic.html#cb15-12" aria-hidden="true"></a>    <span class="st">&quot;missing values percentage:</span><span class="ch">\n\n</span><span class="st">&quot;</span>,</span>
-<span id="cb15-13"><a href="titanic.html#cb15-13" aria-hidden="true"></a>    na_per[na_per <span class="op">!=</span> <span class="dv">0</span>],</span>
-<span id="cb15-14"><a href="titanic.html#cb15-14" aria-hidden="true"></a>    <span class="st">&quot;</span><span class="ch">\n</span><span class="st">--------------</span><span class="ch">\n</span><span class="st">&quot;</span>,</span>
-<span id="cb15-15"><a href="titanic.html#cb15-15" aria-hidden="true"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="titanic.html#cb14-1" aria-hidden="true"></a><span class="im">import</span> os</span>
+<span id="cb14-2"><a href="titanic.html#cb14-2" aria-hidden="true"></a><span class="im">import</span> random <span class="im">as</span> rnd</span>
+<span id="cb14-3"><a href="titanic.html#cb14-3" aria-hidden="true"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb14-4"><a href="titanic.html#cb14-4" aria-hidden="true"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb14-5"><a href="titanic.html#cb14-5" aria-hidden="true"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb14-6"><a href="titanic.html#cb14-6" aria-hidden="true"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb14-7"><a href="titanic.html#cb14-7" aria-hidden="true"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> (</span>
+<span id="cb14-8"><a href="titanic.html#cb14-8" aria-hidden="true"></a>    classification_report,</span>
+<span id="cb14-9"><a href="titanic.html#cb14-9" aria-hidden="true"></a>    confusion_matrix,</span>
+<span id="cb14-10"><a href="titanic.html#cb14-10" aria-hidden="true"></a>    explained_variance_score,</span>
+<span id="cb14-11"><a href="titanic.html#cb14-11" aria-hidden="true"></a>    mean_absolute_error,</span>
+<span id="cb14-12"><a href="titanic.html#cb14-12" aria-hidden="true"></a>    mean_squared_error,</span>
+<span id="cb14-13"><a href="titanic.html#cb14-13" aria-hidden="true"></a>)</span>
+<span id="cb14-14"><a href="titanic.html#cb14-14" aria-hidden="true"></a><span class="im">from</span> xgboost <span class="im">import</span> XGBRegressor</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-6-1.png"></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="titanic.html#cb15-1" aria-hidden="true"></a>f, ax <span class="op">=</span> plt.subplots(nrows<span class="op">=</span><span class="dv">1</span>, ncols<span class="op">=</span><span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">10</span>))</span>
+<span id="cb15-2"><a href="titanic.html#cb15-2" aria-hidden="true"></a>sns.heatmap(df.isnull(), </span>
+<span id="cb15-3"><a href="titanic.html#cb15-3" aria-hidden="true"></a>        yticklabels<span class="op">=</span><span class="va">False</span>, </span>
+<span id="cb15-4"><a href="titanic.html#cb15-4" aria-hidden="true"></a>        cbar<span class="op">=</span><span class="va">False</span>, </span>
+<span id="cb15-5"><a href="titanic.html#cb15-5" aria-hidden="true"></a>        cmap<span class="op">=</span><span class="st">&quot;Blues&quot;</span></span>
+<span id="cb15-6"><a href="titanic.html#cb15-6" aria-hidden="true"></a>        )</span>
+<span id="cb15-7"><a href="titanic.html#cb15-7" aria-hidden="true"></a>ax.set_title(<span class="st">&#39;Fields with Missing Values&#39;</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb15-8"><a href="titanic.html#cb15-8" aria-hidden="true"></a><span class="co">#for tick in ax.xaxis.get_major_ticks():</span></span>
+<span id="cb15-9"><a href="titanic.html#cb15-9" aria-hidden="true"></a><span class="co">#    tick.label.set_fontsize(14) </span></span>
+<span id="cb15-10"><a href="titanic.html#cb15-10" aria-hidden="true"></a><span class="cf">for</span> tick <span class="kw">in</span> ax.yaxis.get_major_ticks():</span>
+<span id="cb15-11"><a href="titanic.html#cb15-11" aria-hidden="true"></a>    tick.label.set_fontsize(<span class="dv">14</span>)</span>
+<span id="cb15-12"><a href="titanic.html#cb15-12" aria-hidden="true"></a></span>
+<span id="cb15-13"><a href="titanic.html#cb15-13" aria-hidden="true"></a>plt.savefig(<span class="st">&quot;01_missing_data_heatmap&quot;</span>)</span>
+<span id="cb15-14"><a href="titanic.html#cb15-14" aria-hidden="true"></a>plt.show()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-10-1.png" width="1152" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="titanic.html#cb16-1" aria-hidden="true"></a>na_per <span class="op">=</span> np.<span class="bu">round</span>((df.isna().<span class="bu">sum</span>() <span class="op">/</span> df.count().<span class="bu">max</span>()) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>)</span>
+<span id="cb16-2"><a href="titanic.html#cb16-2" aria-hidden="true"></a>na_count <span class="op">=</span> np.<span class="bu">round</span>(df.isna().<span class="bu">sum</span>(), <span class="dv">2</span>)</span>
+<span id="cb16-3"><a href="titanic.html#cb16-3" aria-hidden="true"></a></span>
+<span id="cb16-4"><a href="titanic.html#cb16-4" aria-hidden="true"></a><span class="bu">print</span>(</span>
+<span id="cb16-5"><a href="titanic.html#cb16-5" aria-hidden="true"></a>    <span class="st">&quot;--------------</span><span class="ch">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb16-6"><a href="titanic.html#cb16-6" aria-hidden="true"></a>    <span class="st">&quot;total df count: &quot;</span>,</span>
+<span id="cb16-7"><a href="titanic.html#cb16-7" aria-hidden="true"></a>    df.count().<span class="bu">max</span>(),</span>
+<span id="cb16-8"><a href="titanic.html#cb16-8" aria-hidden="true"></a>    <span class="st">&quot;</span><span class="ch">\n</span><span class="st">--------------</span><span class="ch">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb16-9"><a href="titanic.html#cb16-9" aria-hidden="true"></a>    <span class="st">&quot;missing values count: </span><span class="ch">\n\n</span><span class="st">&quot;</span>,</span>
+<span id="cb16-10"><a href="titanic.html#cb16-10" aria-hidden="true"></a>    na_count[na_count <span class="op">!=</span> <span class="dv">0</span>],</span>
+<span id="cb16-11"><a href="titanic.html#cb16-11" aria-hidden="true"></a>    <span class="st">&quot;</span><span class="ch">\n</span><span class="st">--------------</span><span class="ch">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb16-12"><a href="titanic.html#cb16-12" aria-hidden="true"></a>    <span class="st">&quot;missing values percentage:</span><span class="ch">\n\n</span><span class="st">&quot;</span>,</span>
+<span id="cb16-13"><a href="titanic.html#cb16-13" aria-hidden="true"></a>    na_per[na_per <span class="op">!=</span> <span class="dv">0</span>],</span>
+<span id="cb16-14"><a href="titanic.html#cb16-14" aria-hidden="true"></a>    <span class="st">&quot;</span><span class="ch">\n</span><span class="st">--------------</span><span class="ch">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb16-15"><a href="titanic.html#cb16-15" aria-hidden="true"></a>)</span></code></pre></div>
 <pre><code>#&gt; --------------
 #&gt;  total df count:  1309 
 #&gt; --------------
@@ -305,56 +311,56 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; Embarked     0.15
 #&gt; dtype: float64 
 #&gt; --------------</code></pre>
-<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb17-1"><a href="titanic.html#cb17-1" aria-hidden="true"></a>TARGET <span class="op">=</span> <span class="st">&quot;Survived&quot;</span></span>
-<span id="cb17-2"><a href="titanic.html#cb17-2" aria-hidden="true"></a></span>
-<span id="cb17-3"><a href="titanic.html#cb17-3" aria-hidden="true"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">8</span>))</span>
-<span id="cb17-4"><a href="titanic.html#cb17-4" aria-hidden="true"></a>df.corr()[TARGET].sort_values()[:<span class="op">-</span><span class="dv">1</span>].plot(kind<span class="op">=</span><span class="st">&quot;bar&quot;</span>)</span>
-<span id="cb17-5"><a href="titanic.html#cb17-5" aria-hidden="true"></a>plt.savefig(<span class="st">&quot;02_correlation_barplot&quot;</span>)</span>
-<span id="cb17-6"><a href="titanic.html#cb17-6" aria-hidden="true"></a>plt.show()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-9-2.png" width="1344" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="titanic.html#cb18-1" aria-hidden="true"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">12</span>))</span>
-<span id="cb18-2"><a href="titanic.html#cb18-2" aria-hidden="true"></a>plt.title(<span class="st">&#39;Correlation of Features&#39;</span>, y<span class="op">=</span><span class="fl">1.05</span>, size<span class="op">=</span><span class="dv">15</span>)</span>
-<span id="cb18-3"><a href="titanic.html#cb18-3" aria-hidden="true"></a>mask <span class="op">=</span> np.zeros_like(df.corr())</span>
-<span id="cb18-4"><a href="titanic.html#cb18-4" aria-hidden="true"></a>mask[np.triu_indices_from(mask)] <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb18-5"><a href="titanic.html#cb18-5" aria-hidden="true"></a>sns.heatmap(</span>
-<span id="cb18-6"><a href="titanic.html#cb18-6" aria-hidden="true"></a>    df.corr(),</span>
-<span id="cb18-7"><a href="titanic.html#cb18-7" aria-hidden="true"></a>    annot<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb18-8"><a href="titanic.html#cb18-8" aria-hidden="true"></a>    linewidths<span class="op">=</span><span class="fl">0.2</span>,</span>
-<span id="cb18-9"><a href="titanic.html#cb18-9" aria-hidden="true"></a>    linecolor<span class="op">=</span><span class="st">&#39;white&#39;</span>,</span>
-<span id="cb18-10"><a href="titanic.html#cb18-10" aria-hidden="true"></a>    cmap<span class="op">=</span><span class="st">&quot;RdBu&quot;</span>,</span>
-<span id="cb18-11"><a href="titanic.html#cb18-11" aria-hidden="true"></a>    center<span class="op">=</span><span class="dv">0</span>,</span>
-<span id="cb18-12"><a href="titanic.html#cb18-12" aria-hidden="true"></a>    mask<span class="op">=</span>mask,</span>
-<span id="cb18-13"><a href="titanic.html#cb18-13" aria-hidden="true"></a>    vmax<span class="op">=</span><span class="fl">1.0</span>,</span>
-<span id="cb18-14"><a href="titanic.html#cb18-14" aria-hidden="true"></a>    vmin<span class="op">=-</span><span class="fl">1.0</span>,</span>
-<span id="cb18-15"><a href="titanic.html#cb18-15" aria-hidden="true"></a>    square<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb18-16"><a href="titanic.html#cb18-16" aria-hidden="true"></a>)</span>
-<span id="cb18-17"><a href="titanic.html#cb18-17" aria-hidden="true"></a>plt.savefig(<span class="st">&quot;03_correlation_map&quot;</span>)</span>
-<span id="cb18-18"><a href="titanic.html#cb18-18" aria-hidden="true"></a>plt.show()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-9-3.png" width="1344" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="titanic.html#cb19-1" aria-hidden="true"></a><span class="kw">def</span> pivot_feature(df, TARGET, FEATURE):</span>
-<span id="cb19-2"><a href="titanic.html#cb19-2" aria-hidden="true"></a>    <span class="co">&quot;&quot;&quot;</span></span>
-<span id="cb19-3"><a href="titanic.html#cb19-3" aria-hidden="true"></a><span class="co">    Input the</span></span>
-<span id="cb19-4"><a href="titanic.html#cb19-4" aria-hidden="true"></a><span class="co">    - data frame</span></span>
-<span id="cb19-5"><a href="titanic.html#cb19-5" aria-hidden="true"></a><span class="co">    - target feature</span></span>
-<span id="cb19-6"><a href="titanic.html#cb19-6" aria-hidden="true"></a><span class="co">    - relevant feature (only for features which are categorical (Sex),</span></span>
-<span id="cb19-7"><a href="titanic.html#cb19-7" aria-hidden="true"></a><span class="co">    ordinal (Passenger class) or discrete (Sibbling count)).</span></span>
-<span id="cb19-8"><a href="titanic.html#cb19-8" aria-hidden="true"></a><span class="co">    &quot;&quot;&quot;</span></span>
-<span id="cb19-9"><a href="titanic.html#cb19-9" aria-hidden="true"></a>    <span class="cf">return</span> (df[[FEATURE, TARGET</span>
-<span id="cb19-10"><a href="titanic.html#cb19-10" aria-hidden="true"></a>                ]].groupby([FEATURE]).mean().sort_values(by<span class="op">=</span>FEATURE,</span>
-<span id="cb19-11"><a href="titanic.html#cb19-11" aria-hidden="true"></a>                                                         ascending<span class="op">=</span><span class="va">False</span>))</span>
-<span id="cb19-12"><a href="titanic.html#cb19-12" aria-hidden="true"></a></span>
-<span id="cb19-13"><a href="titanic.html#cb19-13" aria-hidden="true"></a>pivot_feature(df, <span class="st">&quot;Survived&quot;</span>, <span class="st">&quot;Pclass&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="titanic.html#cb18-1" aria-hidden="true"></a>TARGET <span class="op">=</span> <span class="st">&quot;Survived&quot;</span></span>
+<span id="cb18-2"><a href="titanic.html#cb18-2" aria-hidden="true"></a></span>
+<span id="cb18-3"><a href="titanic.html#cb18-3" aria-hidden="true"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">8</span>))</span>
+<span id="cb18-4"><a href="titanic.html#cb18-4" aria-hidden="true"></a>df.corr()[TARGET].sort_values()[:<span class="op">-</span><span class="dv">1</span>].plot(kind<span class="op">=</span><span class="st">&quot;bar&quot;</span>)</span>
+<span id="cb18-5"><a href="titanic.html#cb18-5" aria-hidden="true"></a>plt.savefig(<span class="st">&quot;02_correlation_barplot&quot;</span>)</span>
+<span id="cb18-6"><a href="titanic.html#cb18-6" aria-hidden="true"></a>plt.show()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-10-2.png" width="1344" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="titanic.html#cb19-1" aria-hidden="true"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">12</span>))</span>
+<span id="cb19-2"><a href="titanic.html#cb19-2" aria-hidden="true"></a>plt.title(<span class="st">&#39;Correlation of Features&#39;</span>, y<span class="op">=</span><span class="fl">1.05</span>, size<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb19-3"><a href="titanic.html#cb19-3" aria-hidden="true"></a>mask <span class="op">=</span> np.zeros_like(df.corr())</span>
+<span id="cb19-4"><a href="titanic.html#cb19-4" aria-hidden="true"></a>mask[np.triu_indices_from(mask)] <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb19-5"><a href="titanic.html#cb19-5" aria-hidden="true"></a>sns.heatmap(</span>
+<span id="cb19-6"><a href="titanic.html#cb19-6" aria-hidden="true"></a>    df.corr(),</span>
+<span id="cb19-7"><a href="titanic.html#cb19-7" aria-hidden="true"></a>    annot<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb19-8"><a href="titanic.html#cb19-8" aria-hidden="true"></a>    linewidths<span class="op">=</span><span class="fl">0.2</span>,</span>
+<span id="cb19-9"><a href="titanic.html#cb19-9" aria-hidden="true"></a>    linecolor<span class="op">=</span><span class="st">&#39;white&#39;</span>,</span>
+<span id="cb19-10"><a href="titanic.html#cb19-10" aria-hidden="true"></a>    cmap<span class="op">=</span><span class="st">&quot;RdBu&quot;</span>,</span>
+<span id="cb19-11"><a href="titanic.html#cb19-11" aria-hidden="true"></a>    center<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb19-12"><a href="titanic.html#cb19-12" aria-hidden="true"></a>    mask<span class="op">=</span>mask,</span>
+<span id="cb19-13"><a href="titanic.html#cb19-13" aria-hidden="true"></a>    vmax<span class="op">=</span><span class="fl">1.0</span>,</span>
+<span id="cb19-14"><a href="titanic.html#cb19-14" aria-hidden="true"></a>    vmin<span class="op">=-</span><span class="fl">1.0</span>,</span>
+<span id="cb19-15"><a href="titanic.html#cb19-15" aria-hidden="true"></a>    square<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb19-16"><a href="titanic.html#cb19-16" aria-hidden="true"></a>)</span>
+<span id="cb19-17"><a href="titanic.html#cb19-17" aria-hidden="true"></a>plt.savefig(<span class="st">&quot;03_correlation_map&quot;</span>)</span>
+<span id="cb19-18"><a href="titanic.html#cb19-18" aria-hidden="true"></a>plt.show()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-10-3.png" width="1344" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="titanic.html#cb20-1" aria-hidden="true"></a><span class="kw">def</span> pivot_feature(df, TARGET, FEATURE):</span>
+<span id="cb20-2"><a href="titanic.html#cb20-2" aria-hidden="true"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb20-3"><a href="titanic.html#cb20-3" aria-hidden="true"></a><span class="co">    Input the</span></span>
+<span id="cb20-4"><a href="titanic.html#cb20-4" aria-hidden="true"></a><span class="co">    - data frame</span></span>
+<span id="cb20-5"><a href="titanic.html#cb20-5" aria-hidden="true"></a><span class="co">    - target feature</span></span>
+<span id="cb20-6"><a href="titanic.html#cb20-6" aria-hidden="true"></a><span class="co">    - relevant feature (only for features which are categorical (Sex),</span></span>
+<span id="cb20-7"><a href="titanic.html#cb20-7" aria-hidden="true"></a><span class="co">    ordinal (Passenger class) or discrete (Sibbling count)).</span></span>
+<span id="cb20-8"><a href="titanic.html#cb20-8" aria-hidden="true"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb20-9"><a href="titanic.html#cb20-9" aria-hidden="true"></a>    <span class="cf">return</span> (df[[FEATURE, TARGET</span>
+<span id="cb20-10"><a href="titanic.html#cb20-10" aria-hidden="true"></a>                ]].groupby([FEATURE]).mean().sort_values(by<span class="op">=</span>FEATURE,</span>
+<span id="cb20-11"><a href="titanic.html#cb20-11" aria-hidden="true"></a>                                                         ascending<span class="op">=</span><span class="va">False</span>))</span>
+<span id="cb20-12"><a href="titanic.html#cb20-12" aria-hidden="true"></a></span>
+<span id="cb20-13"><a href="titanic.html#cb20-13" aria-hidden="true"></a>pivot_feature(df, <span class="st">&quot;Survived&quot;</span>, <span class="st">&quot;Pclass&quot;</span>)</span></code></pre></div>
 <pre><code>#&gt;         Survived
 #&gt; Pclass          
 #&gt; 3       0.242363
 #&gt; 2       0.472826
 #&gt; 1       0.629630</code></pre>
-<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb21-1"><a href="titanic.html#cb21-1" aria-hidden="true"></a>pivot_feature(df, <span class="st">&quot;Survived&quot;</span>, <span class="st">&quot;Sex&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb22-1"><a href="titanic.html#cb22-1" aria-hidden="true"></a>pivot_feature(df, <span class="st">&quot;Survived&quot;</span>, <span class="st">&quot;Sex&quot;</span>)</span></code></pre></div>
 <pre><code>#&gt;         Survived
 #&gt; Sex             
 #&gt; male    0.188908
 #&gt; female  0.742038</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb23-1"><a href="titanic.html#cb23-1" aria-hidden="true"></a>pivot_feature(df, <span class="st">&quot;Survived&quot;</span>, <span class="st">&quot;SibSp&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="titanic.html#cb24-1" aria-hidden="true"></a>pivot_feature(df, <span class="st">&quot;Survived&quot;</span>, <span class="st">&quot;SibSp&quot;</span>)</span></code></pre></div>
 <pre><code>#&gt;        Survived
 #&gt; SibSp          
 #&gt; 8      0.000000
@@ -364,7 +370,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; 2      0.464286
 #&gt; 1      0.535885
 #&gt; 0      0.345395</code></pre>
-<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb25-1"><a href="titanic.html#cb25-1" aria-hidden="true"></a>pivot_feature(df, <span class="st">&quot;Survived&quot;</span>, <span class="st">&quot;Parch&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="titanic.html#cb26-1" aria-hidden="true"></a>pivot_feature(df, <span class="st">&quot;Survived&quot;</span>, <span class="st">&quot;Parch&quot;</span>)</span></code></pre></div>
 <pre><code>#&gt;        Survived
 #&gt; Parch          
 #&gt; 9           NaN
@@ -375,113 +381,113 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; 2      0.500000
 #&gt; 1      0.550847
 #&gt; 0      0.343658</code></pre>
-<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb27-1"><a href="titanic.html#cb27-1" aria-hidden="true"></a><span class="kw">def</span> plot_corr_numerical(df, TARGET, FEATURE):</span>
-<span id="cb27-2"><a href="titanic.html#cb27-2" aria-hidden="true"></a>    <span class="co">&quot;&quot;&quot;</span></span>
-<span id="cb27-3"><a href="titanic.html#cb27-3" aria-hidden="true"></a><span class="co">    Data Frame</span></span>
-<span id="cb27-4"><a href="titanic.html#cb27-4" aria-hidden="true"></a><span class="co">    Target feature</span></span>
-<span id="cb27-5"><a href="titanic.html#cb27-5" aria-hidden="true"></a><span class="co">    Feature of intrest</span></span>
-<span id="cb27-6"><a href="titanic.html#cb27-6" aria-hidden="true"></a><span class="co">    &quot;&quot;&quot;</span></span>
-<span id="cb27-7"><a href="titanic.html#cb27-7" aria-hidden="true"></a>    g <span class="op">=</span> sns.FacetGrid(df, col<span class="op">=</span>TARGET)</span>
-<span id="cb27-8"><a href="titanic.html#cb27-8" aria-hidden="true"></a>    g.<span class="bu">map</span>(plt.hist, FEATURE, bins<span class="op">=</span><span class="dv">20</span>)</span>
-<span id="cb27-9"><a href="titanic.html#cb27-9" aria-hidden="true"></a>    plt.savefig(<span class="st">&quot;04_corr_numerical_&quot;</span> <span class="op">+</span> TARGET <span class="op">+</span> <span class="st">&quot;_&quot;</span> <span class="op">+</span> FEATURE)</span>
-<span id="cb27-10"><a href="titanic.html#cb27-10" aria-hidden="true"></a></span>
-<span id="cb27-11"><a href="titanic.html#cb27-11" aria-hidden="true"></a></span>
-<span id="cb27-12"><a href="titanic.html#cb27-12" aria-hidden="true"></a>plot_corr_numerical(df, <span class="st">&quot;Survived&quot;</span>, <span class="st">&quot;Age&quot;</span>)</span>
-<span id="cb27-13"><a href="titanic.html#cb27-13" aria-hidden="true"></a></span>
-<span id="cb27-14"><a href="titanic.html#cb27-14" aria-hidden="true"></a><span class="kw">def</span> plot_corr_num_ord(df, TARGET, numerical_FEATURE, ordinal_FEATURE):</span>
-<span id="cb27-15"><a href="titanic.html#cb27-15" aria-hidden="true"></a>    <span class="co">&quot;&quot;&quot;</span></span>
-<span id="cb27-16"><a href="titanic.html#cb27-16" aria-hidden="true"></a><span class="co">    Data Frame</span></span>
-<span id="cb27-17"><a href="titanic.html#cb27-17" aria-hidden="true"></a><span class="co">    Target feature</span></span>
-<span id="cb27-18"><a href="titanic.html#cb27-18" aria-hidden="true"></a><span class="co">    numerical feature of intrest</span></span>
-<span id="cb27-19"><a href="titanic.html#cb27-19" aria-hidden="true"></a><span class="co">    ordinal feature of intrest</span></span>
-<span id="cb27-20"><a href="titanic.html#cb27-20" aria-hidden="true"></a><span class="co">    &quot;&quot;&quot;</span></span>
-<span id="cb27-21"><a href="titanic.html#cb27-21" aria-hidden="true"></a>    g <span class="op">=</span> sns.FacetGrid(df,</span>
-<span id="cb27-22"><a href="titanic.html#cb27-22" aria-hidden="true"></a>                      col<span class="op">=</span>TARGET,</span>
-<span id="cb27-23"><a href="titanic.html#cb27-23" aria-hidden="true"></a>                      row<span class="op">=</span>ordinal_FEATURE,</span>
-<span id="cb27-24"><a href="titanic.html#cb27-24" aria-hidden="true"></a>                      size<span class="op">=</span><span class="fl">2.2</span>,</span>
-<span id="cb27-25"><a href="titanic.html#cb27-25" aria-hidden="true"></a>                      aspect<span class="op">=</span><span class="fl">1.6</span>)</span>
-<span id="cb27-26"><a href="titanic.html#cb27-26" aria-hidden="true"></a>    g.<span class="bu">map</span>(plt.hist, numerical_FEATURE, alpha<span class="op">=</span><span class="fl">0.5</span>, bins<span class="op">=</span><span class="dv">20</span>)</span>
-<span id="cb27-27"><a href="titanic.html#cb27-27" aria-hidden="true"></a>    g.add_legend()</span>
-<span id="cb27-28"><a href="titanic.html#cb27-28" aria-hidden="true"></a>    plt.savefig(<span class="st">&quot;04_corr_num_ord_&quot;</span> <span class="op">+</span> TARGET <span class="op">+</span> <span class="st">&quot;_&quot;</span> <span class="op">+</span> numerical_FEATURE <span class="op">+</span> <span class="st">&quot;_&quot;</span> <span class="op">+</span></span>
-<span id="cb27-29"><a href="titanic.html#cb27-29" aria-hidden="true"></a>                ordinal_FEATURE)</span>
-<span id="cb27-30"><a href="titanic.html#cb27-30" aria-hidden="true"></a></span>
-<span id="cb27-31"><a href="titanic.html#cb27-31" aria-hidden="true"></a>plot_corr_num_ord(df, <span class="st">&quot;Survived&quot;</span>, <span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Pclass&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb28-1"><a href="titanic.html#cb28-1" aria-hidden="true"></a><span class="kw">def</span> plot_corr_numerical(df, TARGET, FEATURE):</span>
+<span id="cb28-2"><a href="titanic.html#cb28-2" aria-hidden="true"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb28-3"><a href="titanic.html#cb28-3" aria-hidden="true"></a><span class="co">    Data Frame</span></span>
+<span id="cb28-4"><a href="titanic.html#cb28-4" aria-hidden="true"></a><span class="co">    Target feature</span></span>
+<span id="cb28-5"><a href="titanic.html#cb28-5" aria-hidden="true"></a><span class="co">    Feature of intrest</span></span>
+<span id="cb28-6"><a href="titanic.html#cb28-6" aria-hidden="true"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb28-7"><a href="titanic.html#cb28-7" aria-hidden="true"></a>    g <span class="op">=</span> sns.FacetGrid(df, col<span class="op">=</span>TARGET)</span>
+<span id="cb28-8"><a href="titanic.html#cb28-8" aria-hidden="true"></a>    g.<span class="bu">map</span>(plt.hist, FEATURE, bins<span class="op">=</span><span class="dv">20</span>)</span>
+<span id="cb28-9"><a href="titanic.html#cb28-9" aria-hidden="true"></a>    plt.savefig(<span class="st">&quot;04_corr_numerical_&quot;</span> <span class="op">+</span> TARGET <span class="op">+</span> <span class="st">&quot;_&quot;</span> <span class="op">+</span> FEATURE)</span>
+<span id="cb28-10"><a href="titanic.html#cb28-10" aria-hidden="true"></a></span>
+<span id="cb28-11"><a href="titanic.html#cb28-11" aria-hidden="true"></a></span>
+<span id="cb28-12"><a href="titanic.html#cb28-12" aria-hidden="true"></a>plot_corr_numerical(df, <span class="st">&quot;Survived&quot;</span>, <span class="st">&quot;Age&quot;</span>)</span>
+<span id="cb28-13"><a href="titanic.html#cb28-13" aria-hidden="true"></a></span>
+<span id="cb28-14"><a href="titanic.html#cb28-14" aria-hidden="true"></a><span class="kw">def</span> plot_corr_num_ord(df, TARGET, numerical_FEATURE, ordinal_FEATURE):</span>
+<span id="cb28-15"><a href="titanic.html#cb28-15" aria-hidden="true"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb28-16"><a href="titanic.html#cb28-16" aria-hidden="true"></a><span class="co">    Data Frame</span></span>
+<span id="cb28-17"><a href="titanic.html#cb28-17" aria-hidden="true"></a><span class="co">    Target feature</span></span>
+<span id="cb28-18"><a href="titanic.html#cb28-18" aria-hidden="true"></a><span class="co">    numerical feature of intrest</span></span>
+<span id="cb28-19"><a href="titanic.html#cb28-19" aria-hidden="true"></a><span class="co">    ordinal feature of intrest</span></span>
+<span id="cb28-20"><a href="titanic.html#cb28-20" aria-hidden="true"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb28-21"><a href="titanic.html#cb28-21" aria-hidden="true"></a>    g <span class="op">=</span> sns.FacetGrid(df,</span>
+<span id="cb28-22"><a href="titanic.html#cb28-22" aria-hidden="true"></a>                      col<span class="op">=</span>TARGET,</span>
+<span id="cb28-23"><a href="titanic.html#cb28-23" aria-hidden="true"></a>                      row<span class="op">=</span>ordinal_FEATURE,</span>
+<span id="cb28-24"><a href="titanic.html#cb28-24" aria-hidden="true"></a>                      size<span class="op">=</span><span class="fl">2.2</span>,</span>
+<span id="cb28-25"><a href="titanic.html#cb28-25" aria-hidden="true"></a>                      aspect<span class="op">=</span><span class="fl">1.6</span>)</span>
+<span id="cb28-26"><a href="titanic.html#cb28-26" aria-hidden="true"></a>    g.<span class="bu">map</span>(plt.hist, numerical_FEATURE, alpha<span class="op">=</span><span class="fl">0.5</span>, bins<span class="op">=</span><span class="dv">20</span>)</span>
+<span id="cb28-27"><a href="titanic.html#cb28-27" aria-hidden="true"></a>    g.add_legend()</span>
+<span id="cb28-28"><a href="titanic.html#cb28-28" aria-hidden="true"></a>    plt.savefig(<span class="st">&quot;04_corr_num_ord_&quot;</span> <span class="op">+</span> TARGET <span class="op">+</span> <span class="st">&quot;_&quot;</span> <span class="op">+</span> numerical_FEATURE <span class="op">+</span> <span class="st">&quot;_&quot;</span> <span class="op">+</span></span>
+<span id="cb28-29"><a href="titanic.html#cb28-29" aria-hidden="true"></a>                ordinal_FEATURE)</span>
+<span id="cb28-30"><a href="titanic.html#cb28-30" aria-hidden="true"></a></span>
+<span id="cb28-31"><a href="titanic.html#cb28-31" aria-hidden="true"></a>plot_corr_num_ord(df, <span class="st">&quot;Survived&quot;</span>, <span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Pclass&quot;</span>)</span></code></pre></div>
 <pre><code>#&gt; /nix/store/lz8yaf1c80c6zb3qj11j58x3qq366wxx-python3.8-seaborn-0.11.0/lib/python3.8/site-packages/seaborn/axisgrid.py:316: UserWarning: The `size` parameter has been renamed to `height`; please update your code.
 #&gt;   warnings.warn(msg, UserWarning)</code></pre>
-<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb29-1"><a href="titanic.html#cb29-1" aria-hidden="true"></a><span class="kw">def</span> plot_corr_cat(</span>
-<span id="cb29-2"><a href="titanic.html#cb29-2" aria-hidden="true"></a>    df,</span>
-<span id="cb29-3"><a href="titanic.html#cb29-3" aria-hidden="true"></a>    TARGET,</span>
-<span id="cb29-4"><a href="titanic.html#cb29-4" aria-hidden="true"></a>    categorical_FEATURE,</span>
-<span id="cb29-5"><a href="titanic.html#cb29-5" aria-hidden="true"></a>    categorical_FEATURE_x_axis,</span>
-<span id="cb29-6"><a href="titanic.html#cb29-6" aria-hidden="true"></a>    categorical_FEATURE_new_line,</span>
-<span id="cb29-7"><a href="titanic.html#cb29-7" aria-hidden="true"></a>):</span>
-<span id="cb29-8"><a href="titanic.html#cb29-8" aria-hidden="true"></a>    <span class="co">&quot;&quot;&quot;</span></span>
-<span id="cb29-9"><a href="titanic.html#cb29-9" aria-hidden="true"></a><span class="co">    Data Frame</span></span>
-<span id="cb29-10"><a href="titanic.html#cb29-10" aria-hidden="true"></a><span class="co">    Target feature - y axis</span></span>
-<span id="cb29-11"><a href="titanic.html#cb29-11" aria-hidden="true"></a><span class="co">    categorical feature - facet row</span></span>
-<span id="cb29-12"><a href="titanic.html#cb29-12" aria-hidden="true"></a><span class="co">    feature of intrest</span></span>
-<span id="cb29-13"><a href="titanic.html#cb29-13" aria-hidden="true"></a><span class="co">    feature of intrest</span></span>
-<span id="cb29-14"><a href="titanic.html#cb29-14" aria-hidden="true"></a><span class="co">    &quot;&quot;&quot;</span></span>
-<span id="cb29-15"><a href="titanic.html#cb29-15" aria-hidden="true"></a>    g <span class="op">=</span> sns.FacetGrid(df, row<span class="op">=</span>categorical_FEATURE, size<span class="op">=</span><span class="fl">2.2</span>, aspect<span class="op">=</span><span class="fl">1.6</span>)</span>
-<span id="cb29-16"><a href="titanic.html#cb29-16" aria-hidden="true"></a>    g.<span class="bu">map</span>(</span>
-<span id="cb29-17"><a href="titanic.html#cb29-17" aria-hidden="true"></a>        sns.pointplot,</span>
-<span id="cb29-18"><a href="titanic.html#cb29-18" aria-hidden="true"></a>        categorical_FEATURE_x_axis,</span>
-<span id="cb29-19"><a href="titanic.html#cb29-19" aria-hidden="true"></a>        TARGET,</span>
-<span id="cb29-20"><a href="titanic.html#cb29-20" aria-hidden="true"></a>        categorical_FEATURE_new_line,</span>
-<span id="cb29-21"><a href="titanic.html#cb29-21" aria-hidden="true"></a>        palette<span class="op">=</span><span class="st">&quot;deep&quot;</span>,</span>
-<span id="cb29-22"><a href="titanic.html#cb29-22" aria-hidden="true"></a>    )</span>
-<span id="cb29-23"><a href="titanic.html#cb29-23" aria-hidden="true"></a>    g.add_legend()</span>
-<span id="cb29-24"><a href="titanic.html#cb29-24" aria-hidden="true"></a>    plt.savefig(<span class="st">&quot;04_corr_cat_&quot;</span> <span class="op">+</span> TARGET <span class="op">+</span> <span class="st">&quot;_&quot;</span> <span class="op">+</span> categorical_FEATURE_x_axis <span class="op">+</span></span>
-<span id="cb29-25"><a href="titanic.html#cb29-25" aria-hidden="true"></a>                <span class="st">&quot;_&quot;</span> <span class="op">+</span> categorical_FEATURE_new_line)</span>
-<span id="cb29-26"><a href="titanic.html#cb29-26" aria-hidden="true"></a></span>
-<span id="cb29-27"><a href="titanic.html#cb29-27" aria-hidden="true"></a>plot_corr_cat(df, <span class="st">&quot;Survived&quot;</span>, <span class="st">&quot;Embarked&quot;</span>, <span class="st">&quot;Pclass&quot;</span>, <span class="st">&quot;Sex&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="titanic.html#cb30-1" aria-hidden="true"></a><span class="kw">def</span> plot_corr_cat(</span>
+<span id="cb30-2"><a href="titanic.html#cb30-2" aria-hidden="true"></a>    df,</span>
+<span id="cb30-3"><a href="titanic.html#cb30-3" aria-hidden="true"></a>    TARGET,</span>
+<span id="cb30-4"><a href="titanic.html#cb30-4" aria-hidden="true"></a>    categorical_FEATURE,</span>
+<span id="cb30-5"><a href="titanic.html#cb30-5" aria-hidden="true"></a>    categorical_FEATURE_x_axis,</span>
+<span id="cb30-6"><a href="titanic.html#cb30-6" aria-hidden="true"></a>    categorical_FEATURE_new_line,</span>
+<span id="cb30-7"><a href="titanic.html#cb30-7" aria-hidden="true"></a>):</span>
+<span id="cb30-8"><a href="titanic.html#cb30-8" aria-hidden="true"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb30-9"><a href="titanic.html#cb30-9" aria-hidden="true"></a><span class="co">    Data Frame</span></span>
+<span id="cb30-10"><a href="titanic.html#cb30-10" aria-hidden="true"></a><span class="co">    Target feature - y axis</span></span>
+<span id="cb30-11"><a href="titanic.html#cb30-11" aria-hidden="true"></a><span class="co">    categorical feature - facet row</span></span>
+<span id="cb30-12"><a href="titanic.html#cb30-12" aria-hidden="true"></a><span class="co">    feature of intrest</span></span>
+<span id="cb30-13"><a href="titanic.html#cb30-13" aria-hidden="true"></a><span class="co">    feature of intrest</span></span>
+<span id="cb30-14"><a href="titanic.html#cb30-14" aria-hidden="true"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb30-15"><a href="titanic.html#cb30-15" aria-hidden="true"></a>    g <span class="op">=</span> sns.FacetGrid(df, row<span class="op">=</span>categorical_FEATURE, size<span class="op">=</span><span class="fl">2.2</span>, aspect<span class="op">=</span><span class="fl">1.6</span>)</span>
+<span id="cb30-16"><a href="titanic.html#cb30-16" aria-hidden="true"></a>    g.<span class="bu">map</span>(</span>
+<span id="cb30-17"><a href="titanic.html#cb30-17" aria-hidden="true"></a>        sns.pointplot,</span>
+<span id="cb30-18"><a href="titanic.html#cb30-18" aria-hidden="true"></a>        categorical_FEATURE_x_axis,</span>
+<span id="cb30-19"><a href="titanic.html#cb30-19" aria-hidden="true"></a>        TARGET,</span>
+<span id="cb30-20"><a href="titanic.html#cb30-20" aria-hidden="true"></a>        categorical_FEATURE_new_line,</span>
+<span id="cb30-21"><a href="titanic.html#cb30-21" aria-hidden="true"></a>        palette<span class="op">=</span><span class="st">&quot;deep&quot;</span>,</span>
+<span id="cb30-22"><a href="titanic.html#cb30-22" aria-hidden="true"></a>    )</span>
+<span id="cb30-23"><a href="titanic.html#cb30-23" aria-hidden="true"></a>    g.add_legend()</span>
+<span id="cb30-24"><a href="titanic.html#cb30-24" aria-hidden="true"></a>    plt.savefig(<span class="st">&quot;04_corr_cat_&quot;</span> <span class="op">+</span> TARGET <span class="op">+</span> <span class="st">&quot;_&quot;</span> <span class="op">+</span> categorical_FEATURE_x_axis <span class="op">+</span></span>
+<span id="cb30-25"><a href="titanic.html#cb30-25" aria-hidden="true"></a>                <span class="st">&quot;_&quot;</span> <span class="op">+</span> categorical_FEATURE_new_line)</span>
+<span id="cb30-26"><a href="titanic.html#cb30-26" aria-hidden="true"></a></span>
+<span id="cb30-27"><a href="titanic.html#cb30-27" aria-hidden="true"></a>plot_corr_cat(df, <span class="st">&quot;Survived&quot;</span>, <span class="st">&quot;Embarked&quot;</span>, <span class="st">&quot;Pclass&quot;</span>, <span class="st">&quot;Sex&quot;</span>)</span></code></pre></div>
 <pre><code>#&gt; /nix/store/lz8yaf1c80c6zb3qj11j58x3qq366wxx-python3.8-seaborn-0.11.0/lib/python3.8/site-packages/seaborn/axisgrid.py:316: UserWarning: The `size` parameter has been renamed to `height`; please update your code.
 #&gt;   warnings.warn(msg, UserWarning)
 #&gt; /nix/store/lz8yaf1c80c6zb3qj11j58x3qq366wxx-python3.8-seaborn-0.11.0/lib/python3.8/site-packages/seaborn/axisgrid.py:645: UserWarning: Using the pointplot function without specifying `order` is likely to produce an incorrect plot.
 #&gt;   warnings.warn(warning)
 #&gt; /nix/store/lz8yaf1c80c6zb3qj11j58x3qq366wxx-python3.8-seaborn-0.11.0/lib/python3.8/site-packages/seaborn/axisgrid.py:650: UserWarning: Using the pointplot function without specifying `hue_order` is likely to produce an incorrect plot.
 #&gt;   warnings.warn(warning)</code></pre>
-<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb31-1"><a href="titanic.html#cb31-1" aria-hidden="true"></a><span class="kw">def</span> plot_corr_cat_num(</span>
-<span id="cb31-2"><a href="titanic.html#cb31-2" aria-hidden="true"></a>    df,</span>
-<span id="cb31-3"><a href="titanic.html#cb31-3" aria-hidden="true"></a>    TARGET,</span>
-<span id="cb31-4"><a href="titanic.html#cb31-4" aria-hidden="true"></a>    categorical_FEATURE_facet_row,</span>
-<span id="cb31-5"><a href="titanic.html#cb31-5" aria-hidden="true"></a>    categorical_FEATURE_y_axis,</span>
-<span id="cb31-6"><a href="titanic.html#cb31-6" aria-hidden="true"></a>    categorical_FEATURE_x_axis,</span>
-<span id="cb31-7"><a href="titanic.html#cb31-7" aria-hidden="true"></a>):</span>
-<span id="cb31-8"><a href="titanic.html#cb31-8" aria-hidden="true"></a>    <span class="co">&quot;&quot;&quot;</span></span>
-<span id="cb31-9"><a href="titanic.html#cb31-9" aria-hidden="true"></a><span class="co">    Data Frame</span></span>
-<span id="cb31-10"><a href="titanic.html#cb31-10" aria-hidden="true"></a><span class="co">    Target feature - y axis</span></span>
-<span id="cb31-11"><a href="titanic.html#cb31-11" aria-hidden="true"></a><span class="co">    categorical feature - facet row</span></span>
-<span id="cb31-12"><a href="titanic.html#cb31-12" aria-hidden="true"></a><span class="co">    feature of intrest</span></span>
-<span id="cb31-13"><a href="titanic.html#cb31-13" aria-hidden="true"></a><span class="co">    feature of intrest</span></span>
-<span id="cb31-14"><a href="titanic.html#cb31-14" aria-hidden="true"></a><span class="co">    &quot;&quot;&quot;</span></span>
-<span id="cb31-15"><a href="titanic.html#cb31-15" aria-hidden="true"></a>    g <span class="op">=</span> sns.FacetGrid(df,</span>
-<span id="cb31-16"><a href="titanic.html#cb31-16" aria-hidden="true"></a>                      row<span class="op">=</span>categorical_FEATURE_facet_row,</span>
-<span id="cb31-17"><a href="titanic.html#cb31-17" aria-hidden="true"></a>                      col<span class="op">=</span>TARGET,</span>
-<span id="cb31-18"><a href="titanic.html#cb31-18" aria-hidden="true"></a>                      size<span class="op">=</span><span class="fl">2.2</span>,</span>
-<span id="cb31-19"><a href="titanic.html#cb31-19" aria-hidden="true"></a>                      aspect<span class="op">=</span><span class="fl">1.6</span>)</span>
-<span id="cb31-20"><a href="titanic.html#cb31-20" aria-hidden="true"></a>    g.<span class="bu">map</span>(</span>
-<span id="cb31-21"><a href="titanic.html#cb31-21" aria-hidden="true"></a>        sns.barplot,</span>
-<span id="cb31-22"><a href="titanic.html#cb31-22" aria-hidden="true"></a>        categorical_FEATURE_x_axis,</span>
-<span id="cb31-23"><a href="titanic.html#cb31-23" aria-hidden="true"></a>        categorical_FEATURE_y_axis,</span>
-<span id="cb31-24"><a href="titanic.html#cb31-24" aria-hidden="true"></a>        palette<span class="op">=</span><span class="st">&quot;deep&quot;</span>,</span>
-<span id="cb31-25"><a href="titanic.html#cb31-25" aria-hidden="true"></a>        alpha<span class="op">=</span><span class="fl">0.5</span>,</span>
-<span id="cb31-26"><a href="titanic.html#cb31-26" aria-hidden="true"></a>        ci<span class="op">=</span><span class="va">None</span>,</span>
-<span id="cb31-27"><a href="titanic.html#cb31-27" aria-hidden="true"></a>    )</span>
-<span id="cb31-28"><a href="titanic.html#cb31-28" aria-hidden="true"></a>    g.add_legend()</span>
-<span id="cb31-29"><a href="titanic.html#cb31-29" aria-hidden="true"></a>    plt.savefig(<span class="st">&quot;04_corr_cat_num_&quot;</span> <span class="op">+</span> TARGET <span class="op">+</span> <span class="st">&quot;_&quot;</span> <span class="op">+</span></span>
-<span id="cb31-30"><a href="titanic.html#cb31-30" aria-hidden="true"></a>                categorical_FEATURE_x_axis <span class="op">+</span> <span class="st">&quot;_&quot;</span> <span class="op">+</span> categorical_FEATURE_y_axis)</span>
-<span id="cb31-31"><a href="titanic.html#cb31-31" aria-hidden="true"></a></span>
-<span id="cb31-32"><a href="titanic.html#cb31-32" aria-hidden="true"></a>plot_corr_cat_num(df, <span class="st">&quot;Survived&quot;</span>, <span class="st">&quot;Embarked&quot;</span>, <span class="st">&quot;Fare&quot;</span>, <span class="st">&quot;Sex&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb32-1"><a href="titanic.html#cb32-1" aria-hidden="true"></a><span class="kw">def</span> plot_corr_cat_num(</span>
+<span id="cb32-2"><a href="titanic.html#cb32-2" aria-hidden="true"></a>    df,</span>
+<span id="cb32-3"><a href="titanic.html#cb32-3" aria-hidden="true"></a>    TARGET,</span>
+<span id="cb32-4"><a href="titanic.html#cb32-4" aria-hidden="true"></a>    categorical_FEATURE_facet_row,</span>
+<span id="cb32-5"><a href="titanic.html#cb32-5" aria-hidden="true"></a>    categorical_FEATURE_y_axis,</span>
+<span id="cb32-6"><a href="titanic.html#cb32-6" aria-hidden="true"></a>    categorical_FEATURE_x_axis,</span>
+<span id="cb32-7"><a href="titanic.html#cb32-7" aria-hidden="true"></a>):</span>
+<span id="cb32-8"><a href="titanic.html#cb32-8" aria-hidden="true"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb32-9"><a href="titanic.html#cb32-9" aria-hidden="true"></a><span class="co">    Data Frame</span></span>
+<span id="cb32-10"><a href="titanic.html#cb32-10" aria-hidden="true"></a><span class="co">    Target feature - y axis</span></span>
+<span id="cb32-11"><a href="titanic.html#cb32-11" aria-hidden="true"></a><span class="co">    categorical feature - facet row</span></span>
+<span id="cb32-12"><a href="titanic.html#cb32-12" aria-hidden="true"></a><span class="co">    feature of intrest</span></span>
+<span id="cb32-13"><a href="titanic.html#cb32-13" aria-hidden="true"></a><span class="co">    feature of intrest</span></span>
+<span id="cb32-14"><a href="titanic.html#cb32-14" aria-hidden="true"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb32-15"><a href="titanic.html#cb32-15" aria-hidden="true"></a>    g <span class="op">=</span> sns.FacetGrid(df,</span>
+<span id="cb32-16"><a href="titanic.html#cb32-16" aria-hidden="true"></a>                      row<span class="op">=</span>categorical_FEATURE_facet_row,</span>
+<span id="cb32-17"><a href="titanic.html#cb32-17" aria-hidden="true"></a>                      col<span class="op">=</span>TARGET,</span>
+<span id="cb32-18"><a href="titanic.html#cb32-18" aria-hidden="true"></a>                      size<span class="op">=</span><span class="fl">2.2</span>,</span>
+<span id="cb32-19"><a href="titanic.html#cb32-19" aria-hidden="true"></a>                      aspect<span class="op">=</span><span class="fl">1.6</span>)</span>
+<span id="cb32-20"><a href="titanic.html#cb32-20" aria-hidden="true"></a>    g.<span class="bu">map</span>(</span>
+<span id="cb32-21"><a href="titanic.html#cb32-21" aria-hidden="true"></a>        sns.barplot,</span>
+<span id="cb32-22"><a href="titanic.html#cb32-22" aria-hidden="true"></a>        categorical_FEATURE_x_axis,</span>
+<span id="cb32-23"><a href="titanic.html#cb32-23" aria-hidden="true"></a>        categorical_FEATURE_y_axis,</span>
+<span id="cb32-24"><a href="titanic.html#cb32-24" aria-hidden="true"></a>        palette<span class="op">=</span><span class="st">&quot;deep&quot;</span>,</span>
+<span id="cb32-25"><a href="titanic.html#cb32-25" aria-hidden="true"></a>        alpha<span class="op">=</span><span class="fl">0.5</span>,</span>
+<span id="cb32-26"><a href="titanic.html#cb32-26" aria-hidden="true"></a>        ci<span class="op">=</span><span class="va">None</span>,</span>
+<span id="cb32-27"><a href="titanic.html#cb32-27" aria-hidden="true"></a>    )</span>
+<span id="cb32-28"><a href="titanic.html#cb32-28" aria-hidden="true"></a>    g.add_legend()</span>
+<span id="cb32-29"><a href="titanic.html#cb32-29" aria-hidden="true"></a>    plt.savefig(<span class="st">&quot;04_corr_cat_num_&quot;</span> <span class="op">+</span> TARGET <span class="op">+</span> <span class="st">&quot;_&quot;</span> <span class="op">+</span></span>
+<span id="cb32-30"><a href="titanic.html#cb32-30" aria-hidden="true"></a>                categorical_FEATURE_x_axis <span class="op">+</span> <span class="st">&quot;_&quot;</span> <span class="op">+</span> categorical_FEATURE_y_axis)</span>
+<span id="cb32-31"><a href="titanic.html#cb32-31" aria-hidden="true"></a></span>
+<span id="cb32-32"><a href="titanic.html#cb32-32" aria-hidden="true"></a>plot_corr_cat_num(df, <span class="st">&quot;Survived&quot;</span>, <span class="st">&quot;Embarked&quot;</span>, <span class="st">&quot;Fare&quot;</span>, <span class="st">&quot;Sex&quot;</span>)</span></code></pre></div>
 <pre><code>#&gt; /nix/store/lz8yaf1c80c6zb3qj11j58x3qq366wxx-python3.8-seaborn-0.11.0/lib/python3.8/site-packages/seaborn/axisgrid.py:316: UserWarning: The `size` parameter has been renamed to `height`; please update your code.
 #&gt;   warnings.warn(msg, UserWarning)
 #&gt; /nix/store/lz8yaf1c80c6zb3qj11j58x3qq366wxx-python3.8-seaborn-0.11.0/lib/python3.8/site-packages/seaborn/axisgrid.py:645: UserWarning: Using the barplot function without specifying `order` is likely to produce an incorrect plot.
 #&gt;   warnings.warn(warning)</code></pre>
-<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb33-1"><a href="titanic.html#cb33-1" aria-hidden="true"></a>df.drop([<span class="st">&quot;Ticket&quot;</span>, <span class="st">&quot;Cabin&quot;</span>, <span class="st">&quot;PassengerId&quot;</span>], inplace<span class="op">=</span><span class="va">True</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb33-2"><a href="titanic.html#cb33-2" aria-hidden="true"></a>df[<span class="st">&quot;Title&quot;</span>] <span class="op">=</span> df[<span class="st">&quot;Name&quot;</span>].<span class="bu">str</span>.extract(<span class="st">&quot; ([A-Za-z]+)\.&quot;</span>,</span>
-<span id="cb33-3"><a href="titanic.html#cb33-3" aria-hidden="true"></a>                                     expand<span class="op">=</span><span class="va">False</span>)  <span class="co">## get word before the .</span></span>
-<span id="cb33-4"><a href="titanic.html#cb33-4" aria-hidden="true"></a></span>
-<span id="cb33-5"><a href="titanic.html#cb33-5" aria-hidden="true"></a>pd.crosstab(df[<span class="st">&quot;Title&quot;</span>], df[<span class="st">&quot;Sex&quot;</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb34-1"><a href="titanic.html#cb34-1" aria-hidden="true"></a>df.drop([<span class="st">&quot;Ticket&quot;</span>, <span class="st">&quot;Cabin&quot;</span>, <span class="st">&quot;PassengerId&quot;</span>], inplace<span class="op">=</span><span class="va">True</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb34-2"><a href="titanic.html#cb34-2" aria-hidden="true"></a>df[<span class="st">&quot;Title&quot;</span>] <span class="op">=</span> df[<span class="st">&quot;Name&quot;</span>].<span class="bu">str</span>.extract(<span class="st">&quot; ([A-Za-z]+)\.&quot;</span>,</span>
+<span id="cb34-3"><a href="titanic.html#cb34-3" aria-hidden="true"></a>                                     expand<span class="op">=</span><span class="va">False</span>)  <span class="co">## get word before the .</span></span>
+<span id="cb34-4"><a href="titanic.html#cb34-4" aria-hidden="true"></a></span>
+<span id="cb34-5"><a href="titanic.html#cb34-5" aria-hidden="true"></a>pd.crosstab(df[<span class="st">&quot;Title&quot;</span>], df[<span class="st">&quot;Sex&quot;</span>])</span></code></pre></div>
 <pre><code>#&gt; Sex       female  male
 #&gt; Title                 
 #&gt; Capt           0     1
@@ -502,30 +508,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; Ms             2     0
 #&gt; Rev            0     8
 #&gt; Sir            0     1</code></pre>
-<div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb35-1"><a href="titanic.html#cb35-1" aria-hidden="true"></a>df[<span class="st">&quot;Title&quot;</span>].unique()</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb36-1"><a href="titanic.html#cb36-1" aria-hidden="true"></a>df[<span class="st">&quot;Title&quot;</span>].unique()</span></code></pre></div>
 <pre><code>#&gt; array([&#39;Mr&#39;, &#39;Mrs&#39;, &#39;Miss&#39;, &#39;Master&#39;, &#39;Don&#39;, &#39;Rev&#39;, &#39;Dr&#39;, &#39;Mme&#39;, &#39;Ms&#39;,
 #&gt;        &#39;Major&#39;, &#39;Lady&#39;, &#39;Sir&#39;, &#39;Mlle&#39;, &#39;Col&#39;, &#39;Capt&#39;, &#39;Countess&#39;,
 #&gt;        &#39;Jonkheer&#39;, &#39;Dona&#39;], dtype=object)</code></pre>
-<div class="sourceCode" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb37-1"><a href="titanic.html#cb37-1" aria-hidden="true"></a><span class="kw">def</span> repace_values_with(df, FEATURE, LIST, REPLACE_WITH):</span>
-<span id="cb37-2"><a href="titanic.html#cb37-2" aria-hidden="true"></a>    <span class="co">&quot;&quot;&quot;</span></span>
-<span id="cb37-3"><a href="titanic.html#cb37-3" aria-hidden="true"></a><span class="co">    Replace values in a column with ...</span></span>
-<span id="cb37-4"><a href="titanic.html#cb37-4" aria-hidden="true"></a><span class="co">    &quot;&quot;&quot;</span></span>
-<span id="cb37-5"><a href="titanic.html#cb37-5" aria-hidden="true"></a>    df[FEATURE] <span class="op">=</span> df[FEATURE].replace(LIST, REPLACE_WITH)</span>
-<span id="cb37-6"><a href="titanic.html#cb37-6" aria-hidden="true"></a></span>
-<span id="cb37-7"><a href="titanic.html#cb37-7" aria-hidden="true"></a>repace_values_with(</span>
-<span id="cb37-8"><a href="titanic.html#cb37-8" aria-hidden="true"></a>    df,</span>
-<span id="cb37-9"><a href="titanic.html#cb37-9" aria-hidden="true"></a>    <span class="st">&quot;Title&quot;</span>,</span>
-<span id="cb37-10"><a href="titanic.html#cb37-10" aria-hidden="true"></a>    [</span>
-<span id="cb37-11"><a href="titanic.html#cb37-11" aria-hidden="true"></a>        <span class="st">&quot;Don&quot;</span>, <span class="st">&quot;Rev&quot;</span>, <span class="st">&quot;Dr&quot;</span>, <span class="st">&quot;Major&quot;</span>, <span class="st">&quot;Lady&quot;</span>, <span class="st">&quot;Sir&quot;</span>, <span class="st">&quot;Col&quot;</span>, <span class="st">&quot;Capt&quot;</span>, <span class="st">&quot;Countess&quot;</span>,</span>
-<span id="cb37-12"><a href="titanic.html#cb37-12" aria-hidden="true"></a>        <span class="st">&quot;Jonkheer&quot;</span></span>
-<span id="cb37-13"><a href="titanic.html#cb37-13" aria-hidden="true"></a>    ],</span>
-<span id="cb37-14"><a href="titanic.html#cb37-14" aria-hidden="true"></a>    <span class="st">&quot;Rare&quot;</span>,</span>
-<span id="cb37-15"><a href="titanic.html#cb37-15" aria-hidden="true"></a>)</span>
-<span id="cb37-16"><a href="titanic.html#cb37-16" aria-hidden="true"></a>repace_values_with(df, <span class="st">&quot;Title&quot;</span>, <span class="st">&quot;Mlle&quot;</span>, <span class="st">&quot;Miss&quot;</span>)</span>
-<span id="cb37-17"><a href="titanic.html#cb37-17" aria-hidden="true"></a>repace_values_with(df, <span class="st">&quot;Title&quot;</span>, <span class="st">&quot;Ms&quot;</span>, <span class="st">&quot;Miss&quot;</span>)</span>
-<span id="cb37-18"><a href="titanic.html#cb37-18" aria-hidden="true"></a>repace_values_with(df, <span class="st">&quot;Title&quot;</span>, <span class="st">&quot;Mme&quot;</span>, <span class="st">&quot;Mrs&quot;</span>)</span>
-<span id="cb37-19"><a href="titanic.html#cb37-19" aria-hidden="true"></a></span>
-<span id="cb37-20"><a href="titanic.html#cb37-20" aria-hidden="true"></a>df[[<span class="st">&quot;Title&quot;</span>, <span class="st">&quot;Survived&quot;</span>]].groupby([<span class="st">&quot;Title&quot;</span>], as_index<span class="op">=</span><span class="va">False</span>).mean()</span></code></pre></div>
+<div class="sourceCode" id="cb38"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb38-1"><a href="titanic.html#cb38-1" aria-hidden="true"></a><span class="kw">def</span> repace_values_with(df, FEATURE, LIST, REPLACE_WITH):</span>
+<span id="cb38-2"><a href="titanic.html#cb38-2" aria-hidden="true"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb38-3"><a href="titanic.html#cb38-3" aria-hidden="true"></a><span class="co">    Replace values in a column with ...</span></span>
+<span id="cb38-4"><a href="titanic.html#cb38-4" aria-hidden="true"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb38-5"><a href="titanic.html#cb38-5" aria-hidden="true"></a>    df[FEATURE] <span class="op">=</span> df[FEATURE].replace(LIST, REPLACE_WITH)</span>
+<span id="cb38-6"><a href="titanic.html#cb38-6" aria-hidden="true"></a></span>
+<span id="cb38-7"><a href="titanic.html#cb38-7" aria-hidden="true"></a>repace_values_with(</span>
+<span id="cb38-8"><a href="titanic.html#cb38-8" aria-hidden="true"></a>    df,</span>
+<span id="cb38-9"><a href="titanic.html#cb38-9" aria-hidden="true"></a>    <span class="st">&quot;Title&quot;</span>,</span>
+<span id="cb38-10"><a href="titanic.html#cb38-10" aria-hidden="true"></a>    [</span>
+<span id="cb38-11"><a href="titanic.html#cb38-11" aria-hidden="true"></a>        <span class="st">&quot;Don&quot;</span>, <span class="st">&quot;Rev&quot;</span>, <span class="st">&quot;Dr&quot;</span>, <span class="st">&quot;Major&quot;</span>, <span class="st">&quot;Lady&quot;</span>, <span class="st">&quot;Sir&quot;</span>, <span class="st">&quot;Col&quot;</span>, <span class="st">&quot;Capt&quot;</span>, <span class="st">&quot;Countess&quot;</span>,</span>
+<span id="cb38-12"><a href="titanic.html#cb38-12" aria-hidden="true"></a>        <span class="st">&quot;Jonkheer&quot;</span></span>
+<span id="cb38-13"><a href="titanic.html#cb38-13" aria-hidden="true"></a>    ],</span>
+<span id="cb38-14"><a href="titanic.html#cb38-14" aria-hidden="true"></a>    <span class="st">&quot;Rare&quot;</span>,</span>
+<span id="cb38-15"><a href="titanic.html#cb38-15" aria-hidden="true"></a>)</span>
+<span id="cb38-16"><a href="titanic.html#cb38-16" aria-hidden="true"></a>repace_values_with(df, <span class="st">&quot;Title&quot;</span>, <span class="st">&quot;Mlle&quot;</span>, <span class="st">&quot;Miss&quot;</span>)</span>
+<span id="cb38-17"><a href="titanic.html#cb38-17" aria-hidden="true"></a>repace_values_with(df, <span class="st">&quot;Title&quot;</span>, <span class="st">&quot;Ms&quot;</span>, <span class="st">&quot;Miss&quot;</span>)</span>
+<span id="cb38-18"><a href="titanic.html#cb38-18" aria-hidden="true"></a>repace_values_with(df, <span class="st">&quot;Title&quot;</span>, <span class="st">&quot;Mme&quot;</span>, <span class="st">&quot;Mrs&quot;</span>)</span>
+<span id="cb38-19"><a href="titanic.html#cb38-19" aria-hidden="true"></a></span>
+<span id="cb38-20"><a href="titanic.html#cb38-20" aria-hidden="true"></a>df[[<span class="st">&quot;Title&quot;</span>, <span class="st">&quot;Survived&quot;</span>]].groupby([<span class="st">&quot;Title&quot;</span>], as_index<span class="op">=</span><span class="va">False</span>).mean()</span></code></pre></div>
 <pre><code>#&gt;     Title  Survived
 #&gt; 0    Dona       NaN
 #&gt; 1  Master  0.575000
@@ -533,103 +539,103 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; 3      Mr  0.156673
 #&gt; 4     Mrs  0.793651
 #&gt; 5    Rare  0.347826</code></pre>
-<div class="sourceCode" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb39-1"><a href="titanic.html#cb39-1" aria-hidden="true"></a><span class="kw">def</span> cat_to_ord(df, FEATURE, DICT):</span>
-<span id="cb39-2"><a href="titanic.html#cb39-2" aria-hidden="true"></a>    df[FEATURE] <span class="op">=</span> df[FEATURE].<span class="bu">map</span>(DICT).fillna(<span class="dv">0</span>)</span>
-<span id="cb39-3"><a href="titanic.html#cb39-3" aria-hidden="true"></a></span>
-<span id="cb39-4"><a href="titanic.html#cb39-4" aria-hidden="true"></a></span>
-<span id="cb39-5"><a href="titanic.html#cb39-5" aria-hidden="true"></a>cat_to_ord(df, <span class="st">&quot;Title&quot;</span>, {</span>
-<span id="cb39-6"><a href="titanic.html#cb39-6" aria-hidden="true"></a>    <span class="st">&quot;Master&quot;</span>: <span class="dv">1</span>,</span>
-<span id="cb39-7"><a href="titanic.html#cb39-7" aria-hidden="true"></a>    <span class="st">&quot;Miss&quot;</span>: <span class="dv">2</span>,</span>
-<span id="cb39-8"><a href="titanic.html#cb39-8" aria-hidden="true"></a>    <span class="st">&quot;Mr&quot;</span>: <span class="dv">3</span>,</span>
-<span id="cb39-9"><a href="titanic.html#cb39-9" aria-hidden="true"></a>    <span class="st">&quot;Mrs&quot;</span>: <span class="dv">4</span>,</span>
-<span id="cb39-10"><a href="titanic.html#cb39-10" aria-hidden="true"></a>    <span class="st">&quot;Rare&quot;</span>: <span class="dv">5</span>,</span>
-<span id="cb39-11"><a href="titanic.html#cb39-11" aria-hidden="true"></a>})</span>
-<span id="cb39-12"><a href="titanic.html#cb39-12" aria-hidden="true"></a></span>
-<span id="cb39-13"><a href="titanic.html#cb39-13" aria-hidden="true"></a>df.drop([<span class="st">&quot;Name&quot;</span>], inplace<span class="op">=</span><span class="va">True</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb39-14"><a href="titanic.html#cb39-14" aria-hidden="true"></a></span>
-<span id="cb39-15"><a href="titanic.html#cb39-15" aria-hidden="true"></a><span class="kw">def</span> dummify(df, features_list):</span>
-<span id="cb39-16"><a href="titanic.html#cb39-16" aria-hidden="true"></a>    <span class="cf">return</span> pd.get_dummies(</span>
-<span id="cb39-17"><a href="titanic.html#cb39-17" aria-hidden="true"></a>        df,</span>
-<span id="cb39-18"><a href="titanic.html#cb39-18" aria-hidden="true"></a>        columns<span class="op">=</span>features_list,</span>
-<span id="cb39-19"><a href="titanic.html#cb39-19" aria-hidden="true"></a>        drop_first<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb39-20"><a href="titanic.html#cb39-20" aria-hidden="true"></a>    )</span>
-<span id="cb39-21"><a href="titanic.html#cb39-21" aria-hidden="true"></a></span>
-<span id="cb39-22"><a href="titanic.html#cb39-22" aria-hidden="true"></a>df <span class="op">=</span> dummify(df, [<span class="st">&quot;Sex&quot;</span>])</span>
-<span id="cb39-23"><a href="titanic.html#cb39-23" aria-hidden="true"></a></span>
-<span id="cb39-24"><a href="titanic.html#cb39-24" aria-hidden="true"></a>g <span class="op">=</span> sns.FacetGrid(df, row<span class="op">=</span><span class="st">&quot;Pclass&quot;</span>, col<span class="op">=</span><span class="st">&quot;Sex_male&quot;</span>, size<span class="op">=</span><span class="fl">2.2</span>, aspect<span class="op">=</span><span class="fl">1.6</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb40-1"><a href="titanic.html#cb40-1" aria-hidden="true"></a><span class="kw">def</span> cat_to_ord(df, FEATURE, DICT):</span>
+<span id="cb40-2"><a href="titanic.html#cb40-2" aria-hidden="true"></a>    df[FEATURE] <span class="op">=</span> df[FEATURE].<span class="bu">map</span>(DICT).fillna(<span class="dv">0</span>)</span>
+<span id="cb40-3"><a href="titanic.html#cb40-3" aria-hidden="true"></a></span>
+<span id="cb40-4"><a href="titanic.html#cb40-4" aria-hidden="true"></a></span>
+<span id="cb40-5"><a href="titanic.html#cb40-5" aria-hidden="true"></a>cat_to_ord(df, <span class="st">&quot;Title&quot;</span>, {</span>
+<span id="cb40-6"><a href="titanic.html#cb40-6" aria-hidden="true"></a>    <span class="st">&quot;Master&quot;</span>: <span class="dv">1</span>,</span>
+<span id="cb40-7"><a href="titanic.html#cb40-7" aria-hidden="true"></a>    <span class="st">&quot;Miss&quot;</span>: <span class="dv">2</span>,</span>
+<span id="cb40-8"><a href="titanic.html#cb40-8" aria-hidden="true"></a>    <span class="st">&quot;Mr&quot;</span>: <span class="dv">3</span>,</span>
+<span id="cb40-9"><a href="titanic.html#cb40-9" aria-hidden="true"></a>    <span class="st">&quot;Mrs&quot;</span>: <span class="dv">4</span>,</span>
+<span id="cb40-10"><a href="titanic.html#cb40-10" aria-hidden="true"></a>    <span class="st">&quot;Rare&quot;</span>: <span class="dv">5</span>,</span>
+<span id="cb40-11"><a href="titanic.html#cb40-11" aria-hidden="true"></a>})</span>
+<span id="cb40-12"><a href="titanic.html#cb40-12" aria-hidden="true"></a></span>
+<span id="cb40-13"><a href="titanic.html#cb40-13" aria-hidden="true"></a>df.drop([<span class="st">&quot;Name&quot;</span>], inplace<span class="op">=</span><span class="va">True</span>, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb40-14"><a href="titanic.html#cb40-14" aria-hidden="true"></a></span>
+<span id="cb40-15"><a href="titanic.html#cb40-15" aria-hidden="true"></a><span class="kw">def</span> dummify(df, features_list):</span>
+<span id="cb40-16"><a href="titanic.html#cb40-16" aria-hidden="true"></a>    <span class="cf">return</span> pd.get_dummies(</span>
+<span id="cb40-17"><a href="titanic.html#cb40-17" aria-hidden="true"></a>        df,</span>
+<span id="cb40-18"><a href="titanic.html#cb40-18" aria-hidden="true"></a>        columns<span class="op">=</span>features_list,</span>
+<span id="cb40-19"><a href="titanic.html#cb40-19" aria-hidden="true"></a>        drop_first<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb40-20"><a href="titanic.html#cb40-20" aria-hidden="true"></a>    )</span>
+<span id="cb40-21"><a href="titanic.html#cb40-21" aria-hidden="true"></a></span>
+<span id="cb40-22"><a href="titanic.html#cb40-22" aria-hidden="true"></a>df <span class="op">=</span> dummify(df, [<span class="st">&quot;Sex&quot;</span>])</span>
+<span id="cb40-23"><a href="titanic.html#cb40-23" aria-hidden="true"></a></span>
+<span id="cb40-24"><a href="titanic.html#cb40-24" aria-hidden="true"></a>g <span class="op">=</span> sns.FacetGrid(df, row<span class="op">=</span><span class="st">&quot;Pclass&quot;</span>, col<span class="op">=</span><span class="st">&quot;Sex_male&quot;</span>, size<span class="op">=</span><span class="fl">2.2</span>, aspect<span class="op">=</span><span class="fl">1.6</span>)</span></code></pre></div>
 <pre><code>#&gt; /nix/store/lz8yaf1c80c6zb3qj11j58x3qq366wxx-python3.8-seaborn-0.11.0/lib/python3.8/site-packages/seaborn/axisgrid.py:316: UserWarning: The `size` parameter has been renamed to `height`; please update your code.
 #&gt;   warnings.warn(msg, UserWarning)</code></pre>
-<div class="sourceCode" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb41-1"><a href="titanic.html#cb41-1" aria-hidden="true"></a>g.<span class="bu">map</span>(plt.hist, <span class="st">&quot;Age&quot;</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, bins<span class="op">=</span><span class="dv">20</span>)</span></code></pre></div>
-<pre><code>#&gt; &lt;seaborn.axisgrid.FacetGrid object at 0x7fb936a2c220&gt;</code></pre>
-<div class="sourceCode" id="cb43"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb43-1"><a href="titanic.html#cb43-1" aria-hidden="true"></a>g.add_legend()</span></code></pre></div>
-<pre><code>#&gt; &lt;seaborn.axisgrid.FacetGrid object at 0x7fb936a2c220&gt;</code></pre>
-<div class="sourceCode" id="cb45"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb45-1"><a href="titanic.html#cb45-1" aria-hidden="true"></a>plt.savefig(<span class="st">&quot;06_hist_&quot;</span>)</span>
-<span id="cb45-2"><a href="titanic.html#cb45-2" aria-hidden="true"></a>plt.show()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-9-4.png" width="686" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb46-1"><a href="titanic.html#cb46-1" aria-hidden="true"></a>guess_ages <span class="op">=</span> np.zeros((<span class="dv">2</span>, <span class="dv">3</span>))</span>
-<span id="cb46-2"><a href="titanic.html#cb46-2" aria-hidden="true"></a></span>
-<span id="cb46-3"><a href="titanic.html#cb46-3" aria-hidden="true"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">2</span>):</span>
-<span id="cb46-4"><a href="titanic.html#cb46-4" aria-hidden="true"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">3</span>):</span>
-<span id="cb46-5"><a href="titanic.html#cb46-5" aria-hidden="true"></a>        guess_df <span class="op">=</span> df[(df[<span class="st">&quot;Sex_male&quot;</span>] <span class="op">==</span> i)</span>
-<span id="cb46-6"><a href="titanic.html#cb46-6" aria-hidden="true"></a>                      <span class="op">&amp;</span> (df[<span class="st">&quot;Pclass&quot;</span>] <span class="op">==</span> j <span class="op">+</span> <span class="dv">1</span>)][<span class="st">&quot;Age&quot;</span>].dropna()</span>
-<span id="cb46-7"><a href="titanic.html#cb46-7" aria-hidden="true"></a></span>
-<span id="cb46-8"><a href="titanic.html#cb46-8" aria-hidden="true"></a>        <span class="co">## age_mean = guess_df.mean()</span></span>
-<span id="cb46-9"><a href="titanic.html#cb46-9" aria-hidden="true"></a>        <span class="co"># age_std = guess_df.std()</span></span>
-<span id="cb46-10"><a href="titanic.html#cb46-10" aria-hidden="true"></a>        <span class="co">## age_guess = rnd.uniform(age_mean - age_std, age_mean + age_std)</span></span>
-<span id="cb46-11"><a href="titanic.html#cb46-11" aria-hidden="true"></a></span>
-<span id="cb46-12"><a href="titanic.html#cb46-12" aria-hidden="true"></a>        age_guess <span class="op">=</span> guess_df.median()</span>
-<span id="cb46-13"><a href="titanic.html#cb46-13" aria-hidden="true"></a></span>
-<span id="cb46-14"><a href="titanic.html#cb46-14" aria-hidden="true"></a>        <span class="co">## Convert random age float to nearest .5 age</span></span>
-<span id="cb46-15"><a href="titanic.html#cb46-15" aria-hidden="true"></a>        guess_ages[i, j] <span class="op">=</span> <span class="bu">int</span>(age_guess <span class="op">/</span> <span class="fl">0.5</span> <span class="op">+</span> <span class="fl">0.5</span>) <span class="op">*</span> <span class="fl">0.5</span></span>
-<span id="cb46-16"><a href="titanic.html#cb46-16" aria-hidden="true"></a></span>
-<span id="cb46-17"><a href="titanic.html#cb46-17" aria-hidden="true"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">2</span>):</span>
-<span id="cb46-18"><a href="titanic.html#cb46-18" aria-hidden="true"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">3</span>):</span>
-<span id="cb46-19"><a href="titanic.html#cb46-19" aria-hidden="true"></a>        df.loc[(df.Age.isnull()) <span class="op">&amp;</span> (df.Sex_male <span class="op">==</span> i) <span class="op">&amp;</span> (df.Pclass <span class="op">==</span> j <span class="op">+</span> <span class="dv">1</span>),</span>
-<span id="cb46-20"><a href="titanic.html#cb46-20" aria-hidden="true"></a>               <span class="st">&quot;Age&quot;</span>, ] <span class="op">=</span> guess_ages[i, j]</span>
-<span id="cb46-21"><a href="titanic.html#cb46-21" aria-hidden="true"></a></span>
-<span id="cb46-22"><a href="titanic.html#cb46-22" aria-hidden="true"></a>df[<span class="st">&quot;Age&quot;</span>] <span class="op">=</span> df[<span class="st">&quot;Age&quot;</span>].astype(<span class="bu">int</span>)</span>
-<span id="cb46-23"><a href="titanic.html#cb46-23" aria-hidden="true"></a></span>
-<span id="cb46-24"><a href="titanic.html#cb46-24" aria-hidden="true"></a>df.head()</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb42-1"><a href="titanic.html#cb42-1" aria-hidden="true"></a>g.<span class="bu">map</span>(plt.hist, <span class="st">&quot;Age&quot;</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, bins<span class="op">=</span><span class="dv">20</span>)</span></code></pre></div>
+<pre><code>#&gt; &lt;seaborn.axisgrid.FacetGrid object at 0x7fb9368b94c0&gt;</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb44-1"><a href="titanic.html#cb44-1" aria-hidden="true"></a>g.add_legend()</span></code></pre></div>
+<pre><code>#&gt; &lt;seaborn.axisgrid.FacetGrid object at 0x7fb9368b94c0&gt;</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb46-1"><a href="titanic.html#cb46-1" aria-hidden="true"></a>plt.savefig(<span class="st">&quot;06_hist_&quot;</span>)</span>
+<span id="cb46-2"><a href="titanic.html#cb46-2" aria-hidden="true"></a>plt.show()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-10-4.png" width="686" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb47-1"><a href="titanic.html#cb47-1" aria-hidden="true"></a>guess_ages <span class="op">=</span> np.zeros((<span class="dv">2</span>, <span class="dv">3</span>))</span>
+<span id="cb47-2"><a href="titanic.html#cb47-2" aria-hidden="true"></a></span>
+<span id="cb47-3"><a href="titanic.html#cb47-3" aria-hidden="true"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">2</span>):</span>
+<span id="cb47-4"><a href="titanic.html#cb47-4" aria-hidden="true"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">3</span>):</span>
+<span id="cb47-5"><a href="titanic.html#cb47-5" aria-hidden="true"></a>        guess_df <span class="op">=</span> df[(df[<span class="st">&quot;Sex_male&quot;</span>] <span class="op">==</span> i)</span>
+<span id="cb47-6"><a href="titanic.html#cb47-6" aria-hidden="true"></a>                      <span class="op">&amp;</span> (df[<span class="st">&quot;Pclass&quot;</span>] <span class="op">==</span> j <span class="op">+</span> <span class="dv">1</span>)][<span class="st">&quot;Age&quot;</span>].dropna()</span>
+<span id="cb47-7"><a href="titanic.html#cb47-7" aria-hidden="true"></a></span>
+<span id="cb47-8"><a href="titanic.html#cb47-8" aria-hidden="true"></a>        <span class="co">## age_mean = guess_df.mean()</span></span>
+<span id="cb47-9"><a href="titanic.html#cb47-9" aria-hidden="true"></a>        <span class="co"># age_std = guess_df.std()</span></span>
+<span id="cb47-10"><a href="titanic.html#cb47-10" aria-hidden="true"></a>        <span class="co">## age_guess = rnd.uniform(age_mean - age_std, age_mean + age_std)</span></span>
+<span id="cb47-11"><a href="titanic.html#cb47-11" aria-hidden="true"></a></span>
+<span id="cb47-12"><a href="titanic.html#cb47-12" aria-hidden="true"></a>        age_guess <span class="op">=</span> guess_df.median()</span>
+<span id="cb47-13"><a href="titanic.html#cb47-13" aria-hidden="true"></a></span>
+<span id="cb47-14"><a href="titanic.html#cb47-14" aria-hidden="true"></a>        <span class="co">## Convert random age float to nearest .5 age</span></span>
+<span id="cb47-15"><a href="titanic.html#cb47-15" aria-hidden="true"></a>        guess_ages[i, j] <span class="op">=</span> <span class="bu">int</span>(age_guess <span class="op">/</span> <span class="fl">0.5</span> <span class="op">+</span> <span class="fl">0.5</span>) <span class="op">*</span> <span class="fl">0.5</span></span>
+<span id="cb47-16"><a href="titanic.html#cb47-16" aria-hidden="true"></a></span>
+<span id="cb47-17"><a href="titanic.html#cb47-17" aria-hidden="true"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">2</span>):</span>
+<span id="cb47-18"><a href="titanic.html#cb47-18" aria-hidden="true"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>, <span class="dv">3</span>):</span>
+<span id="cb47-19"><a href="titanic.html#cb47-19" aria-hidden="true"></a>        df.loc[(df.Age.isnull()) <span class="op">&amp;</span> (df.Sex_male <span class="op">==</span> i) <span class="op">&amp;</span> (df.Pclass <span class="op">==</span> j <span class="op">+</span> <span class="dv">1</span>),</span>
+<span id="cb47-20"><a href="titanic.html#cb47-20" aria-hidden="true"></a>               <span class="st">&quot;Age&quot;</span>, ] <span class="op">=</span> guess_ages[i, j]</span>
+<span id="cb47-21"><a href="titanic.html#cb47-21" aria-hidden="true"></a></span>
+<span id="cb47-22"><a href="titanic.html#cb47-22" aria-hidden="true"></a>df[<span class="st">&quot;Age&quot;</span>] <span class="op">=</span> df[<span class="st">&quot;Age&quot;</span>].astype(<span class="bu">int</span>)</span>
+<span id="cb47-23"><a href="titanic.html#cb47-23" aria-hidden="true"></a></span>
+<span id="cb47-24"><a href="titanic.html#cb47-24" aria-hidden="true"></a>df.head()</span></code></pre></div>
 <pre><code>#&gt;    Survived  Pclass  Age  SibSp  Parch     Fare Embarked  Title  Sex_male
 #&gt; 0       0.0       3   22      1      0   7.2500        S    3.0         1
 #&gt; 1       1.0       1   38      1      0  71.2833        C    4.0         0
 #&gt; 2       1.0       3   26      0      0   7.9250        S    2.0         0
 #&gt; 3       1.0       1   35      1      0  53.1000        S    4.0         0
 #&gt; 4       0.0       3   35      0      0   8.0500        S    3.0         1</code></pre>
-<div class="sourceCode" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb48-1"><a href="titanic.html#cb48-1" aria-hidden="true"></a>df[<span class="st">&quot;Age_Band&quot;</span>] <span class="op">=</span> pd.cut(df[<span class="st">&quot;Age&quot;</span>], <span class="dv">5</span>)</span>
-<span id="cb48-2"><a href="titanic.html#cb48-2" aria-hidden="true"></a>df[[<span class="st">&quot;Age_Band&quot;</span>,</span>
-<span id="cb48-3"><a href="titanic.html#cb48-3" aria-hidden="true"></a>    <span class="st">&quot;Survived&quot;</span>]].groupby([<span class="st">&quot;Age_Band&quot;</span>],</span>
-<span id="cb48-4"><a href="titanic.html#cb48-4" aria-hidden="true"></a>                         as_index<span class="op">=</span><span class="va">False</span>).mean().sort_values(by<span class="op">=</span><span class="st">&quot;Age_Band&quot;</span>,</span>
-<span id="cb48-5"><a href="titanic.html#cb48-5" aria-hidden="true"></a>                                                            ascending<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb49-1"><a href="titanic.html#cb49-1" aria-hidden="true"></a>df[<span class="st">&quot;Age_Band&quot;</span>] <span class="op">=</span> pd.cut(df[<span class="st">&quot;Age&quot;</span>], <span class="dv">5</span>)</span>
+<span id="cb49-2"><a href="titanic.html#cb49-2" aria-hidden="true"></a>df[[<span class="st">&quot;Age_Band&quot;</span>,</span>
+<span id="cb49-3"><a href="titanic.html#cb49-3" aria-hidden="true"></a>    <span class="st">&quot;Survived&quot;</span>]].groupby([<span class="st">&quot;Age_Band&quot;</span>],</span>
+<span id="cb49-4"><a href="titanic.html#cb49-4" aria-hidden="true"></a>                         as_index<span class="op">=</span><span class="va">False</span>).mean().sort_values(by<span class="op">=</span><span class="st">&quot;Age_Band&quot;</span>,</span>
+<span id="cb49-5"><a href="titanic.html#cb49-5" aria-hidden="true"></a>                                                            ascending<span class="op">=</span><span class="va">True</span>)</span></code></pre></div>
 <pre><code>#&gt;         Age_Band  Survived
 #&gt; 0  (-0.08, 16.0]  0.550000
 #&gt; 1   (16.0, 32.0]  0.337374
 #&gt; 2   (32.0, 48.0]  0.412037
 #&gt; 3   (48.0, 64.0]  0.434783
 #&gt; 4   (64.0, 80.0]  0.090909</code></pre>
-<div class="sourceCode" id="cb50"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb50-1"><a href="titanic.html#cb50-1" aria-hidden="true"></a>DATA_FRAME <span class="op">=</span> df</span>
-<span id="cb50-2"><a href="titanic.html#cb50-2" aria-hidden="true"></a>COL <span class="op">=</span> <span class="st">&quot;Age&quot;</span></span>
-<span id="cb50-3"><a href="titanic.html#cb50-3" aria-hidden="true"></a></span>
-<span id="cb50-4"><a href="titanic.html#cb50-4" aria-hidden="true"></a><span class="kw">def</span> function1(col_value):</span>
-<span id="cb50-5"><a href="titanic.html#cb50-5" aria-hidden="true"></a>    <span class="cf">if</span> col_value <span class="op">&lt;=</span> <span class="dv">16</span>:</span>
-<span id="cb50-6"><a href="titanic.html#cb50-6" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
-<span id="cb50-7"><a href="titanic.html#cb50-7" aria-hidden="true"></a>    <span class="cf">elif</span> (col_value <span class="op">&gt;</span> <span class="dv">16</span>) <span class="op">&amp;</span> (col_value <span class="op">&lt;=</span> <span class="dv">32</span>):</span>
-<span id="cb50-8"><a href="titanic.html#cb50-8" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
-<span id="cb50-9"><a href="titanic.html#cb50-9" aria-hidden="true"></a>    <span class="cf">elif</span> (col_value <span class="op">&gt;</span> <span class="dv">32</span>) <span class="op">&amp;</span> (col_value <span class="op">&lt;=</span> <span class="dv">48</span>):</span>
-<span id="cb50-10"><a href="titanic.html#cb50-10" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">2</span></span>
-<span id="cb50-11"><a href="titanic.html#cb50-11" aria-hidden="true"></a>    <span class="cf">elif</span> (col_value <span class="op">&gt;</span> <span class="dv">48</span>) <span class="op">&amp;</span> (col_value <span class="op">&lt;=</span> <span class="dv">64</span>):</span>
-<span id="cb50-12"><a href="titanic.html#cb50-12" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">3</span></span>
-<span id="cb50-13"><a href="titanic.html#cb50-13" aria-hidden="true"></a>    <span class="cf">else</span>:</span>
-<span id="cb50-14"><a href="titanic.html#cb50-14" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">4</span></span>
-<span id="cb50-15"><a href="titanic.html#cb50-15" aria-hidden="true"></a></span>
-<span id="cb50-16"><a href="titanic.html#cb50-16" aria-hidden="true"></a>df[<span class="st">&quot;Age_Bands&quot;</span>] <span class="op">=</span> DATA_FRAME[COL].<span class="bu">apply</span>(<span class="kw">lambda</span> col_value: function1(col_value))</span>
-<span id="cb50-17"><a href="titanic.html#cb50-17" aria-hidden="true"></a></span>
-<span id="cb50-18"><a href="titanic.html#cb50-18" aria-hidden="true"></a>df[<span class="st">&quot;Family_size&quot;</span>] <span class="op">=</span> df[<span class="st">&quot;SibSp&quot;</span>] <span class="op">+</span> df[<span class="st">&quot;Parch&quot;</span>] <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb50-19"><a href="titanic.html#cb50-19" aria-hidden="true"></a></span>
-<span id="cb50-20"><a href="titanic.html#cb50-20" aria-hidden="true"></a>df[[<span class="st">&quot;Family_size&quot;</span>,</span>
-<span id="cb50-21"><a href="titanic.html#cb50-21" aria-hidden="true"></a>    <span class="st">&quot;Survived&quot;</span>]].groupby([<span class="st">&quot;Family_size&quot;</span>],</span>
-<span id="cb50-22"><a href="titanic.html#cb50-22" aria-hidden="true"></a>                         as_index<span class="op">=</span><span class="va">False</span>).mean().sort_values(by<span class="op">=</span><span class="st">&quot;Survived&quot;</span>,</span>
-<span id="cb50-23"><a href="titanic.html#cb50-23" aria-hidden="true"></a>                                                            ascending<span class="op">=</span><span class="va">False</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb51-1"><a href="titanic.html#cb51-1" aria-hidden="true"></a>DATA_FRAME <span class="op">=</span> df</span>
+<span id="cb51-2"><a href="titanic.html#cb51-2" aria-hidden="true"></a>COL <span class="op">=</span> <span class="st">&quot;Age&quot;</span></span>
+<span id="cb51-3"><a href="titanic.html#cb51-3" aria-hidden="true"></a></span>
+<span id="cb51-4"><a href="titanic.html#cb51-4" aria-hidden="true"></a><span class="kw">def</span> function1(col_value):</span>
+<span id="cb51-5"><a href="titanic.html#cb51-5" aria-hidden="true"></a>    <span class="cf">if</span> col_value <span class="op">&lt;=</span> <span class="dv">16</span>:</span>
+<span id="cb51-6"><a href="titanic.html#cb51-6" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb51-7"><a href="titanic.html#cb51-7" aria-hidden="true"></a>    <span class="cf">elif</span> (col_value <span class="op">&gt;</span> <span class="dv">16</span>) <span class="op">&amp;</span> (col_value <span class="op">&lt;=</span> <span class="dv">32</span>):</span>
+<span id="cb51-8"><a href="titanic.html#cb51-8" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb51-9"><a href="titanic.html#cb51-9" aria-hidden="true"></a>    <span class="cf">elif</span> (col_value <span class="op">&gt;</span> <span class="dv">32</span>) <span class="op">&amp;</span> (col_value <span class="op">&lt;=</span> <span class="dv">48</span>):</span>
+<span id="cb51-10"><a href="titanic.html#cb51-10" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">2</span></span>
+<span id="cb51-11"><a href="titanic.html#cb51-11" aria-hidden="true"></a>    <span class="cf">elif</span> (col_value <span class="op">&gt;</span> <span class="dv">48</span>) <span class="op">&amp;</span> (col_value <span class="op">&lt;=</span> <span class="dv">64</span>):</span>
+<span id="cb51-12"><a href="titanic.html#cb51-12" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">3</span></span>
+<span id="cb51-13"><a href="titanic.html#cb51-13" aria-hidden="true"></a>    <span class="cf">else</span>:</span>
+<span id="cb51-14"><a href="titanic.html#cb51-14" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">4</span></span>
+<span id="cb51-15"><a href="titanic.html#cb51-15" aria-hidden="true"></a></span>
+<span id="cb51-16"><a href="titanic.html#cb51-16" aria-hidden="true"></a>df[<span class="st">&quot;Age_Bands&quot;</span>] <span class="op">=</span> DATA_FRAME[COL].<span class="bu">apply</span>(<span class="kw">lambda</span> col_value: function1(col_value))</span>
+<span id="cb51-17"><a href="titanic.html#cb51-17" aria-hidden="true"></a></span>
+<span id="cb51-18"><a href="titanic.html#cb51-18" aria-hidden="true"></a>df[<span class="st">&quot;Family_size&quot;</span>] <span class="op">=</span> df[<span class="st">&quot;SibSp&quot;</span>] <span class="op">+</span> df[<span class="st">&quot;Parch&quot;</span>] <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb51-19"><a href="titanic.html#cb51-19" aria-hidden="true"></a></span>
+<span id="cb51-20"><a href="titanic.html#cb51-20" aria-hidden="true"></a>df[[<span class="st">&quot;Family_size&quot;</span>,</span>
+<span id="cb51-21"><a href="titanic.html#cb51-21" aria-hidden="true"></a>    <span class="st">&quot;Survived&quot;</span>]].groupby([<span class="st">&quot;Family_size&quot;</span>],</span>
+<span id="cb51-22"><a href="titanic.html#cb51-22" aria-hidden="true"></a>                         as_index<span class="op">=</span><span class="va">False</span>).mean().sort_values(by<span class="op">=</span><span class="st">&quot;Survived&quot;</span>,</span>
+<span id="cb51-23"><a href="titanic.html#cb51-23" aria-hidden="true"></a>                                                            ascending<span class="op">=</span><span class="va">False</span>)</span></code></pre></div>
 <pre><code>#&gt;    Family_size  Survived
 #&gt; 3            4  0.724138
 #&gt; 2            3  0.578431
@@ -640,81 +646,82 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; 5            6  0.136364
 #&gt; 7            8  0.000000
 #&gt; 8           11  0.000000</code></pre>
-<div class="sourceCode" id="cb52"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb52-1"><a href="titanic.html#cb52-1" aria-hidden="true"></a>DATA_FRAME <span class="op">=</span> df</span>
-<span id="cb52-2"><a href="titanic.html#cb52-2" aria-hidden="true"></a>COL <span class="op">=</span> <span class="st">&quot;Family_size&quot;</span></span>
-<span id="cb52-3"><a href="titanic.html#cb52-3" aria-hidden="true"></a></span>
-<span id="cb52-4"><a href="titanic.html#cb52-4" aria-hidden="true"></a><span class="kw">def</span> function1(col_value):</span>
-<span id="cb52-5"><a href="titanic.html#cb52-5" aria-hidden="true"></a>    <span class="cf">if</span> col_value <span class="op">&gt;=</span> <span class="dv">2</span>:</span>
-<span id="cb52-6"><a href="titanic.html#cb52-6" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
-<span id="cb52-7"><a href="titanic.html#cb52-7" aria-hidden="true"></a>    <span class="cf">else</span>:</span>
-<span id="cb52-8"><a href="titanic.html#cb52-8" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
-<span id="cb52-9"><a href="titanic.html#cb52-9" aria-hidden="true"></a></span>
-<span id="cb52-10"><a href="titanic.html#cb52-10" aria-hidden="true"></a>df[<span class="st">&quot;Is_alone&quot;</span>] <span class="op">=</span> DATA_FRAME[COL].<span class="bu">apply</span>(<span class="kw">lambda</span> col_value: function1(col_value))</span>
-<span id="cb52-11"><a href="titanic.html#cb52-11" aria-hidden="true"></a></span>
-<span id="cb52-12"><a href="titanic.html#cb52-12" aria-hidden="true"></a>df[[<span class="st">&quot;Is_alone&quot;</span>,</span>
-<span id="cb52-13"><a href="titanic.html#cb52-13" aria-hidden="true"></a>    <span class="st">&quot;Survived&quot;</span>]].groupby([<span class="st">&quot;Is_alone&quot;</span>]).mean().sort_values(by<span class="op">=</span><span class="st">&quot;Survived&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb53-1"><a href="titanic.html#cb53-1" aria-hidden="true"></a>DATA_FRAME <span class="op">=</span> df</span>
+<span id="cb53-2"><a href="titanic.html#cb53-2" aria-hidden="true"></a>COL <span class="op">=</span> <span class="st">&quot;Family_size&quot;</span></span>
+<span id="cb53-3"><a href="titanic.html#cb53-3" aria-hidden="true"></a></span>
+<span id="cb53-4"><a href="titanic.html#cb53-4" aria-hidden="true"></a><span class="kw">def</span> function1(col_value):</span>
+<span id="cb53-5"><a href="titanic.html#cb53-5" aria-hidden="true"></a>    <span class="cf">if</span> col_value <span class="op">&gt;=</span> <span class="dv">2</span>:</span>
+<span id="cb53-6"><a href="titanic.html#cb53-6" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb53-7"><a href="titanic.html#cb53-7" aria-hidden="true"></a>    <span class="cf">else</span>:</span>
+<span id="cb53-8"><a href="titanic.html#cb53-8" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb53-9"><a href="titanic.html#cb53-9" aria-hidden="true"></a></span>
+<span id="cb53-10"><a href="titanic.html#cb53-10" aria-hidden="true"></a>df[<span class="st">&quot;Is_alone&quot;</span>] <span class="op">=</span> DATA_FRAME[COL].<span class="bu">apply</span>(<span class="kw">lambda</span> col_value: function1(col_value))</span>
+<span id="cb53-11"><a href="titanic.html#cb53-11" aria-hidden="true"></a></span>
+<span id="cb53-12"><a href="titanic.html#cb53-12" aria-hidden="true"></a>df[[<span class="st">&quot;Is_alone&quot;</span>,</span>
+<span id="cb53-13"><a href="titanic.html#cb53-13" aria-hidden="true"></a>    <span class="st">&quot;Survived&quot;</span>]].groupby([<span class="st">&quot;Is_alone&quot;</span>]).mean().sort_values(by<span class="op">=</span><span class="st">&quot;Survived&quot;</span>)</span></code></pre></div>
 <pre><code>#&gt;           Survived
 #&gt; Is_alone          
 #&gt; 1         0.303538
 #&gt; 0         0.505650</code></pre>
-<div class="sourceCode" id="cb54"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb54-1"><a href="titanic.html#cb54-1" aria-hidden="true"></a>df[<span class="st">&quot;Embarked&quot;</span>].fillna(<span class="st">&quot;S&quot;</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb54-2"><a href="titanic.html#cb54-2" aria-hidden="true"></a></span>
-<span id="cb54-3"><a href="titanic.html#cb54-3" aria-hidden="true"></a>df[<span class="st">&quot;Embarked&quot;</span>] <span class="op">=</span> df[<span class="st">&quot;Embarked&quot;</span>].<span class="bu">map</span>({<span class="st">&quot;S&quot;</span>: <span class="dv">0</span>, <span class="st">&quot;C&quot;</span>: <span class="dv">1</span>, <span class="st">&quot;Q&quot;</span>: <span class="dv">2</span>}).astype(<span class="bu">int</span>)</span>
-<span id="cb54-4"><a href="titanic.html#cb54-4" aria-hidden="true"></a></span>
-<span id="cb54-5"><a href="titanic.html#cb54-5" aria-hidden="true"></a><span class="bu">print</span>(pd.qcut(df[<span class="st">&quot;Fare&quot;</span>], <span class="dv">4</span>)[[]])</span></code></pre></div>
+<div class="sourceCode" id="cb55"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb55-1"><a href="titanic.html#cb55-1" aria-hidden="true"></a>df[<span class="st">&quot;Embarked&quot;</span>].fillna(<span class="st">&quot;S&quot;</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb55-2"><a href="titanic.html#cb55-2" aria-hidden="true"></a></span>
+<span id="cb55-3"><a href="titanic.html#cb55-3" aria-hidden="true"></a>df[<span class="st">&quot;Embarked&quot;</span>] <span class="op">=</span> df[<span class="st">&quot;Embarked&quot;</span>].<span class="bu">map</span>({<span class="st">&quot;S&quot;</span>: <span class="dv">0</span>, <span class="st">&quot;C&quot;</span>: <span class="dv">1</span>, <span class="st">&quot;Q&quot;</span>: <span class="dv">2</span>}).astype(<span class="bu">int</span>)</span>
+<span id="cb55-4"><a href="titanic.html#cb55-4" aria-hidden="true"></a></span>
+<span id="cb55-5"><a href="titanic.html#cb55-5" aria-hidden="true"></a><span class="bu">print</span>(pd.qcut(df[<span class="st">&quot;Fare&quot;</span>], <span class="dv">4</span>)[[]])</span></code></pre></div>
 <pre><code>#&gt; Series([], Name: Fare, dtype: category
 #&gt; Categories (4, interval[float64]): [(-0.001, 7.896] &lt; (7.896, 14.454] &lt; (14.454, 31.275] &lt;
 #&gt;                                     (31.275, 512.329]])</code></pre>
-<div class="sourceCode" id="cb56"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb56-1"><a href="titanic.html#cb56-1" aria-hidden="true"></a>DATA_FRAME <span class="op">=</span> df</span>
-<span id="cb56-2"><a href="titanic.html#cb56-2" aria-hidden="true"></a>COL <span class="op">=</span> <span class="st">&quot;Fare&quot;</span></span>
-<span id="cb56-3"><a href="titanic.html#cb56-3" aria-hidden="true"></a></span>
-<span id="cb56-4"><a href="titanic.html#cb56-4" aria-hidden="true"></a><span class="kw">def</span> function1(col_value):</span>
-<span id="cb56-5"><a href="titanic.html#cb56-5" aria-hidden="true"></a>    <span class="cf">if</span> col_value <span class="op">&lt;=</span> <span class="fl">7.91</span>:</span>
-<span id="cb56-6"><a href="titanic.html#cb56-6" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
-<span id="cb56-7"><a href="titanic.html#cb56-7" aria-hidden="true"></a>    <span class="cf">elif</span> (col_value <span class="op">&gt;=</span> <span class="fl">7.91</span>) <span class="op">&amp;</span> (col_value <span class="op">&lt;=</span> <span class="fl">14.454</span>):</span>
-<span id="cb56-8"><a href="titanic.html#cb56-8" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
-<span id="cb56-9"><a href="titanic.html#cb56-9" aria-hidden="true"></a>    <span class="cf">elif</span> (col_value <span class="op">&gt;=</span> <span class="fl">14.454</span>) <span class="op">&amp;</span> (col_value <span class="op">&lt;=</span> <span class="fl">31.0</span>):</span>
-<span id="cb56-10"><a href="titanic.html#cb56-10" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">2</span></span>
-<span id="cb56-11"><a href="titanic.html#cb56-11" aria-hidden="true"></a>    <span class="cf">else</span>:</span>
-<span id="cb56-12"><a href="titanic.html#cb56-12" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">3</span></span>
-<span id="cb56-13"><a href="titanic.html#cb56-13" aria-hidden="true"></a></span>
-<span id="cb56-14"><a href="titanic.html#cb56-14" aria-hidden="true"></a>df[<span class="st">&quot;Fare_bands&quot;</span>] <span class="op">=</span> DATA_FRAME[COL].<span class="bu">apply</span>(</span>
-<span id="cb56-15"><a href="titanic.html#cb56-15" aria-hidden="true"></a>    <span class="kw">lambda</span> col_value: function1(col_value))</span>
-<span id="cb56-16"><a href="titanic.html#cb56-16" aria-hidden="true"></a></span>
-<span id="cb56-17"><a href="titanic.html#cb56-17" aria-hidden="true"></a>df.drop([<span class="st">&quot;SibSp&quot;</span>, <span class="st">&quot;Parch&quot;</span>, <span class="st">&quot;Age_Band&quot;</span>, <span class="st">&quot;Is_alone&quot;</span>, <span class="st">&quot;Fare&quot;</span>, <span class="st">&quot;Age&quot;</span>],</span>
-<span id="cb56-18"><a href="titanic.html#cb56-18" aria-hidden="true"></a>        inplace<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb56-19"><a href="titanic.html#cb56-19" aria-hidden="true"></a>        axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb56-20"><a href="titanic.html#cb56-20" aria-hidden="true"></a></span>
-<span id="cb56-21"><a href="titanic.html#cb56-21" aria-hidden="true"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">12</span>))</span>
-<span id="cb56-22"><a href="titanic.html#cb56-22" aria-hidden="true"></a>plt.title(<span class="st">&#39;Correlation of Features&#39;</span>, y<span class="op">=</span><span class="fl">1.05</span>, size<span class="op">=</span><span class="dv">15</span>)</span>
-<span id="cb56-23"><a href="titanic.html#cb56-23" aria-hidden="true"></a>mask <span class="op">=</span> np.zeros_like(df.corr())</span>
-<span id="cb56-24"><a href="titanic.html#cb56-24" aria-hidden="true"></a>mask[np.triu_indices_from(mask)] <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb56-25"><a href="titanic.html#cb56-25" aria-hidden="true"></a>sns.heatmap(</span>
-<span id="cb56-26"><a href="titanic.html#cb56-26" aria-hidden="true"></a>    df.astype(<span class="bu">float</span>).corr(),</span>
-<span id="cb56-27"><a href="titanic.html#cb56-27" aria-hidden="true"></a>    annot<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb56-28"><a href="titanic.html#cb56-28" aria-hidden="true"></a>    linewidths<span class="op">=</span><span class="fl">0.2</span>,</span>
-<span id="cb56-29"><a href="titanic.html#cb56-29" aria-hidden="true"></a>    linecolor<span class="op">=</span><span class="st">&#39;white&#39;</span>,</span>
-<span id="cb56-30"><a href="titanic.html#cb56-30" aria-hidden="true"></a>    cmap<span class="op">=</span><span class="st">&quot;RdBu&quot;</span>,</span>
-<span id="cb56-31"><a href="titanic.html#cb56-31" aria-hidden="true"></a>    center<span class="op">=</span><span class="dv">0</span>,</span>
-<span id="cb56-32"><a href="titanic.html#cb56-32" aria-hidden="true"></a>    mask<span class="op">=</span>mask,</span>
-<span id="cb56-33"><a href="titanic.html#cb56-33" aria-hidden="true"></a>    vmax<span class="op">=</span><span class="fl">1.0</span>,</span>
-<span id="cb56-34"><a href="titanic.html#cb56-34" aria-hidden="true"></a>    vmin<span class="op">=-</span><span class="fl">1.0</span>,</span>
-<span id="cb56-35"><a href="titanic.html#cb56-35" aria-hidden="true"></a>    square<span class="op">=</span><span class="va">True</span>,</span>
-<span id="cb56-36"><a href="titanic.html#cb56-36" aria-hidden="true"></a>)</span>
-<span id="cb56-37"><a href="titanic.html#cb56-37" aria-hidden="true"></a>plt.savefig(<span class="st">&quot;03_correlation_map_2&quot;</span>)</span>
-<span id="cb56-38"><a href="titanic.html#cb56-38" aria-hidden="true"></a>plt.show()</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-9-5.png" width="1344" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb57-1"><a href="titanic.html#cb57-1" aria-hidden="true"></a>TARGET_COL <span class="op">=</span> <span class="st">&quot;Survived&quot;</span></span>
-<span id="cb57-2"><a href="titanic.html#cb57-2" aria-hidden="true"></a>df <span class="op">=</span> df[<span class="op">~</span>df[TARGET_COL].isna()]  <span class="co">## ~ = not</span></span>
+<div class="sourceCode" id="cb57"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb57-1"><a href="titanic.html#cb57-1" aria-hidden="true"></a>DATA_FRAME <span class="op">=</span> df</span>
+<span id="cb57-2"><a href="titanic.html#cb57-2" aria-hidden="true"></a>COL <span class="op">=</span> <span class="st">&quot;Fare&quot;</span></span>
 <span id="cb57-3"><a href="titanic.html#cb57-3" aria-hidden="true"></a></span>
-<span id="cb57-4"><a href="titanic.html#cb57-4" aria-hidden="true"></a><span class="co">## df = df.sample(frac=0.2,random_state=101)</span></span>
-<span id="cb57-5"><a href="titanic.html#cb57-5" aria-hidden="true"></a>feat <span class="op">=</span> df.drop(TARGET_COL, axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb57-6"><a href="titanic.html#cb57-6" aria-hidden="true"></a>tar <span class="op">=</span> df[TARGET_COL]</span>
-<span id="cb57-7"><a href="titanic.html#cb57-7" aria-hidden="true"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
-<span id="cb57-8"><a href="titanic.html#cb57-8" aria-hidden="true"></a></span>
-<span id="cb57-9"><a href="titanic.html#cb57-9" aria-hidden="true"></a>feat_train, feat_test, tar_train, tar_test <span class="op">=</span> train_test_split(feat, tar, test_size<span class="op">=</span><span class="fl">0.3</span>)</span></code></pre></div>
-<div id="models" class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> Models</h2>
+<span id="cb57-4"><a href="titanic.html#cb57-4" aria-hidden="true"></a><span class="kw">def</span> function1(col_value):</span>
+<span id="cb57-5"><a href="titanic.html#cb57-5" aria-hidden="true"></a>    <span class="cf">if</span> col_value <span class="op">&lt;=</span> <span class="fl">7.91</span>:</span>
+<span id="cb57-6"><a href="titanic.html#cb57-6" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb57-7"><a href="titanic.html#cb57-7" aria-hidden="true"></a>    <span class="cf">elif</span> (col_value <span class="op">&gt;=</span> <span class="fl">7.91</span>) <span class="op">&amp;</span> (col_value <span class="op">&lt;=</span> <span class="fl">14.454</span>):</span>
+<span id="cb57-8"><a href="titanic.html#cb57-8" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb57-9"><a href="titanic.html#cb57-9" aria-hidden="true"></a>    <span class="cf">elif</span> (col_value <span class="op">&gt;=</span> <span class="fl">14.454</span>) <span class="op">&amp;</span> (col_value <span class="op">&lt;=</span> <span class="fl">31.0</span>):</span>
+<span id="cb57-10"><a href="titanic.html#cb57-10" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">2</span></span>
+<span id="cb57-11"><a href="titanic.html#cb57-11" aria-hidden="true"></a>    <span class="cf">else</span>:</span>
+<span id="cb57-12"><a href="titanic.html#cb57-12" aria-hidden="true"></a>        <span class="cf">return</span> <span class="dv">3</span></span>
+<span id="cb57-13"><a href="titanic.html#cb57-13" aria-hidden="true"></a></span>
+<span id="cb57-14"><a href="titanic.html#cb57-14" aria-hidden="true"></a>df[<span class="st">&quot;Fare_bands&quot;</span>] <span class="op">=</span> DATA_FRAME[COL].<span class="bu">apply</span>(</span>
+<span id="cb57-15"><a href="titanic.html#cb57-15" aria-hidden="true"></a>    <span class="kw">lambda</span> col_value: function1(col_value))</span>
+<span id="cb57-16"><a href="titanic.html#cb57-16" aria-hidden="true"></a></span>
+<span id="cb57-17"><a href="titanic.html#cb57-17" aria-hidden="true"></a>df.drop([<span class="st">&quot;SibSp&quot;</span>, <span class="st">&quot;Parch&quot;</span>, <span class="st">&quot;Age_Band&quot;</span>, <span class="st">&quot;Is_alone&quot;</span>, <span class="st">&quot;Fare&quot;</span>, <span class="st">&quot;Age&quot;</span>],</span>
+<span id="cb57-18"><a href="titanic.html#cb57-18" aria-hidden="true"></a>        inplace<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb57-19"><a href="titanic.html#cb57-19" aria-hidden="true"></a>        axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb57-20"><a href="titanic.html#cb57-20" aria-hidden="true"></a></span>
+<span id="cb57-21"><a href="titanic.html#cb57-21" aria-hidden="true"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">12</span>))</span>
+<span id="cb57-22"><a href="titanic.html#cb57-22" aria-hidden="true"></a>plt.title(<span class="st">&#39;Correlation of Features&#39;</span>, y<span class="op">=</span><span class="fl">1.05</span>, size<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb57-23"><a href="titanic.html#cb57-23" aria-hidden="true"></a>mask <span class="op">=</span> np.zeros_like(df.corr())</span>
+<span id="cb57-24"><a href="titanic.html#cb57-24" aria-hidden="true"></a>mask[np.triu_indices_from(mask)] <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb57-25"><a href="titanic.html#cb57-25" aria-hidden="true"></a>sns.heatmap(</span>
+<span id="cb57-26"><a href="titanic.html#cb57-26" aria-hidden="true"></a>    df.astype(<span class="bu">float</span>).corr(),</span>
+<span id="cb57-27"><a href="titanic.html#cb57-27" aria-hidden="true"></a>    annot<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb57-28"><a href="titanic.html#cb57-28" aria-hidden="true"></a>    linewidths<span class="op">=</span><span class="fl">0.2</span>,</span>
+<span id="cb57-29"><a href="titanic.html#cb57-29" aria-hidden="true"></a>    linecolor<span class="op">=</span><span class="st">&#39;white&#39;</span>,</span>
+<span id="cb57-30"><a href="titanic.html#cb57-30" aria-hidden="true"></a>    cmap<span class="op">=</span><span class="st">&quot;RdBu&quot;</span>,</span>
+<span id="cb57-31"><a href="titanic.html#cb57-31" aria-hidden="true"></a>    center<span class="op">=</span><span class="dv">0</span>,</span>
+<span id="cb57-32"><a href="titanic.html#cb57-32" aria-hidden="true"></a>    mask<span class="op">=</span>mask,</span>
+<span id="cb57-33"><a href="titanic.html#cb57-33" aria-hidden="true"></a>    vmax<span class="op">=</span><span class="fl">1.0</span>,</span>
+<span id="cb57-34"><a href="titanic.html#cb57-34" aria-hidden="true"></a>    vmin<span class="op">=-</span><span class="fl">1.0</span>,</span>
+<span id="cb57-35"><a href="titanic.html#cb57-35" aria-hidden="true"></a>    square<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb57-36"><a href="titanic.html#cb57-36" aria-hidden="true"></a>)</span>
+<span id="cb57-37"><a href="titanic.html#cb57-37" aria-hidden="true"></a>plt.savefig(<span class="st">&quot;03_correlation_map_2&quot;</span>)</span>
+<span id="cb57-38"><a href="titanic.html#cb57-38" aria-hidden="true"></a>plt.show()</span></code></pre></div>
+<p><img src="_main_files/figure-html/unnamed-chunk-10-5.png" width="1344" style="display: block; margin: auto;" /></p>
+</div>
+<div id="models" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Models</h2>
+<div class="sourceCode" id="cb58"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb58-1"><a href="titanic.html#cb58-1" aria-hidden="true"></a>TARGET_COL <span class="op">=</span> <span class="st">&quot;Survived&quot;</span></span>
+<span id="cb58-2"><a href="titanic.html#cb58-2" aria-hidden="true"></a>df <span class="op">=</span> df[<span class="op">~</span>df[TARGET_COL].isna()]  <span class="co">## ~ = not</span></span>
+<span id="cb58-3"><a href="titanic.html#cb58-3" aria-hidden="true"></a></span>
+<span id="cb58-4"><a href="titanic.html#cb58-4" aria-hidden="true"></a><span class="co">## df = df.sample(frac=0.2,random_state=101)</span></span>
+<span id="cb58-5"><a href="titanic.html#cb58-5" aria-hidden="true"></a>feat <span class="op">=</span> df.drop(TARGET_COL, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb58-6"><a href="titanic.html#cb58-6" aria-hidden="true"></a>tar <span class="op">=</span> df[TARGET_COL]</span>
+<span id="cb58-7"><a href="titanic.html#cb58-7" aria-hidden="true"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
+<span id="cb58-8"><a href="titanic.html#cb58-8" aria-hidden="true"></a></span>
+<span id="cb58-9"><a href="titanic.html#cb58-9" aria-hidden="true"></a>feat_train, feat_test, tar_train, tar_test <span class="op">=</span> train_test_split(feat, tar, test_size<span class="op">=</span><span class="fl">0.3</span>)</span></code></pre></div>
 
 </div>
 </div>
