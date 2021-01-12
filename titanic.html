@@ -197,17 +197,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="titanic.html#cb10-1" aria-hidden="true"></a>df_train <span class="op">=</span> pd.read_csv(<span class="st">&quot;~/docs/codeing/python/titanic/train.csv&quot;</span>)</span>
 <span id="cb10-2"><a href="titanic.html#cb10-2" aria-hidden="true"></a>df_test  <span class="op">=</span> pd.read_csv(<span class="st">&quot;~/docs/codeing/python/titanic/test.csv&quot;</span>)</span>
 <span id="cb10-3"><a href="titanic.html#cb10-3" aria-hidden="true"></a>df <span class="op">=</span> pd.concat([df_train, df_test])</span>
-<span id="cb10-4"><a href="titanic.html#cb10-4" aria-hidden="true"></a></span>
-<span id="cb10-5"><a href="titanic.html#cb10-5" aria-hidden="true"></a><span class="co">## @knirt features_info</span></span>
-<span id="cb10-6"><a href="titanic.html#cb10-6" aria-hidden="true"></a></span>
-<span id="cb10-7"><a href="titanic.html#cb10-7" aria-hidden="true"></a><span class="bu">print</span>(</span>
-<span id="cb10-8"><a href="titanic.html#cb10-8" aria-hidden="true"></a>    <span class="st">&quot;--------------</span><span class="ch">\n</span><span class="st">&quot;</span>,</span>
-<span id="cb10-9"><a href="titanic.html#cb10-9" aria-hidden="true"></a>    <span class="st">&quot;Numeric features </span><span class="ch">\n\n</span><span class="st">&quot;</span>,</span>
-<span id="cb10-10"><a href="titanic.html#cb10-10" aria-hidden="true"></a>    df.select_dtypes(include<span class="op">=</span>[<span class="st">&quot;float64&quot;</span>, <span class="st">&quot;uint8&quot;</span>, <span class="st">&quot;int64&quot;</span>]).columns,</span>
-<span id="cb10-11"><a href="titanic.html#cb10-11" aria-hidden="true"></a>    <span class="st">&quot;</span><span class="ch">\n</span><span class="st">--------------</span><span class="ch">\n</span><span class="st">&quot;</span>,</span>
-<span id="cb10-12"><a href="titanic.html#cb10-12" aria-hidden="true"></a>    <span class="st">&quot;Categorical features </span><span class="ch">\n\n</span><span class="st">&quot;</span>,</span>
-<span id="cb10-13"><a href="titanic.html#cb10-13" aria-hidden="true"></a>    df.select_dtypes(exclude<span class="op">=</span>[<span class="st">&quot;float64&quot;</span>, <span class="st">&quot;uint8&quot;</span>, <span class="st">&quot;int64&quot;</span>]).columns,</span>
-<span id="cb10-14"><a href="titanic.html#cb10-14" aria-hidden="true"></a>)</span></code></pre></div>
+<span id="cb10-4"><a href="titanic.html#cb10-4" aria-hidden="true"></a><span class="im">import</span> os</span>
+<span id="cb10-5"><a href="titanic.html#cb10-5" aria-hidden="true"></a><span class="im">import</span> random <span class="im">as</span> rnd</span>
+<span id="cb10-6"><a href="titanic.html#cb10-6" aria-hidden="true"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb10-7"><a href="titanic.html#cb10-7" aria-hidden="true"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb10-8"><a href="titanic.html#cb10-8" aria-hidden="true"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb10-9"><a href="titanic.html#cb10-9" aria-hidden="true"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb10-10"><a href="titanic.html#cb10-10" aria-hidden="true"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> (</span>
+<span id="cb10-11"><a href="titanic.html#cb10-11" aria-hidden="true"></a>    classification_report,</span>
+<span id="cb10-12"><a href="titanic.html#cb10-12" aria-hidden="true"></a>    confusion_matrix,</span>
+<span id="cb10-13"><a href="titanic.html#cb10-13" aria-hidden="true"></a>    explained_variance_score,</span>
+<span id="cb10-14"><a href="titanic.html#cb10-14" aria-hidden="true"></a>    mean_absolute_error,</span>
+<span id="cb10-15"><a href="titanic.html#cb10-15" aria-hidden="true"></a>    mean_squared_error,</span>
+<span id="cb10-16"><a href="titanic.html#cb10-16" aria-hidden="true"></a>)</span>
+<span id="cb10-17"><a href="titanic.html#cb10-17" aria-hidden="true"></a><span class="im">from</span> xgboost <span class="im">import</span> XGBRegressor</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="titanic.html#cb11-1" aria-hidden="true"></a><span class="bu">print</span>(</span>
+<span id="cb11-2"><a href="titanic.html#cb11-2" aria-hidden="true"></a>    <span class="st">&quot;--------------</span><span class="ch">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb11-3"><a href="titanic.html#cb11-3" aria-hidden="true"></a>    <span class="st">&quot;Numeric features </span><span class="ch">\n\n</span><span class="st">&quot;</span>,</span>
+<span id="cb11-4"><a href="titanic.html#cb11-4" aria-hidden="true"></a>    df.select_dtypes(include<span class="op">=</span>[<span class="st">&quot;float64&quot;</span>, <span class="st">&quot;uint8&quot;</span>, <span class="st">&quot;int64&quot;</span>]).columns,</span>
+<span id="cb11-5"><a href="titanic.html#cb11-5" aria-hidden="true"></a>    <span class="st">&quot;</span><span class="ch">\n</span><span class="st">--------------</span><span class="ch">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb11-6"><a href="titanic.html#cb11-6" aria-hidden="true"></a>    <span class="st">&quot;Categorical features </span><span class="ch">\n\n</span><span class="st">&quot;</span>,</span>
+<span id="cb11-7"><a href="titanic.html#cb11-7" aria-hidden="true"></a>    df.select_dtypes(exclude<span class="op">=</span>[<span class="st">&quot;float64&quot;</span>, <span class="st">&quot;uint8&quot;</span>, <span class="st">&quot;int64&quot;</span>]).columns,</span>
+<span id="cb11-8"><a href="titanic.html#cb11-8" aria-hidden="true"></a>)</span></code></pre></div>
 <pre><code>#&gt; --------------
 #&gt;  Numeric features 
 #&gt; 
@@ -216,14 +227,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt;  Categorical features 
 #&gt; 
 #&gt;  Index([&#39;Name&#39;, &#39;Sex&#39;, &#39;Ticket&#39;, &#39;Cabin&#39;, &#39;Embarked&#39;], dtype=&#39;object&#39;)</code></pre>
-<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="titanic.html#cb12-1" aria-hidden="true"></a><span class="bu">print</span>(</span>
-<span id="cb12-2"><a href="titanic.html#cb12-2" aria-hidden="true"></a>    <span class="st">&quot;</span><span class="ch">\n</span><span class="st">--------------</span><span class="ch">\n</span><span class="st">&quot;</span>,</span>
-<span id="cb12-3"><a href="titanic.html#cb12-3" aria-hidden="true"></a>    <span class="st">&quot;Distobution of numerical features:</span><span class="ch">\n\n</span><span class="st">&quot;</span>,</span>
-<span id="cb12-4"><a href="titanic.html#cb12-4" aria-hidden="true"></a>    df.describe().transpose(),</span>
-<span id="cb12-5"><a href="titanic.html#cb12-5" aria-hidden="true"></a>    <span class="st">&quot;</span><span class="ch">\n</span><span class="st">--------------</span><span class="ch">\n</span><span class="st">&quot;</span>,</span>
-<span id="cb12-6"><a href="titanic.html#cb12-6" aria-hidden="true"></a>    <span class="st">&quot;Distobution of categorical features: </span><span class="ch">\n\n</span><span class="st">&quot;</span>,</span>
-<span id="cb12-7"><a href="titanic.html#cb12-7" aria-hidden="true"></a>    df.describe(include<span class="op">=</span><span class="st">&quot;O&quot;</span>).transpose(),</span>
-<span id="cb12-8"><a href="titanic.html#cb12-8" aria-hidden="true"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="titanic.html#cb13-1" aria-hidden="true"></a><span class="bu">print</span>(</span>
+<span id="cb13-2"><a href="titanic.html#cb13-2" aria-hidden="true"></a>    <span class="st">&quot;</span><span class="ch">\n</span><span class="st">--------------</span><span class="ch">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb13-3"><a href="titanic.html#cb13-3" aria-hidden="true"></a>    <span class="st">&quot;Distobution of numerical features:</span><span class="ch">\n\n</span><span class="st">&quot;</span>,</span>
+<span id="cb13-4"><a href="titanic.html#cb13-4" aria-hidden="true"></a>    df.describe().transpose(),</span>
+<span id="cb13-5"><a href="titanic.html#cb13-5" aria-hidden="true"></a>    <span class="st">&quot;</span><span class="ch">\n</span><span class="st">--------------</span><span class="ch">\n</span><span class="st">&quot;</span>,</span>
+<span id="cb13-6"><a href="titanic.html#cb13-6" aria-hidden="true"></a>    <span class="st">&quot;Distobution of categorical features: </span><span class="ch">\n\n</span><span class="st">&quot;</span>,</span>
+<span id="cb13-7"><a href="titanic.html#cb13-7" aria-hidden="true"></a>    df.describe(include<span class="op">=</span><span class="st">&quot;O&quot;</span>).transpose(),</span>
+<span id="cb13-8"><a href="titanic.html#cb13-8" aria-hidden="true"></a>)</span></code></pre></div>
 <pre><code>#&gt; 
 #&gt; --------------
 #&gt;  Distobution of numerical features:
@@ -245,21 +256,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 #&gt; Ticket    1309    929              CA. 2343   11
 #&gt; Cabin      295    186           C23 C25 C27    6
 #&gt; Embarked  1307      3                     S  914</code></pre>
-<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="titanic.html#cb14-1" aria-hidden="true"></a><span class="im">import</span> os</span>
-<span id="cb14-2"><a href="titanic.html#cb14-2" aria-hidden="true"></a><span class="im">import</span> random <span class="im">as</span> rnd</span>
-<span id="cb14-3"><a href="titanic.html#cb14-3" aria-hidden="true"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb14-4"><a href="titanic.html#cb14-4" aria-hidden="true"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb14-5"><a href="titanic.html#cb14-5" aria-hidden="true"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb14-6"><a href="titanic.html#cb14-6" aria-hidden="true"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
-<span id="cb14-7"><a href="titanic.html#cb14-7" aria-hidden="true"></a><span class="im">from</span> sklearn.metrics <span class="im">import</span> (</span>
-<span id="cb14-8"><a href="titanic.html#cb14-8" aria-hidden="true"></a>    classification_report,</span>
-<span id="cb14-9"><a href="titanic.html#cb14-9" aria-hidden="true"></a>    confusion_matrix,</span>
-<span id="cb14-10"><a href="titanic.html#cb14-10" aria-hidden="true"></a>    explained_variance_score,</span>
-<span id="cb14-11"><a href="titanic.html#cb14-11" aria-hidden="true"></a>    mean_absolute_error,</span>
-<span id="cb14-12"><a href="titanic.html#cb14-12" aria-hidden="true"></a>    mean_squared_error,</span>
-<span id="cb14-13"><a href="titanic.html#cb14-13" aria-hidden="true"></a>)</span>
-<span id="cb14-14"><a href="titanic.html#cb14-14" aria-hidden="true"></a><span class="im">from</span> xgboost <span class="im">import</span> XGBRegressor</span></code></pre></div>
-<p><img src="_main_files/figure-html/unnamed-chunk-6-1.png"></p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb15-1"><a href="titanic.html#cb15-1" aria-hidden="true"></a>f, ax <span class="op">=</span> plt.subplots(nrows<span class="op">=</span><span class="dv">1</span>, ncols<span class="op">=</span><span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">12</span>,<span class="dv">10</span>))</span>
 <span id="cb15-2"><a href="titanic.html#cb15-2" aria-hidden="true"></a>sns.heatmap(df.isnull(), </span>
 <span id="cb15-3"><a href="titanic.html#cb15-3" aria-hidden="true"></a>        yticklabels<span class="op">=</span><span class="va">False</span>, </span>
@@ -566,9 +562,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>#&gt; /nix/store/lz8yaf1c80c6zb3qj11j58x3qq366wxx-python3.8-seaborn-0.11.0/lib/python3.8/site-packages/seaborn/axisgrid.py:316: UserWarning: The `size` parameter has been renamed to `height`; please update your code.
 #&gt;   warnings.warn(msg, UserWarning)</code></pre>
 <div class="sourceCode" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb42-1"><a href="titanic.html#cb42-1" aria-hidden="true"></a>g.<span class="bu">map</span>(plt.hist, <span class="st">&quot;Age&quot;</span>, alpha<span class="op">=</span><span class="fl">0.5</span>, bins<span class="op">=</span><span class="dv">20</span>)</span></code></pre></div>
-<pre><code>#&gt; &lt;seaborn.axisgrid.FacetGrid object at 0x7fb9368b94c0&gt;</code></pre>
+<pre><code>#&gt; &lt;seaborn.axisgrid.FacetGrid object at 0x7fb9366f1640&gt;</code></pre>
 <div class="sourceCode" id="cb44"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb44-1"><a href="titanic.html#cb44-1" aria-hidden="true"></a>g.add_legend()</span></code></pre></div>
-<pre><code>#&gt; &lt;seaborn.axisgrid.FacetGrid object at 0x7fb9368b94c0&gt;</code></pre>
+<pre><code>#&gt; &lt;seaborn.axisgrid.FacetGrid object at 0x7fb9366f1640&gt;</code></pre>
 <div class="sourceCode" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb46-1"><a href="titanic.html#cb46-1" aria-hidden="true"></a>plt.savefig(<span class="st">&quot;06_hist_&quot;</span>)</span>
 <span id="cb46-2"><a href="titanic.html#cb46-2" aria-hidden="true"></a>plt.show()</span></code></pre></div>
 <p><img src="_main_files/figure-html/unnamed-chunk-10-4.png" width="686" style="display: block; margin: auto;" /></p>
@@ -721,7 +717,190 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb58-6"><a href="titanic.html#cb58-6" aria-hidden="true"></a>tar <span class="op">=</span> df[TARGET_COL]</span>
 <span id="cb58-7"><a href="titanic.html#cb58-7" aria-hidden="true"></a><span class="im">from</span> sklearn.model_selection <span class="im">import</span> train_test_split</span>
 <span id="cb58-8"><a href="titanic.html#cb58-8" aria-hidden="true"></a></span>
-<span id="cb58-9"><a href="titanic.html#cb58-9" aria-hidden="true"></a>feat_train, feat_test, tar_train, tar_test <span class="op">=</span> train_test_split(feat, tar, test_size<span class="op">=</span><span class="fl">0.3</span>)</span></code></pre></div>
+<span id="cb58-9"><a href="titanic.html#cb58-9" aria-hidden="true"></a>feat_train, feat_test, tar_train, tar_test <span class="op">=</span> train_test_split(feat, tar, test_size<span class="op">=</span><span class="fl">0.3</span>)</span>
+<span id="cb58-10"><a href="titanic.html#cb58-10" aria-hidden="true"></a><span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestClassifier</span>
+<span id="cb58-11"><a href="titanic.html#cb58-11" aria-hidden="true"></a><span class="im">from</span> sklearn.linear_model <span class="im">import</span> LogisticRegression, Perceptron, SGDClassifier</span>
+<span id="cb58-12"><a href="titanic.html#cb58-12" aria-hidden="true"></a><span class="im">from</span> sklearn.naive_bayes <span class="im">import</span> GaussianNB</span>
+<span id="cb58-13"><a href="titanic.html#cb58-13" aria-hidden="true"></a><span class="im">from</span> sklearn.neighbors <span class="im">import</span> KNeighborsClassifier</span>
+<span id="cb58-14"><a href="titanic.html#cb58-14" aria-hidden="true"></a><span class="im">from</span> sklearn.svm <span class="im">import</span> SVC, LinearSVC</span>
+<span id="cb58-15"><a href="titanic.html#cb58-15" aria-hidden="true"></a><span class="im">from</span> sklearn.tree <span class="im">import</span> DecisionTreeClassifier</span>
+<span id="cb58-16"><a href="titanic.html#cb58-16" aria-hidden="true"></a><span class="im">import</span> xgboost <span class="im">as</span> xgb</span>
+<span id="cb58-17"><a href="titanic.html#cb58-17" aria-hidden="true"></a></span>
+<span id="cb58-18"><a href="titanic.html#cb58-18" aria-hidden="true"></a><span class="kw">def</span> knn_value_plot(feat_train, tar_train, feat_test, tar_test, max_range):</span>
+<span id="cb58-19"><a href="titanic.html#cb58-19" aria-hidden="true"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb58-20"><a href="titanic.html#cb58-20" aria-hidden="true"></a><span class="co">    Iterate to get the best k value and plot it,</span></span>
+<span id="cb58-21"><a href="titanic.html#cb58-21" aria-hidden="true"></a><span class="co">    between 1 and the max_range</span></span>
+<span id="cb58-22"><a href="titanic.html#cb58-22" aria-hidden="true"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb58-23"><a href="titanic.html#cb58-23" aria-hidden="true"></a>    error_rate <span class="op">=</span> []</span>
+<span id="cb58-24"><a href="titanic.html#cb58-24" aria-hidden="true"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, max_range):</span>
+<span id="cb58-25"><a href="titanic.html#cb58-25" aria-hidden="true"></a>        model_knn <span class="op">=</span> KNeighborsClassifier(n_neighbors<span class="op">=</span>i)</span>
+<span id="cb58-26"><a href="titanic.html#cb58-26" aria-hidden="true"></a>        model_knn.fit(feat_train, tar_train)</span>
+<span id="cb58-27"><a href="titanic.html#cb58-27" aria-hidden="true"></a>        pred_knn <span class="op">=</span> model_knn.predict(feat_test)</span>
+<span id="cb58-28"><a href="titanic.html#cb58-28" aria-hidden="true"></a>        error_rate.append(np.mean(pred_knn <span class="op">!=</span> tar_test))</span>
+<span id="cb58-29"><a href="titanic.html#cb58-29" aria-hidden="true"></a>    plt.clf()</span>
+<span id="cb58-30"><a href="titanic.html#cb58-30" aria-hidden="true"></a>    sns.lineplot(x<span class="op">=</span><span class="bu">range</span>(<span class="dv">1</span>, max_range), y<span class="op">=</span>error_rate)</span>
+<span id="cb58-31"><a href="titanic.html#cb58-31" aria-hidden="true"></a>    plt.savefig(<span class="st">&quot;model_knn_n_values&quot;</span>)</span>
+<span id="cb58-32"><a href="titanic.html#cb58-32" aria-hidden="true"></a></span>
+<span id="cb58-33"><a href="titanic.html#cb58-33" aria-hidden="true"></a></span>
+<span id="cb58-34"><a href="titanic.html#cb58-34" aria-hidden="true"></a><span class="co"># knn_value_plot(feat_train, tar_train, feat_test, tar_test, 30)</span></span>
+<span id="cb58-35"><a href="titanic.html#cb58-35" aria-hidden="true"></a></span>
+<span id="cb58-36"><a href="titanic.html#cb58-36" aria-hidden="true"></a><span class="co">#</span></span>
+<span id="cb58-37"><a href="titanic.html#cb58-37" aria-hidden="true"></a></span>
+<span id="cb58-38"><a href="titanic.html#cb58-38" aria-hidden="true"></a>knn_n_value <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb58-39"><a href="titanic.html#cb58-39" aria-hidden="true"></a><span class="kw">def</span> basic_models(feat_train, tar_train, feat_test, tar_test, knn_neighbours):</span>
+<span id="cb58-40"><a href="titanic.html#cb58-40" aria-hidden="true"></a>    <span class="co">&quot;&quot;&quot;</span></span>
+<span id="cb58-41"><a href="titanic.html#cb58-41" aria-hidden="true"></a><span class="co">    A set of all the basic models to be easily applied,</span></span>
+<span id="cb58-42"><a href="titanic.html#cb58-42" aria-hidden="true"></a><span class="co">    Returns the logistic correlation, and the % score of each model</span></span>
+<span id="cb58-43"><a href="titanic.html#cb58-43" aria-hidden="true"></a><span class="co">    Also globally exports the predications of each model as ex. pred_logreg</span></span>
+<span id="cb58-44"><a href="titanic.html#cb58-44" aria-hidden="true"></a><span class="co">    &quot;&quot;&quot;</span></span>
+<span id="cb58-45"><a href="titanic.html#cb58-45" aria-hidden="true"></a>    <span class="co"># Imports</span></span>
+<span id="cb58-46"><a href="titanic.html#cb58-46" aria-hidden="true"></a>    <span class="co"># Values to be exported</span></span>
+<span id="cb58-47"><a href="titanic.html#cb58-47" aria-hidden="true"></a>    <span class="kw">global</span> pred_rfc</span>
+<span id="cb58-48"><a href="titanic.html#cb58-48" aria-hidden="true"></a>    <span class="kw">global</span> pred_logreg</span>
+<span id="cb58-49"><a href="titanic.html#cb58-49" aria-hidden="true"></a>    <span class="kw">global</span> pred_svc</span>
+<span id="cb58-50"><a href="titanic.html#cb58-50" aria-hidden="true"></a>    <span class="kw">global</span> pred_rfc</span>
+<span id="cb58-51"><a href="titanic.html#cb58-51" aria-hidden="true"></a>    <span class="kw">global</span> pred_gaus</span>
+<span id="cb58-52"><a href="titanic.html#cb58-52" aria-hidden="true"></a>    <span class="kw">global</span> pred_perc</span>
+<span id="cb58-53"><a href="titanic.html#cb58-53" aria-hidden="true"></a>    <span class="kw">global</span> pred_sgd</span>
+<span id="cb58-54"><a href="titanic.html#cb58-54" aria-hidden="true"></a>    <span class="kw">global</span> pred_linear_svc</span>
+<span id="cb58-55"><a href="titanic.html#cb58-55" aria-hidden="true"></a>    <span class="kw">global</span> pred_dtree</span>
+<span id="cb58-56"><a href="titanic.html#cb58-56" aria-hidden="true"></a>    <span class="kw">global</span> pred_knn</span>
+<span id="cb58-57"><a href="titanic.html#cb58-57" aria-hidden="true"></a>    <span class="kw">global</span> pred_xgb</span>
+<span id="cb58-58"><a href="titanic.html#cb58-58" aria-hidden="true"></a>    <span class="co"># LogisticRegression</span></span>
+<span id="cb58-59"><a href="titanic.html#cb58-59" aria-hidden="true"></a>    model_logreg <span class="op">=</span> LogisticRegression().fit(feat_train, tar_train)</span>
+<span id="cb58-60"><a href="titanic.html#cb58-60" aria-hidden="true"></a>    pred_logreg <span class="op">=</span> model_logreg.predict(feat_test)</span>
+<span id="cb58-61"><a href="titanic.html#cb58-61" aria-hidden="true"></a>    <span class="co"># knn</span></span>
+<span id="cb58-62"><a href="titanic.html#cb58-62" aria-hidden="true"></a>    model_knn <span class="op">=</span> KNeighborsClassifier(n_neighbors<span class="op">=</span>knn_neighbours).fit(</span>
+<span id="cb58-63"><a href="titanic.html#cb58-63" aria-hidden="true"></a>        feat_train, tar_train)</span>
+<span id="cb58-64"><a href="titanic.html#cb58-64" aria-hidden="true"></a>    pred_knn <span class="op">=</span> model_knn.predict(feat_test)</span>
+<span id="cb58-65"><a href="titanic.html#cb58-65" aria-hidden="true"></a>    <span class="co"># SVM</span></span>
+<span id="cb58-66"><a href="titanic.html#cb58-66" aria-hidden="true"></a>    model_svc <span class="op">=</span> SVC().fit(feat_train, tar_train)</span>
+<span id="cb58-67"><a href="titanic.html#cb58-67" aria-hidden="true"></a>    pred_svc <span class="op">=</span> model_svc.predict(feat_test)</span>
+<span id="cb58-68"><a href="titanic.html#cb58-68" aria-hidden="true"></a>    <span class="co"># GaussianNB</span></span>
+<span id="cb58-69"><a href="titanic.html#cb58-69" aria-hidden="true"></a>    model_gaus <span class="op">=</span> GaussianNB().fit(feat_train, tar_train)</span>
+<span id="cb58-70"><a href="titanic.html#cb58-70" aria-hidden="true"></a>    pred_gaus <span class="op">=</span> model_gaus.predict(feat_test)</span>
+<span id="cb58-71"><a href="titanic.html#cb58-71" aria-hidden="true"></a>    <span class="co"># Perceptron</span></span>
+<span id="cb58-72"><a href="titanic.html#cb58-72" aria-hidden="true"></a>    model_perc <span class="op">=</span> Perceptron().fit(feat_train, tar_train)</span>
+<span id="cb58-73"><a href="titanic.html#cb58-73" aria-hidden="true"></a>    pred_perc <span class="op">=</span> model_perc.predict(feat_test)</span>
+<span id="cb58-74"><a href="titanic.html#cb58-74" aria-hidden="true"></a>    <span class="co"># LinearSVC</span></span>
+<span id="cb58-75"><a href="titanic.html#cb58-75" aria-hidden="true"></a>    model_linear_svc <span class="op">=</span> LinearSVC().fit(feat_train, tar_train)</span>
+<span id="cb58-76"><a href="titanic.html#cb58-76" aria-hidden="true"></a>    pred_linear_svc <span class="op">=</span> model_perc.predict(feat_test)</span>
+<span id="cb58-77"><a href="titanic.html#cb58-77" aria-hidden="true"></a>    <span class="co"># Stochastic Gradient Descent</span></span>
+<span id="cb58-78"><a href="titanic.html#cb58-78" aria-hidden="true"></a>    model_sgd <span class="op">=</span> SGDClassifier().fit(feat_train, tar_train)</span>
+<span id="cb58-79"><a href="titanic.html#cb58-79" aria-hidden="true"></a>    pred_sgd <span class="op">=</span> model_perc.predict(feat_test)</span>
+<span id="cb58-80"><a href="titanic.html#cb58-80" aria-hidden="true"></a>    <span class="co"># DecisionTreeClassifier</span></span>
+<span id="cb58-81"><a href="titanic.html#cb58-81" aria-hidden="true"></a>    model_dtree <span class="op">=</span> DecisionTreeClassifier().fit(feat_train, tar_train)</span>
+<span id="cb58-82"><a href="titanic.html#cb58-82" aria-hidden="true"></a>    pred_dtree <span class="op">=</span> model_dtree.predict(feat_test)</span>
+<span id="cb58-83"><a href="titanic.html#cb58-83" aria-hidden="true"></a>    <span class="co"># RandomForestClassifier</span></span>
+<span id="cb58-84"><a href="titanic.html#cb58-84" aria-hidden="true"></a>    model_rfc <span class="op">=</span> RandomForestClassifier(n_estimators<span class="op">=</span><span class="dv">200</span>).fit(feat_train, tar_train)</span>
+<span id="cb58-85"><a href="titanic.html#cb58-85" aria-hidden="true"></a>    pred_rfc <span class="op">=</span> model_rfc.predict(feat_test)</span>
+<span id="cb58-86"><a href="titanic.html#cb58-86" aria-hidden="true"></a>    <span class="co"># </span></span>
+<span id="cb58-87"><a href="titanic.html#cb58-87" aria-hidden="true"></a>    model_xgb <span class="op">=</span> xgb.XGBClassifier().fit(feat_train, tar_train)</span>
+<span id="cb58-88"><a href="titanic.html#cb58-88" aria-hidden="true"></a>    pred_xgb <span class="op">=</span> model_xgb.predict(feat_test)</span>
+<span id="cb58-89"><a href="titanic.html#cb58-89" aria-hidden="true"></a>    <span class="co">#  LogisticRegression Correlations</span></span>
+<span id="cb58-90"><a href="titanic.html#cb58-90" aria-hidden="true"></a>    coeff_df <span class="op">=</span> pd.DataFrame(feat_train.columns)</span>
+<span id="cb58-91"><a href="titanic.html#cb58-91" aria-hidden="true"></a>    coeff_df.columns <span class="op">=</span> [<span class="st">&quot;Feature&quot;</span>]</span>
+<span id="cb58-92"><a href="titanic.html#cb58-92" aria-hidden="true"></a>    coeff_df[<span class="st">&quot;Correlation&quot;</span>] <span class="op">=</span> pd.Series(model_logreg.coef_[<span class="dv">0</span>])</span>
+<span id="cb58-93"><a href="titanic.html#cb58-93" aria-hidden="true"></a>    coeff_df <span class="op">=</span> coeff_df.sort_values(by<span class="op">=</span><span class="st">&quot;Correlation&quot;</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb58-94"><a href="titanic.html#cb58-94" aria-hidden="true"></a>    <span class="co"># Result score</span></span>
+<span id="cb58-95"><a href="titanic.html#cb58-95" aria-hidden="true"></a>    models <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb58-96"><a href="titanic.html#cb58-96" aria-hidden="true"></a>        <span class="st">&quot;Model&quot;</span>: [</span>
+<span id="cb58-97"><a href="titanic.html#cb58-97" aria-hidden="true"></a>            <span class="st">&quot;Logistic Regression&quot;</span>,</span>
+<span id="cb58-98"><a href="titanic.html#cb58-98" aria-hidden="true"></a>            <span class="st">&quot;Support Vector Machines&quot;</span>,</span>
+<span id="cb58-99"><a href="titanic.html#cb58-99" aria-hidden="true"></a>            <span class="st">&quot;Random Forest&quot;</span>,</span>
+<span id="cb58-100"><a href="titanic.html#cb58-100" aria-hidden="true"></a>            <span class="st">&quot;Naive Bayes&quot;</span>,</span>
+<span id="cb58-101"><a href="titanic.html#cb58-101" aria-hidden="true"></a>            <span class="st">&quot;Perceptron&quot;</span>,</span>
+<span id="cb58-102"><a href="titanic.html#cb58-102" aria-hidden="true"></a>            <span class="st">&quot;Stochastic Gradient Decent&quot;</span>,</span>
+<span id="cb58-103"><a href="titanic.html#cb58-103" aria-hidden="true"></a>            <span class="st">&quot;Linear SVC&quot;</span>,</span>
+<span id="cb58-104"><a href="titanic.html#cb58-104" aria-hidden="true"></a>            <span class="st">&quot;Decision Tree&quot;</span>,</span>
+<span id="cb58-105"><a href="titanic.html#cb58-105" aria-hidden="true"></a>            <span class="st">&quot;KNN&quot;</span>,</span>
+<span id="cb58-106"><a href="titanic.html#cb58-106" aria-hidden="true"></a>            <span class="st">&quot;Xgboost&quot;</span></span>
+<span id="cb58-107"><a href="titanic.html#cb58-107" aria-hidden="true"></a>        ],</span>
+<span id="cb58-108"><a href="titanic.html#cb58-108" aria-hidden="true"></a>        <span class="st">&quot;Score&quot;</span>: [</span>
+<span id="cb58-109"><a href="titanic.html#cb58-109" aria-hidden="true"></a>            <span class="bu">round</span>(model_logreg.score(feat_test,     tar_test) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>),</span>
+<span id="cb58-110"><a href="titanic.html#cb58-110" aria-hidden="true"></a>            <span class="bu">round</span>(model_svc.score(feat_test,        tar_test) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>),</span>
+<span id="cb58-111"><a href="titanic.html#cb58-111" aria-hidden="true"></a>            <span class="bu">round</span>(model_rfc.score(feat_test,        tar_test) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>),</span>
+<span id="cb58-112"><a href="titanic.html#cb58-112" aria-hidden="true"></a>            <span class="bu">round</span>(model_gaus.score(feat_test,       tar_test) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>),</span>
+<span id="cb58-113"><a href="titanic.html#cb58-113" aria-hidden="true"></a>            <span class="bu">round</span>(model_perc.score(feat_test,       tar_test) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>),</span>
+<span id="cb58-114"><a href="titanic.html#cb58-114" aria-hidden="true"></a>            <span class="bu">round</span>(model_sgd.score(feat_test,        tar_test) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>),</span>
+<span id="cb58-115"><a href="titanic.html#cb58-115" aria-hidden="true"></a>            <span class="bu">round</span>(model_linear_svc.score(feat_test, tar_test) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>),</span>
+<span id="cb58-116"><a href="titanic.html#cb58-116" aria-hidden="true"></a>            <span class="bu">round</span>(model_dtree.score(feat_test,      tar_test) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>),</span>
+<span id="cb58-117"><a href="titanic.html#cb58-117" aria-hidden="true"></a>            <span class="bu">round</span>(model_knn.score(feat_test,        tar_test) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>),</span>
+<span id="cb58-118"><a href="titanic.html#cb58-118" aria-hidden="true"></a>            <span class="bu">round</span>(model_xgb.score(feat_test,        tar_test) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>),</span>
+<span id="cb58-119"><a href="titanic.html#cb58-119" aria-hidden="true"></a>        ],</span>
+<span id="cb58-120"><a href="titanic.html#cb58-120" aria-hidden="true"></a>    }).sort_values(by<span class="op">=</span><span class="st">&quot;Score&quot;</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb58-121"><a href="titanic.html#cb58-121" aria-hidden="true"></a>    <span class="cf">return</span> (coeff_df, models)</span>
+<span id="cb58-122"><a href="titanic.html#cb58-122" aria-hidden="true"></a></span>
+<span id="cb58-123"><a href="titanic.html#cb58-123" aria-hidden="true"></a></span>
+<span id="cb58-124"><a href="titanic.html#cb58-124" aria-hidden="true"></a>basic_models(feat_train, tar_train, feat_test, tar_test, knn_n_value)</span>
+<span id="cb58-125"><a href="titanic.html#cb58-125" aria-hidden="true"></a></span>
+<span id="cb58-126"><a href="titanic.html#cb58-126" aria-hidden="true"></a><span class="co"># ##</span></span>
+<span id="cb58-127"><a href="titanic.html#cb58-127" aria-hidden="true"></a><span class="co"># import xgboost as xgb</span></span>
+<span id="cb58-128"><a href="titanic.html#cb58-128" aria-hidden="true"></a><span class="co"># ## @knitr model_xgboost</span></span>
+<span id="cb58-129"><a href="titanic.html#cb58-129" aria-hidden="true"></a></span>
+<span id="cb58-130"><a href="titanic.html#cb58-130" aria-hidden="true"></a><span class="co"># RANGE = np.arange(.5, 1.5, .1)</span></span>
+<span id="cb58-131"><a href="titanic.html#cb58-131" aria-hidden="true"></a><span class="co"># error_rate = []</span></span>
+<span id="cb58-132"><a href="titanic.html#cb58-132" aria-hidden="true"></a><span class="co"># for i in RANGE: </span></span>
+<span id="cb58-133"><a href="titanic.html#cb58-133" aria-hidden="true"></a>    <span class="co"># model_xgb = xgb.XGBClassifier(</span></span>
+<span id="cb58-134"><a href="titanic.html#cb58-134" aria-hidden="true"></a>            <span class="co"># learning_rate = 0.5,</span></span>
+<span id="cb58-135"><a href="titanic.html#cb58-135" aria-hidden="true"></a>            <span class="co"># # n_estimators= 2000,</span></span>
+<span id="cb58-136"><a href="titanic.html#cb58-136" aria-hidden="true"></a>            <span class="co"># # max_depth= i,</span></span>
+<span id="cb58-137"><a href="titanic.html#cb58-137" aria-hidden="true"></a>            <span class="co"># # min_child_weight= 2,</span></span>
+<span id="cb58-138"><a href="titanic.html#cb58-138" aria-hidden="true"></a>            <span class="co"># gamma= .77, #gamma=1,</span></span>
+<span id="cb58-139"><a href="titanic.html#cb58-139" aria-hidden="true"></a>            <span class="co"># subsample=.5,</span></span>
+<span id="cb58-140"><a href="titanic.html#cb58-140" aria-hidden="true"></a>            <span class="co"># colsample_bytree=1,</span></span>
+<span id="cb58-141"><a href="titanic.html#cb58-141" aria-hidden="true"></a>            <span class="co"># # objective= &#39;binary:logistic&#39;,</span></span>
+<span id="cb58-142"><a href="titanic.html#cb58-142" aria-hidden="true"></a>            <span class="co"># # nthread= -1,</span></span>
+<span id="cb58-143"><a href="titanic.html#cb58-143" aria-hidden="true"></a>            <span class="co"># scale_pos_weight=i,</span></span>
+<span id="cb58-144"><a href="titanic.html#cb58-144" aria-hidden="true"></a>            <span class="co"># ).fit(feat_train, tar_train)</span></span>
+<span id="cb58-145"><a href="titanic.html#cb58-145" aria-hidden="true"></a>    <span class="co"># pred_xgb = model_xgb.predict(feat_test)</span></span>
+<span id="cb58-146"><a href="titanic.html#cb58-146" aria-hidden="true"></a>    <span class="co"># # error_rate.append(round(model_xgb.score(feat_test, tar_test) * 100, 2))</span></span>
+<span id="cb58-147"><a href="titanic.html#cb58-147" aria-hidden="true"></a>    <span class="co"># print(&#39;value: &#39;, round(i, 3), &#39;result: &#39;, round(model_xgb.score(feat_test, tar_test) * 100, 2))</span></span>
+<span id="cb58-148"><a href="titanic.html#cb58-148" aria-hidden="true"></a></span>
+<span id="cb58-149"><a href="titanic.html#cb58-149" aria-hidden="true"></a><span class="co"># sns.lineplot(x=RANGE, y=error_rate)</span></span>
+<span id="cb58-150"><a href="titanic.html#cb58-150" aria-hidden="true"></a><span class="co"># plt.savefig(&quot;model_xgb_scale_pos&quot;)</span></span>
+<span id="cb58-151"><a href="titanic.html#cb58-151" aria-hidden="true"></a><span class="co"># plt.cla()</span></span>
+<span id="cb58-152"><a href="titanic.html#cb58-152" aria-hidden="true"></a><span class="co">##</span></span></code></pre></div>
+<pre><code>#&gt; (       Feature  Correlation
+#&gt; 6   Fare_bands     0.322179
+#&gt; 1     Embarked     0.139770
+#&gt; 2        Title    -0.248471
+#&gt; 5  Family_size    -0.311423
+#&gt; 4    Age_Bands    -0.562609
+#&gt; 0       Pclass    -1.016099
+#&gt; 3     Sex_male    -2.624302,                         Model  Score
+#&gt; 2               Random Forest  81.34
+#&gt; 9                     Xgboost  80.97
+#&gt; 1     Support Vector Machines  79.85
+#&gt; 8                         KNN  79.85
+#&gt; 7               Decision Tree  78.73
+#&gt; 4                  Perceptron  78.36
+#&gt; 6                  Linear SVC  78.36
+#&gt; 0         Logistic Regression  77.99
+#&gt; 5  Stochastic Gradient Decent  77.24
+#&gt; 3                 Naive Bayes  73.88)
+#&gt; 
+#&gt; /nix/store/64ka5flvkgi6rw2xz1bxp28prrks09dg-python3.8-scikit-learn-0.23.2/lib/python3.8/site-packages/sklearn/svm/_base.py:976: ConvergenceWarning: Liblinear failed to converge, increase the number of iterations.
+#&gt;   warnings.warn(&quot;Liblinear failed to converge, increase &quot;</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb60-1"><a href="titanic.html#cb60-1" aria-hidden="true"></a><span class="im">import</span> xgboost <span class="im">as</span> xgb</span>
+<span id="cb60-2"><a href="titanic.html#cb60-2" aria-hidden="true"></a>model_xgb <span class="op">=</span> xgb.XGBClassifier(</span>
+<span id="cb60-3"><a href="titanic.html#cb60-3" aria-hidden="true"></a>        ).fit(feat_train, tar_train)</span>
+<span id="cb60-4"><a href="titanic.html#cb60-4" aria-hidden="true"></a>pred_xgb <span class="op">=</span> model_xgb.predict(feat_test)</span>
+<span id="cb60-5"><a href="titanic.html#cb60-5" aria-hidden="true"></a></span>
+<span id="cb60-6"><a href="titanic.html#cb60-6" aria-hidden="true"></a><span class="bu">print</span>(<span class="st">&#39;baseline&#39;</span>, <span class="bu">round</span>(model_xgb.score(feat_test, tar_test) <span class="op">*</span> <span class="dv">100</span>,<span class="dv">2</span>))</span></code></pre></div>
+<pre><code>#&gt; baseline 80.97</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb62-1"><a href="titanic.html#cb62-1" aria-hidden="true"></a><span class="im">import</span> xgboost <span class="im">as</span> xgb</span>
+<span id="cb62-2"><a href="titanic.html#cb62-2" aria-hidden="true"></a>model_xgb <span class="op">=</span> xgb.XGBClassifier(</span>
+<span id="cb62-3"><a href="titanic.html#cb62-3" aria-hidden="true"></a>        learning_rate <span class="op">=</span> <span class="fl">.5</span>,</span>
+<span id="cb62-4"><a href="titanic.html#cb62-4" aria-hidden="true"></a>        gamma<span class="op">=</span><span class="fl">0.77</span>, <span class="co">#gamma=1,</span></span>
+<span id="cb62-5"><a href="titanic.html#cb62-5" aria-hidden="true"></a>        subsample<span class="op">=</span><span class="fl">0.5</span>,</span>
+<span id="cb62-6"><a href="titanic.html#cb62-6" aria-hidden="true"></a>        ).fit(feat_train, tar_train)</span>
+<span id="cb62-7"><a href="titanic.html#cb62-7" aria-hidden="true"></a>pred_xgb <span class="op">=</span> model_xgb.predict(feat_test)</span>
+<span id="cb62-8"><a href="titanic.html#cb62-8" aria-hidden="true"></a><span class="bu">print</span>(<span class="st">&#39;personal&#39;</span>, <span class="bu">round</span>(model_xgb.score(feat_test, tar_test) <span class="op">*</span> <span class="dv">100</span>, <span class="dv">2</span>))</span>
+<span id="cb62-9"><a href="titanic.html#cb62-9" aria-hidden="true"></a></span>
+<span id="cb62-10"><a href="titanic.html#cb62-10" aria-hidden="true"></a></span>
+<span id="cb62-11"><a href="titanic.html#cb62-11" aria-hidden="true"></a><span class="co">##</span></span></code></pre></div>
+<pre><code>#&gt; personal 80.22</code></pre>
 
 </div>
 </div>
