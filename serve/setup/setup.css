@@ -1,0 +1,34 @@
+/*
+## @knitr csssetup
+*/
+body{ /* Normal  */
+      font-size: 12px;
+  }
+td {  /* Table  */
+  font-size: 10px;
+}
+code.r{ /* Code block */
+    font-size: 13px;
+}
+pre { /* Code block - determines code spacing between lines */
+    font-size: 13px;
+}
+
+pre code, pre, code {
+  white-space: pre !important;
+  overflow-x: scroll !important;
+  word-break: keep-all !important;
+  word-wrap: initial !important;
+}
+pre {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+pre[class] {
+  max-height: 500px;
+}
+
+th { /* Header 3 */
+  font-size: 11px;
+}
