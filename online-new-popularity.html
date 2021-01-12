@@ -166,10 +166,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.2" data-path="useful.html"><a href="useful.html#miscellaneous-resources"><i class="fa fa-check"></i><b>4.2</b> Miscellaneous Resources</a></li>
 <li class="chapter" data-level="4.3" data-path="useful.html"><a href="useful.html#data"><i class="fa fa-check"></i><b>4.3</b> Data</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="titanic.html"><a href="titanic.html"><i class="fa fa-check"></i><b>5</b> Titanic</a>
+<li class="chapter" data-level="5" data-path="titanic-survival-prediction.html"><a href="titanic-survival-prediction.html"><i class="fa fa-check"></i><b>5</b> Titanic Survival Prediction</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="titanic.html"><a href="titanic.html#setup"><i class="fa fa-check"></i><b>5.1</b> Setup</a></li>
-<li class="chapter" data-level="5.2" data-path="titanic.html"><a href="titanic.html#models"><i class="fa fa-check"></i><b>5.2</b> Models</a></li>
+<li class="chapter" data-level="5.1" data-path="titanic-survival-prediction.html"><a href="titanic-survival-prediction.html#imports"><i class="fa fa-check"></i><b>5.1</b> Imports</a></li>
+<li class="chapter" data-level="5.2" data-path="titanic-survival-prediction.html"><a href="titanic-survival-prediction.html#models"><i class="fa fa-check"></i><b>5.2</b> Models</a></li>
 </ul></li>
 </ul>
 
@@ -220,7 +220,7 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#enrmyvvdol .gt_table {
+#nyxlifgdyk .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -245,7 +245,7 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   border-left-color: #D3D3D3;
 }
 
-#enrmyvvdol .gt_heading {
+#nyxlifgdyk .gt_heading {
   background-color: #FFFFFF;
   text-align: left;
   border-bottom-color: #FFFFFF;
@@ -257,7 +257,7 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   border-right-color: #D3D3D3;
 }
 
-#enrmyvvdol .gt_title {
+#nyxlifgdyk .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -267,7 +267,7 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   border-bottom-width: 0;
 }
 
-#enrmyvvdol .gt_subtitle {
+#nyxlifgdyk .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -277,13 +277,13 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   border-top-width: 0;
 }
 
-#enrmyvvdol .gt_bottom_border {
+#nyxlifgdyk .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#enrmyvvdol .gt_col_headings {
+#nyxlifgdyk .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -298,7 +298,7 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   border-right-color: #D3D3D3;
 }
 
-#enrmyvvdol .gt_col_heading {
+#nyxlifgdyk .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 10;
@@ -318,7 +318,7 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   overflow-x: hidden;
 }
 
-#enrmyvvdol .gt_column_spanner_outer {
+#nyxlifgdyk .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 10;
@@ -330,15 +330,15 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   padding-right: 4px;
 }
 
-#enrmyvvdol .gt_column_spanner_outer:first-child {
+#nyxlifgdyk .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#enrmyvvdol .gt_column_spanner_outer:last-child {
+#nyxlifgdyk .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#enrmyvvdol .gt_column_spanner {
+#nyxlifgdyk .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -350,7 +350,7 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   width: 100%;
 }
 
-#enrmyvvdol .gt_group_heading {
+#nyxlifgdyk .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -372,7 +372,7 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   vertical-align: middle;
 }
 
-#enrmyvvdol .gt_empty_group_heading {
+#nyxlifgdyk .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -387,15 +387,15 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   vertical-align: middle;
 }
 
-#enrmyvvdol .gt_from_md > :first-child {
+#nyxlifgdyk .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#enrmyvvdol .gt_from_md > :last-child {
+#nyxlifgdyk .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#enrmyvvdol .gt_row {
+#nyxlifgdyk .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -414,7 +414,7 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   overflow-x: hidden;
 }
 
-#enrmyvvdol .gt_stub {
+#nyxlifgdyk .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -426,7 +426,7 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   padding-left: 12px;
 }
 
-#enrmyvvdol .gt_summary_row {
+#nyxlifgdyk .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -436,7 +436,7 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   padding-right: 5px;
 }
 
-#enrmyvvdol .gt_first_summary_row {
+#nyxlifgdyk .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -446,7 +446,7 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   border-top-color: #D3D3D3;
 }
 
-#enrmyvvdol .gt_grand_summary_row {
+#nyxlifgdyk .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -456,7 +456,7 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   padding-right: 5px;
 }
 
-#enrmyvvdol .gt_first_grand_summary_row {
+#nyxlifgdyk .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -466,11 +466,11 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   border-top-color: #D3D3D3;
 }
 
-#enrmyvvdol .gt_striped {
+#nyxlifgdyk .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#enrmyvvdol .gt_table_body {
+#nyxlifgdyk .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -479,7 +479,7 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   border-bottom-color: #D3D3D3;
 }
 
-#enrmyvvdol .gt_footnotes {
+#nyxlifgdyk .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -493,13 +493,13 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   border-right-color: #D3D3D3;
 }
 
-#enrmyvvdol .gt_footnote {
+#nyxlifgdyk .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#enrmyvvdol .gt_sourcenotes {
+#nyxlifgdyk .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -513,46 +513,46 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   border-right-color: #D3D3D3;
 }
 
-#enrmyvvdol .gt_sourcenote {
+#nyxlifgdyk .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#enrmyvvdol .gt_left {
+#nyxlifgdyk .gt_left {
   text-align: left;
 }
 
-#enrmyvvdol .gt_center {
+#nyxlifgdyk .gt_center {
   text-align: center;
 }
 
-#enrmyvvdol .gt_right {
+#nyxlifgdyk .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#enrmyvvdol .gt_font_normal {
+#nyxlifgdyk .gt_font_normal {
   font-weight: normal;
 }
 
-#enrmyvvdol .gt_font_bold {
+#nyxlifgdyk .gt_font_bold {
   font-weight: bold;
 }
 
-#enrmyvvdol .gt_font_italic {
+#nyxlifgdyk .gt_font_italic {
   font-style: italic;
 }
 
-#enrmyvvdol .gt_super {
+#nyxlifgdyk .gt_super {
   font-size: 65%;
 }
 
-#enrmyvvdol .gt_footnote_marks {
+#nyxlifgdyk .gt_footnote_marks {
   font-style: italic;
   font-size: 65%;
 }
 </style>
-<div id="enrmyvvdol" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+<div id="nyxlifgdyk" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
   <thead class="gt_header">
     <tr>
       <th colspan="60" class="gt_heading gt_title gt_font_normal" style><strong>Articles</strong></th>
@@ -627,37 +627,36 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   </thead>
   <tbody class="gt_table_body">
     <tr>
-      <td class="gt_row gt_right">678</td>
-      <td class="gt_row gt_right">13</td>
-      <td class="gt_row gt_right">173</td>
-      <td class="gt_row gt_right">0.68</td>
+      <td class="gt_row gt_right">721</td>
+      <td class="gt_row gt_right">18</td>
+      <td class="gt_row gt_right">355</td>
+      <td class="gt_row gt_right">0.55</td>
       <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_right">0.74</td>
-      <td class="gt_row gt_right">6</td>
-      <td class="gt_row gt_right">2</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_right">5.17</td>
-      <td class="gt_row gt_right">9</td>
-      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0.69</td>
+      <td class="gt_row gt_right">11</td>
+      <td class="gt_row gt_right">5</td>
       <td class="gt_row gt_right">1</td>
       <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">4.61</td>
+      <td class="gt_row gt_right">7</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">1</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">217</td>
-      <td class="gt_row gt_right">537</td>
-      <td class="gt_row gt_right">368.71</td>
+      <td class="gt_row gt_right">1100</td>
+      <td class="gt_row gt_right">539.50</td>
       <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">227300</td>
-      <td class="gt_row gt_right">50955.56</td>
+      <td class="gt_row gt_right">51900</td>
+      <td class="gt_row gt_right">16071.43</td>
       <td class="gt_row gt_right">0.00</td>
-      <td class="gt_row gt_right">3846.56</td>
-      <td class="gt_row gt_right">2359.80</td>
-      <td class="gt_row gt_right">4300</td>
-      <td class="gt_row gt_right">4300</td>
-      <td class="gt_row gt_right">4300.00</td>
-      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">3736.22</td>
+      <td class="gt_row gt_right">1948.33</td>
+      <td class="gt_row gt_right">1300</td>
+      <td class="gt_row gt_right">3600</td>
+      <td class="gt_row gt_right">2166.67</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">0</td>
@@ -665,60 +664,62 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0.02</td>
-      <td class="gt_row gt_right">0.47</td>
-      <td class="gt_row gt_right">0.02</td>
-      <td class="gt_row gt_right">0.47</td>
-      <td class="gt_row gt_right">0.02</td>
-      <td class="gt_row gt_right">0.50</td>
-      <td class="gt_row gt_right">0.22</td>
-      <td class="gt_row gt_right">0.05</td>
-      <td class="gt_row gt_right">0.01</td>
-      <td class="gt_row gt_right">0.82</td>
-      <td class="gt_row gt_right">0.18</td>
-      <td class="gt_row gt_right">0.30</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0.52</td>
+      <td class="gt_row gt_right">0.03</td>
+      <td class="gt_row gt_right">0.03</td>
+      <td class="gt_row gt_right">0.03</td>
+      <td class="gt_row gt_right">0.39</td>
+      <td class="gt_row gt_right">0.49</td>
+      <td class="gt_row gt_right">0.14</td>
+      <td class="gt_row gt_right">0.03</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">1.00</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0.32</td>
       <td class="gt_row gt_right">0.10</td>
-      <td class="gt_row gt_right">0.5</td>
-      <td class="gt_row gt_right">-0.06</td>
-      <td class="gt_row gt_right">-0.07</td>
-      <td class="gt_row gt_right">-0.05</td>
+      <td class="gt_row gt_right">0.8</td>
       <td class="gt_row gt_right">0.00</td>
       <td class="gt_row gt_right">0.00</td>
-      <td class="gt_row gt_right">0.50</td>
       <td class="gt_row gt_right">0.00</td>
-      <td class="gt_row gt_right">855</td>
+      <td class="gt_row gt_right">0.38</td>
+      <td class="gt_row gt_right">-0.12</td>
+      <td class="gt_row gt_right">0.12</td>
+      <td class="gt_row gt_right">0.12</td>
+      <td class="gt_row gt_right">835</td>
     </tr>
     <tr>
-      <td class="gt_row gt_right">518</td>
-      <td class="gt_row gt_right">13</td>
-      <td class="gt_row gt_right">377</td>
-      <td class="gt_row gt_right">0.56</td>
+      <td class="gt_row gt_right">524</td>
+      <td class="gt_row gt_right">8</td>
+      <td class="gt_row gt_right">167</td>
+      <td class="gt_row gt_right">0.74</td>
       <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_right">0.70</td>
-      <td class="gt_row gt_right">16</td>
-      <td class="gt_row gt_right">3</td>
+      <td class="gt_row gt_right">0.95</td>
+      <td class="gt_row gt_right">2</td>
+      <td class="gt_row gt_right">1</td>
+      <td class="gt_row gt_right">1</td>
       <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">10</td>
-      <td class="gt_row gt_right">4.45</td>
-      <td class="gt_row gt_right">7</td>
-      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">4.37</td>
+      <td class="gt_row gt_right">9</td>
+      <td class="gt_row gt_right">1</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">4</td>
-      <td class="gt_row gt_right">1700</td>
-      <td class="gt_row gt_right">386.57</td>
-      <td class="gt_row gt_right">776</td>
+      <td class="gt_row gt_right">737</td>
+      <td class="gt_row gt_right">183.44</td>
+      <td class="gt_row gt_right">15600</td>
       <td class="gt_row gt_right">843300</td>
-      <td class="gt_row gt_right">512282.29</td>
-      <td class="gt_row gt_right">776.00</td>
-      <td class="gt_row gt_right">6918.73</td>
-      <td class="gt_row gt_right">3859.62</td>
-      <td class="gt_row gt_right">573</td>
-      <td class="gt_row gt_right">2900</td>
-      <td class="gt_row gt_right">1736.50</td>
+      <td class="gt_row gt_right">197655.56</td>
+      <td class="gt_row gt_right">2666.39</td>
+      <td class="gt_row gt_right">5050.91</td>
+      <td class="gt_row gt_right">3874.30</td>
+      <td class="gt_row gt_right">6500</td>
+      <td class="gt_row gt_right">6500</td>
+      <td class="gt_row gt_right">6500.00</td>
+      <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">0</td>
@@ -726,167 +727,166 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0.17</td>
-      <td class="gt_row gt_right">0.17</td>
-      <td class="gt_row gt_right">0.03</td>
-      <td class="gt_row gt_right">0.60</td>
-      <td class="gt_row gt_right">0.03</td>
-      <td class="gt_row gt_right">0.54</td>
-      <td class="gt_row gt_right">0.04</td>
-      <td class="gt_row gt_right">0.03</td>
-      <td class="gt_row gt_right">0.03</td>
-      <td class="gt_row gt_right">0.52</td>
-      <td class="gt_row gt_right">0.48</td>
-      <td class="gt_row gt_right">0.35</td>
+      <td class="gt_row gt_right">0.02</td>
+      <td class="gt_row gt_right">0.02</td>
+      <td class="gt_row gt_right">0.02</td>
+      <td class="gt_row gt_right">0.02</td>
+      <td class="gt_row gt_right">0.91</td>
+      <td class="gt_row gt_right">0.65</td>
+      <td class="gt_row gt_right">0.22</td>
+      <td class="gt_row gt_right">0.05</td>
+      <td class="gt_row gt_right">0.02</td>
+      <td class="gt_row gt_right">0.75</td>
+      <td class="gt_row gt_right">0.25</td>
+      <td class="gt_row gt_right">0.41</td>
       <td class="gt_row gt_right">0.10</td>
-      <td class="gt_row gt_right">1.0</td>
-      <td class="gt_row gt_right">-0.37</td>
-      <td class="gt_row gt_right">-0.70</td>
+      <td class="gt_row gt_right">0.8</td>
+      <td class="gt_row gt_right">-0.28</td>
+      <td class="gt_row gt_right">-0.60</td>
       <td class="gt_row gt_right">-0.10</td>
-      <td class="gt_row gt_right">0.66</td>
-      <td class="gt_row gt_right">-0.16</td>
-      <td class="gt_row gt_right">0.16</td>
-      <td class="gt_row gt_right">0.16</td>
-      <td class="gt_row gt_right">1800</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0.50</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">14300</td>
     </tr>
     <tr>
-      <td class="gt_row gt_right">245</td>
-      <td class="gt_row gt_right">8</td>
-      <td class="gt_row gt_right">315</td>
-      <td class="gt_row gt_right">0.56</td>
+      <td class="gt_row gt_right">205</td>
+      <td class="gt_row gt_right">14</td>
+      <td class="gt_row gt_right">906</td>
+      <td class="gt_row gt_right">0.46</td>
       <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_right">0.66</td>
-      <td class="gt_row gt_right">7</td>
+      <td class="gt_row gt_right">0.65</td>
+      <td class="gt_row gt_right">4</td>
+      <td class="gt_row gt_right">2</td>
+      <td class="gt_row gt_right">2</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">4.91</td>
+      <td class="gt_row gt_right">4</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">1</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">-1</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">-0.50</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">843300</td>
+      <td class="gt_row gt_right">383425.00</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">3572.01</td>
+      <td class="gt_row gt_right">1709.63</td>
+      <td class="gt_row gt_right">396</td>
+      <td class="gt_row gt_right">1100</td>
+      <td class="gt_row gt_right">748.00</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">1</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0.80</td>
+      <td class="gt_row gt_right">0.05</td>
+      <td class="gt_row gt_right">0.05</td>
+      <td class="gt_row gt_right">0.05</td>
+      <td class="gt_row gt_right">0.05</td>
+      <td class="gt_row gt_right">0.44</td>
+      <td class="gt_row gt_right">-0.05</td>
+      <td class="gt_row gt_right">0.02</td>
+      <td class="gt_row gt_right">0.03</td>
+      <td class="gt_row gt_right">0.38</td>
+      <td class="gt_row gt_right">0.62</td>
+      <td class="gt_row gt_right">0.32</td>
+      <td class="gt_row gt_right">0.05</td>
+      <td class="gt_row gt_right">0.8</td>
+      <td class="gt_row gt_right">-0.31</td>
+      <td class="gt_row gt_right">-0.60</td>
+      <td class="gt_row gt_right">-0.10</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0.50</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">635</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_right">352</td>
+      <td class="gt_row gt_right">12</td>
+      <td class="gt_row gt_right">1231</td>
+      <td class="gt_row gt_right">0.49</td>
+      <td class="gt_row gt_right">1</td>
+      <td class="gt_row gt_right">0.68</td>
+      <td class="gt_row gt_right">14</td>
       <td class="gt_row gt_right">3</td>
-      <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_right">4.80</td>
-      <td class="gt_row gt_right">7</td>
       <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">25</td>
+      <td class="gt_row gt_right">4.57</td>
+      <td class="gt_row gt_right">6</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">1</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">-1</td>
       <td class="gt_row gt_right">525</td>
-      <td class="gt_row gt_right">261.33</td>
-      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">88.33</td>
+      <td class="gt_row gt_right">208300</td>
       <td class="gt_row gt_right">843300</td>
-      <td class="gt_row gt_right">316971.43</td>
-      <td class="gt_row gt_right">0.00</td>
-      <td class="gt_row gt_right">3587.94</td>
-      <td class="gt_row gt_right">2519.42</td>
-      <td class="gt_row gt_right">2100</td>
-      <td class="gt_row gt_right">8000</td>
-      <td class="gt_row gt_right">4500.00</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">497866.67</td>
+      <td class="gt_row gt_right">3151.02</td>
+      <td class="gt_row gt_right">13557.53</td>
+      <td class="gt_row gt_right">5889.40</td>
+      <td class="gt_row gt_right">1900</td>
+      <td class="gt_row gt_right">8800</td>
+      <td class="gt_row gt_right">5350.00</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">1</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">0.03</td>
       <td class="gt_row gt_right">0.03</td>
-      <td class="gt_row gt_right">0.31</td>
       <td class="gt_row gt_right">0.03</td>
-      <td class="gt_row gt_right">0.60</td>
-      <td class="gt_row gt_right">0.63</td>
-      <td class="gt_row gt_right">0.34</td>
-      <td class="gt_row gt_right">0.07</td>
-      <td class="gt_row gt_right">0.00</td>
-      <td class="gt_row gt_right">0.96</td>
-      <td class="gt_row gt_right">0.04</td>
+      <td class="gt_row gt_right">0.87</td>
+      <td class="gt_row gt_right">0.03</td>
       <td class="gt_row gt_right">0.45</td>
-      <td class="gt_row gt_right">0.14</td>
+      <td class="gt_row gt_right">-0.01</td>
+      <td class="gt_row gt_right">0.05</td>
+      <td class="gt_row gt_right">0.05</td>
+      <td class="gt_row gt_right">0.52</td>
+      <td class="gt_row gt_right">0.48</td>
+      <td class="gt_row gt_right">0.42</td>
+      <td class="gt_row gt_right">0.05</td>
       <td class="gt_row gt_right">1.0</td>
-      <td class="gt_row gt_right">-0.14</td>
-      <td class="gt_row gt_right">-0.14</td>
-      <td class="gt_row gt_right">-0.14</td>
-      <td class="gt_row gt_right">0.00</td>
-      <td class="gt_row gt_right">0.00</td>
-      <td class="gt_row gt_right">0.50</td>
-      <td class="gt_row gt_right">0.00</td>
-      <td class="gt_row gt_right">2400</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_right">302</td>
-      <td class="gt_row gt_right">10</td>
-      <td class="gt_row gt_right">437</td>
-      <td class="gt_row gt_right">0.51</td>
-      <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_right">0.65</td>
-      <td class="gt_row gt_right">12</td>
-      <td class="gt_row gt_right">8</td>
-      <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">4.76</td>
-      <td class="gt_row gt_right">9</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">-1</td>
-      <td class="gt_row gt_right">578</td>
-      <td class="gt_row gt_right">281.12</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">843300</td>
-      <td class="gt_row gt_right">123500.00</td>
-      <td class="gt_row gt_right">0.00</td>
-      <td class="gt_row gt_right">3582.23</td>
-      <td class="gt_row gt_right">2328.22</td>
-      <td class="gt_row gt_right">954</td>
-      <td class="gt_row gt_right">19700</td>
-      <td class="gt_row gt_right">5310.80</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0.02</td>
-      <td class="gt_row gt_right">0.02</td>
-      <td class="gt_row gt_right">0.25</td>
-      <td class="gt_row gt_right">0.02</td>
-      <td class="gt_row gt_right">0.69</td>
-      <td class="gt_row gt_right">0.33</td>
-      <td class="gt_row gt_right">0.17</td>
-      <td class="gt_row gt_right">0.04</td>
-      <td class="gt_row gt_right">0.01</td>
-      <td class="gt_row gt_right">0.85</td>
-      <td class="gt_row gt_right">0.15</td>
-      <td class="gt_row gt_right">0.32</td>
-      <td class="gt_row gt_right">0.06</td>
-      <td class="gt_row gt_right">1.0</td>
-      <td class="gt_row gt_right">-0.16</td>
-      <td class="gt_row gt_right">-0.29</td>
+      <td class="gt_row gt_right">-0.43</td>
+      <td class="gt_row gt_right">-1.00</td>
       <td class="gt_row gt_right">-0.05</td>
-      <td class="gt_row gt_right">0.00</td>
-      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">1.00</td>
+      <td class="gt_row gt_right">-0.78</td>
       <td class="gt_row gt_right">0.50</td>
-      <td class="gt_row gt_right">0.00</td>
-      <td class="gt_row gt_right">3100</td>
+      <td class="gt_row gt_right">0.78</td>
+      <td class="gt_row gt_right">5600</td>
     </tr>
     <tr>
-      <td class="gt_row gt_right">614</td>
+      <td class="gt_row gt_right">611</td>
       <td class="gt_row gt_right">8</td>
-      <td class="gt_row gt_right">700</td>
-      <td class="gt_row gt_right">0.49</td>
+      <td class="gt_row gt_right">137</td>
+      <td class="gt_row gt_right">0.71</td>
       <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_right">0.68</td>
-      <td class="gt_row gt_right">14</td>
-      <td class="gt_row gt_right">2</td>
+      <td class="gt_row gt_right">0.86</td>
+      <td class="gt_row gt_right">1</td>
       <td class="gt_row gt_right">1</td>
       <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">4.70</td>
-      <td class="gt_row gt_right">7</td>
+      <td class="gt_row gt_right">1</td>
+      <td class="gt_row gt_right">4.24</td>
+      <td class="gt_row gt_right">8</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">1</td>
@@ -894,327 +894,203 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">4</td>
-      <td class="gt_row gt_right">1500</td>
-      <td class="gt_row gt_right">666.00</td>
+      <td class="gt_row gt_right">934</td>
+      <td class="gt_row gt_right">412.17</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">690400</td>
-      <td class="gt_row gt_right">249628.57</td>
+      <td class="gt_row gt_right">356587.50</td>
       <td class="gt_row gt_right">0.00</td>
-      <td class="gt_row gt_right">9025.00</td>
-      <td class="gt_row gt_right">3976.15</td>
-      <td class="gt_row gt_right">2100</td>
-      <td class="gt_row gt_right">6800</td>
-      <td class="gt_row gt_right">4450.00</td>
+      <td class="gt_row gt_right">5371.63</td>
+      <td class="gt_row gt_right">3194.54</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0.00</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">1</td>
       <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_right">0.89</td>
-      <td class="gt_row gt_right">0.03</td>
-      <td class="gt_row gt_right">0.03</td>
-      <td class="gt_row gt_right">0.03</td>
-      <td class="gt_row gt_right">0.03</td>
-      <td class="gt_row gt_right">0.44</td>
-      <td class="gt_row gt_right">0.16</td>
-      <td class="gt_row gt_right">0.04</td>
-      <td class="gt_row gt_right">0.01</td>
-      <td class="gt_row gt_right">0.78</td>
-      <td class="gt_row gt_right">0.22</td>
-      <td class="gt_row gt_right">0.35</td>
-      <td class="gt_row gt_right">0.03</td>
-      <td class="gt_row gt_right">1.0</td>
-      <td class="gt_row gt_right">-0.22</td>
-      <td class="gt_row gt_right">-0.60</td>
-      <td class="gt_row gt_right">-0.05</td>
-      <td class="gt_row gt_right">0.44</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">0.40</td>
-      <td class="gt_row gt_right">0.06</td>
-      <td class="gt_row gt_right">0.40</td>
-      <td class="gt_row gt_right">2900</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_right">531</td>
-      <td class="gt_row gt_right">8</td>
-      <td class="gt_row gt_right">322</td>
-      <td class="gt_row gt_right">0.55</td>
-      <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_right">0.78</td>
-      <td class="gt_row gt_right">4</td>
-      <td class="gt_row gt_right">2</td>
-      <td class="gt_row gt_right">21</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">4.15</td>
-      <td class="gt_row gt_right">5</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">4</td>
-      <td class="gt_row gt_right">440</td>
-      <td class="gt_row gt_right">115.80</td>
-      <td class="gt_row gt_right">104100</td>
-      <td class="gt_row gt_right">843300</td>
-      <td class="gt_row gt_right">519960.00</td>
-      <td class="gt_row gt_right">3115.14</td>
-      <td class="gt_row gt_right">7920.90</td>
-      <td class="gt_row gt_right">5378.33</td>
-      <td class="gt_row gt_right">987</td>
-      <td class="gt_row gt_right">987</td>
-      <td class="gt_row gt_right">987.00</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0.04</td>
-      <td class="gt_row gt_right">0.04</td>
-      <td class="gt_row gt_right">0.04</td>
-      <td class="gt_row gt_right">0.64</td>
-      <td class="gt_row gt_right">0.24</td>
-      <td class="gt_row gt_right">0.62</td>
-      <td class="gt_row gt_right">0.09</td>
+      <td class="gt_row gt_right">0.52</td>
       <td class="gt_row gt_right">0.03</td>
-      <td class="gt_row gt_right">0.02</td>
-      <td class="gt_row gt_right">0.64</td>
-      <td class="gt_row gt_right">0.36</td>
-      <td class="gt_row gt_right">0.32</td>
-      <td class="gt_row gt_right">0.10</td>
-      <td class="gt_row gt_right">0.5</td>
-      <td class="gt_row gt_right">-0.39</td>
-      <td class="gt_row gt_right">-0.80</td>
-      <td class="gt_row gt_right">-0.15</td>
-      <td class="gt_row gt_right">1.00</td>
-      <td class="gt_row gt_right">-0.33</td>
+      <td class="gt_row gt_right">0.03</td>
+      <td class="gt_row gt_right">0.03</td>
+      <td class="gt_row gt_right">0.43</td>
+      <td class="gt_row gt_right">0.05</td>
+      <td class="gt_row gt_right">0.04</td>
+      <td class="gt_row gt_right">0.04</td>
       <td class="gt_row gt_right">0.50</td>
-      <td class="gt_row gt_right">0.33</td>
-      <td class="gt_row gt_right">4100</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_right">169</td>
-      <td class="gt_row gt_right">14</td>
-      <td class="gt_row gt_right">179</td>
-      <td class="gt_row gt_right">0.65</td>
-      <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_right">0.80</td>
-      <td class="gt_row gt_right">9</td>
-      <td class="gt_row gt_right">4</td>
-      <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_right">4.47</td>
-      <td class="gt_row gt_right">8</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">-1</td>
-      <td class="gt_row gt_right">756</td>
-      <td class="gt_row gt_right">305.75</td>
-      <td class="gt_row gt_right">3000</td>
-      <td class="gt_row gt_right">843300</td>
-      <td class="gt_row gt_right">182837.50</td>
-      <td class="gt_row gt_right">1217.92</td>
-      <td class="gt_row gt_right">21430.43</td>
-      <td class="gt_row gt_right">4936.63</td>
-      <td class="gt_row gt_right">572</td>
-      <td class="gt_row gt_right">2700</td>
-      <td class="gt_row gt_right">1412.33</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0.28</td>
-      <td class="gt_row gt_right">0.40</td>
-      <td class="gt_row gt_right">0.27</td>
-      <td class="gt_row gt_right">0.03</td>
-      <td class="gt_row gt_right">0.03</td>
-      <td class="gt_row gt_right">0.29</td>
-      <td class="gt_row gt_right">0.10</td>
-      <td class="gt_row gt_right">0.03</td>
-      <td class="gt_row gt_right">0.01</td>
-      <td class="gt_row gt_right">0.83</td>
-      <td class="gt_row gt_right">0.17</td>
-      <td class="gt_row gt_right">0.41</td>
-      <td class="gt_row gt_right">0.20</td>
+      <td class="gt_row gt_right">0.50</td>
+      <td class="gt_row gt_right">0.37</td>
+      <td class="gt_row gt_right">0.05</td>
       <td class="gt_row gt_right">0.7</td>
-      <td class="gt_row gt_right">-0.50</td>
-      <td class="gt_row gt_right">-0.50</td>
-      <td class="gt_row gt_right">-0.50</td>
-      <td class="gt_row gt_right">0.10</td>
-      <td class="gt_row gt_right">0.20</td>
-      <td class="gt_row gt_right">0.40</td>
-      <td class="gt_row gt_right">0.20</td>
-      <td class="gt_row gt_right">2800</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_right">452</td>
-      <td class="gt_row gt_right">11</td>
-      <td class="gt_row gt_right">1093</td>
-      <td class="gt_row gt_right">0.49</td>
-      <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_right">0.68</td>
-      <td class="gt_row gt_right">40</td>
-      <td class="gt_row gt_right">4</td>
-      <td class="gt_row gt_right">8</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">4.71</td>
-      <td class="gt_row gt_right">5</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">4</td>
-      <td class="gt_row gt_right">82</td>
-      <td class="gt_row gt_right">43.00</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">843300</td>
-      <td class="gt_row gt_right">189480.00</td>
-      <td class="gt_row gt_right">0.00</td>
-      <td class="gt_row gt_right">3262.73</td>
-      <td class="gt_row gt_right">1244.77</td>
-      <td class="gt_row gt_right">791</td>
-      <td class="gt_row gt_right">2300</td>
-      <td class="gt_row gt_right">1545.50</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_right">0.64</td>
-      <td class="gt_row gt_right">0.04</td>
-      <td class="gt_row gt_right">0.04</td>
-      <td class="gt_row gt_right">0.04</td>
-      <td class="gt_row gt_right">0.24</td>
-      <td class="gt_row gt_right">0.42</td>
-      <td class="gt_row gt_right">0.13</td>
-      <td class="gt_row gt_right">0.04</td>
-      <td class="gt_row gt_right">0.02</td>
-      <td class="gt_row gt_right">0.70</td>
-      <td class="gt_row gt_right">0.30</td>
-      <td class="gt_row gt_right">0.41</td>
-      <td class="gt_row gt_right">0.03</td>
-      <td class="gt_row gt_right">1.0</td>
-      <td class="gt_row gt_right">-0.29</td>
-      <td class="gt_row gt_right">-0.62</td>
-      <td class="gt_row gt_right">-0.10</td>
+      <td class="gt_row gt_right">-0.25</td>
+      <td class="gt_row gt_right">-0.40</td>
+      <td class="gt_row gt_right">-0.12</td>
       <td class="gt_row gt_right">0.00</td>
       <td class="gt_row gt_right">0.00</td>
       <td class="gt_row gt_right">0.50</td>
       <td class="gt_row gt_right">0.00</td>
-      <td class="gt_row gt_right">2400</td>
+      <td class="gt_row gt_right">42200</td>
     </tr>
     <tr>
-      <td class="gt_row gt_right">456</td>
-      <td class="gt_row gt_right">14</td>
-      <td class="gt_row gt_right">375</td>
-      <td class="gt_row gt_right">0.59</td>
-      <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_right">0.73</td>
-      <td class="gt_row gt_right">9</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">4.95</td>
-      <td class="gt_row gt_right">9</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_right">4</td>
-      <td class="gt_row gt_right">1200</td>
-      <td class="gt_row gt_right">416.67</td>
-      <td class="gt_row gt_right">1200</td>
-      <td class="gt_row gt_right">843300</td>
-      <td class="gt_row gt_right">198766.67</td>
-      <td class="gt_row gt_right">978.00</td>
-      <td class="gt_row gt_right">5704.42</td>
-      <td class="gt_row gt_right">2998.86</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0.00</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0.13</td>
-      <td class="gt_row gt_right">0.02</td>
-      <td class="gt_row gt_right">0.80</td>
-      <td class="gt_row gt_right">0.02</td>
-      <td class="gt_row gt_right">0.02</td>
-      <td class="gt_row gt_right">0.42</td>
-      <td class="gt_row gt_right">0.11</td>
-      <td class="gt_row gt_right">0.04</td>
-      <td class="gt_row gt_right">0.02</td>
-      <td class="gt_row gt_right">0.61</td>
-      <td class="gt_row gt_right">0.39</td>
-      <td class="gt_row gt_right">0.34</td>
-      <td class="gt_row gt_right">0.06</td>
-      <td class="gt_row gt_right">0.6</td>
-      <td class="gt_row gt_right">-0.16</td>
-      <td class="gt_row gt_right">-0.30</td>
-      <td class="gt_row gt_right">-0.10</td>
-      <td class="gt_row gt_right">0.00</td>
-      <td class="gt_row gt_right">0.00</td>
-      <td class="gt_row gt_right">0.50</td>
-      <td class="gt_row gt_right">0.00</td>
-      <td class="gt_row gt_right">954</td>
-    </tr>
-    <tr>
-      <td class="gt_row gt_right">538</td>
+      <td class="gt_row gt_right">415</td>
       <td class="gt_row gt_right">11</td>
-      <td class="gt_row gt_right">230</td>
-      <td class="gt_row gt_right">0.59</td>
+      <td class="gt_row gt_right">543</td>
+      <td class="gt_row gt_right">0.54</td>
       <td class="gt_row gt_right">1</td>
-      <td class="gt_row gt_right">0.69</td>
+      <td class="gt_row gt_right">0.76</td>
       <td class="gt_row gt_right">6</td>
       <td class="gt_row gt_right">1</td>
       <td class="gt_row gt_right">1</td>
       <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">4.71</td>
-      <td class="gt_row gt_right">10</td>
-      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">4.47</td>
+      <td class="gt_row gt_right">4</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">1</td>
+      <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">4</td>
-      <td class="gt_row gt_right">3800</td>
-      <td class="gt_row gt_right">733.75</td>
+      <td class="gt_row gt_right">150</td>
+      <td class="gt_row gt_right">72.33</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">843300</td>
-      <td class="gt_row gt_right">124330.00</td>
+      <td class="gt_row gt_right">407450.00</td>
       <td class="gt_row gt_right">0.00</td>
-      <td class="gt_row gt_right">4901.21</td>
-      <td class="gt_row gt_right">2842.14</td>
-      <td class="gt_row gt_right">1100</td>
-      <td class="gt_row gt_right">1100</td>
-      <td class="gt_row gt_right">1100.00</td>
+      <td class="gt_row gt_right">3396.49</td>
+      <td class="gt_row gt_right">2214.97</td>
+      <td class="gt_row gt_right">715</td>
+      <td class="gt_row gt_right">715</td>
+      <td class="gt_row gt_right">715.00</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">1</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0.80</td>
+      <td class="gt_row gt_right">0.05</td>
+      <td class="gt_row gt_right">0.05</td>
+      <td class="gt_row gt_right">0.05</td>
+      <td class="gt_row gt_right">0.05</td>
+      <td class="gt_row gt_right">0.49</td>
+      <td class="gt_row gt_right">0.18</td>
+      <td class="gt_row gt_right">0.04</td>
+      <td class="gt_row gt_right">0.01</td>
+      <td class="gt_row gt_right">0.72</td>
+      <td class="gt_row gt_right">0.28</td>
+      <td class="gt_row gt_right">0.41</td>
+      <td class="gt_row gt_right">0.03</td>
+      <td class="gt_row gt_right">1.0</td>
+      <td class="gt_row gt_right">-0.29</td>
+      <td class="gt_row gt_right">-0.70</td>
+      <td class="gt_row gt_right">-0.07</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0.50</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">1900</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_right">16</td>
+      <td class="gt_row gt_right">10</td>
+      <td class="gt_row gt_right">485</td>
+      <td class="gt_row gt_right">0.51</td>
+      <td class="gt_row gt_right">1</td>
+      <td class="gt_row gt_right">0.62</td>
+      <td class="gt_row gt_right">11</td>
+      <td class="gt_row gt_right">2</td>
+      <td class="gt_row gt_right">4</td>
+      <td class="gt_row gt_right">1</td>
+      <td class="gt_row gt_right">4.48</td>
+      <td class="gt_row gt_right">6</td>
+      <td class="gt_row gt_right">1</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">-1</td>
+      <td class="gt_row gt_right">665</td>
+      <td class="gt_row gt_right">110.00</td>
+      <td class="gt_row gt_right">5100</td>
+      <td class="gt_row gt_right">843300</td>
+      <td class="gt_row gt_right">272333.33</td>
+      <td class="gt_row gt_right">2044.00</td>
+      <td class="gt_row gt_right">3979.73</td>
+      <td class="gt_row gt_right">3196.50</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">1</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0.03</td>
+      <td class="gt_row gt_right">0.03</td>
+      <td class="gt_row gt_right">0.03</td>
+      <td class="gt_row gt_right">0.23</td>
+      <td class="gt_row gt_right">0.67</td>
+      <td class="gt_row gt_right">0.41</td>
+      <td class="gt_row gt_right">0.18</td>
+      <td class="gt_row gt_right">0.03</td>
+      <td class="gt_row gt_right">0.01</td>
+      <td class="gt_row gt_right">0.81</td>
+      <td class="gt_row gt_right">0.19</td>
+      <td class="gt_row gt_right">0.36</td>
+      <td class="gt_row gt_right">0.10</td>
+      <td class="gt_row gt_right">1.0</td>
+      <td class="gt_row gt_right">-0.10</td>
+      <td class="gt_row gt_right">-0.19</td>
+      <td class="gt_row gt_right">-0.05</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0.50</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">2400</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_right">314</td>
+      <td class="gt_row gt_right">11</td>
+      <td class="gt_row gt_right">531</td>
+      <td class="gt_row gt_right">0.56</td>
+      <td class="gt_row gt_right">1</td>
+      <td class="gt_row gt_right">0.71</td>
+      <td class="gt_row gt_right">18</td>
+      <td class="gt_row gt_right">6</td>
+      <td class="gt_row gt_right">13</td>
+      <td class="gt_row gt_right">2</td>
+      <td class="gt_row gt_right">4.86</td>
+      <td class="gt_row gt_right">10</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">1</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">-1</td>
+      <td class="gt_row gt_right">851</td>
+      <td class="gt_row gt_right">304.70</td>
+      <td class="gt_row gt_right">819</td>
+      <td class="gt_row gt_right">843300</td>
+      <td class="gt_row gt_right">175761.90</td>
+      <td class="gt_row gt_right">709.50</td>
+      <td class="gt_row gt_right">4074.34</td>
+      <td class="gt_row gt_right">2847.37</td>
+      <td class="gt_row gt_right">798</td>
+      <td class="gt_row gt_right">1400</td>
+      <td class="gt_row gt_right">1174.50</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">0</td>
@@ -1223,28 +1099,152 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">0</td>
       <td class="gt_row gt_right">0</td>
-      <td class="gt_row gt_right">0.71</td>
       <td class="gt_row gt_right">0.02</td>
+      <td class="gt_row gt_right">0.82</td>
       <td class="gt_row gt_right">0.12</td>
       <td class="gt_row gt_right">0.02</td>
-      <td class="gt_row gt_right">0.12</td>
-      <td class="gt_row gt_right">0.42</td>
-      <td class="gt_row gt_right">0.14</td>
-      <td class="gt_row gt_right">0.07</td>
-      <td class="gt_row gt_right">0.01</td>
-      <td class="gt_row gt_right">0.83</td>
+      <td class="gt_row gt_right">0.02</td>
+      <td class="gt_row gt_right">0.52</td>
       <td class="gt_row gt_right">0.17</td>
-      <td class="gt_row gt_right">0.30</td>
-      <td class="gt_row gt_right">0.10</td>
-      <td class="gt_row gt_right">0.6</td>
-      <td class="gt_row gt_right">-0.12</td>
-      <td class="gt_row gt_right">-0.20</td>
+      <td class="gt_row gt_right">0.02</td>
+      <td class="gt_row gt_right">0.01</td>
+      <td class="gt_row gt_right">0.72</td>
+      <td class="gt_row gt_right">0.28</td>
+      <td class="gt_row gt_right">0.40</td>
+      <td class="gt_row gt_right">0.08</td>
+      <td class="gt_row gt_right">1.0</td>
+      <td class="gt_row gt_right">-0.29</td>
+      <td class="gt_row gt_right">-0.43</td>
       <td class="gt_row gt_right">-0.05</td>
-      <td class="gt_row gt_right">0.23</td>
-      <td class="gt_row gt_right">0.07</td>
-      <td class="gt_row gt_right">0.27</td>
-      <td class="gt_row gt_right">0.07</td>
-      <td class="gt_row gt_right">1700</td>
+      <td class="gt_row gt_right">0.33</td>
+      <td class="gt_row gt_right">0.25</td>
+      <td class="gt_row gt_right">0.17</td>
+      <td class="gt_row gt_right">0.25</td>
+      <td class="gt_row gt_right">1800</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_right">15</td>
+      <td class="gt_row gt_right">13</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">1</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">5</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">-1</td>
+      <td class="gt_row gt_right">519</td>
+      <td class="gt_row gt_right">103.52</td>
+      <td class="gt_row gt_right">119100</td>
+      <td class="gt_row gt_right">843300</td>
+      <td class="gt_row gt_right">698460.00</td>
+      <td class="gt_row gt_right">3389.20</td>
+      <td class="gt_row gt_right">8670.02</td>
+      <td class="gt_row gt_right">6125.54</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">1</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0.04</td>
+      <td class="gt_row gt_right">0.04</td>
+      <td class="gt_row gt_right">0.04</td>
+      <td class="gt_row gt_right">0.84</td>
+      <td class="gt_row gt_right">0.04</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0.0</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0.75</td>
+      <td class="gt_row gt_right">0.16</td>
+      <td class="gt_row gt_right">0.25</td>
+      <td class="gt_row gt_right">0.16</td>
+      <td class="gt_row gt_right">1300</td>
+    </tr>
+    <tr>
+      <td class="gt_row gt_right">62</td>
+      <td class="gt_row gt_right">10</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">2</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">8</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">-1</td>
+      <td class="gt_row gt_right">602</td>
+      <td class="gt_row gt_right">82.32</td>
+      <td class="gt_row gt_right">11700</td>
+      <td class="gt_row gt_right">843300</td>
+      <td class="gt_row gt_right">503350.00</td>
+      <td class="gt_row gt_right">2686.65</td>
+      <td class="gt_row gt_right">8026.96</td>
+      <td class="gt_row gt_right">5084.87</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">1</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0</td>
+      <td class="gt_row gt_right">0.03</td>
+      <td class="gt_row gt_right">0.15</td>
+      <td class="gt_row gt_right">0.03</td>
+      <td class="gt_row gt_right">0.65</td>
+      <td class="gt_row gt_right">0.15</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0.0</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">0.50</td>
+      <td class="gt_row gt_right">0.00</td>
+      <td class="gt_row gt_right">1300</td>
     </tr>
   </tbody>
   
@@ -1495,7 +1495,7 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#nvymhfbxfn .gt_table {
+#dkfyfymbhp .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1520,7 +1520,7 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   border-left-color: #D3D3D3;
 }
 
-#nvymhfbxfn .gt_heading {
+#dkfyfymbhp .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1532,7 +1532,7 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   border-right-color: #D3D3D3;
 }
 
-#nvymhfbxfn .gt_title {
+#dkfyfymbhp .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1542,7 +1542,7 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   border-bottom-width: 0;
 }
 
-#nvymhfbxfn .gt_subtitle {
+#dkfyfymbhp .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1552,13 +1552,13 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   border-top-width: 0;
 }
 
-#nvymhfbxfn .gt_bottom_border {
+#dkfyfymbhp .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#nvymhfbxfn .gt_col_headings {
+#dkfyfymbhp .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1573,7 +1573,7 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   border-right-color: #D3D3D3;
 }
 
-#nvymhfbxfn .gt_col_heading {
+#dkfyfymbhp .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1593,7 +1593,7 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   overflow-x: hidden;
 }
 
-#nvymhfbxfn .gt_column_spanner_outer {
+#dkfyfymbhp .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1605,15 +1605,15 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   padding-right: 4px;
 }
 
-#nvymhfbxfn .gt_column_spanner_outer:first-child {
+#dkfyfymbhp .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#nvymhfbxfn .gt_column_spanner_outer:last-child {
+#dkfyfymbhp .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#nvymhfbxfn .gt_column_spanner {
+#dkfyfymbhp .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1625,7 +1625,7 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   width: 100%;
 }
 
-#nvymhfbxfn .gt_group_heading {
+#dkfyfymbhp .gt_group_heading {
   padding: 8px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1647,7 +1647,7 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   vertical-align: middle;
 }
 
-#nvymhfbxfn .gt_empty_group_heading {
+#dkfyfymbhp .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1662,15 +1662,15 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   vertical-align: middle;
 }
 
-#nvymhfbxfn .gt_from_md > :first-child {
+#dkfyfymbhp .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#nvymhfbxfn .gt_from_md > :last-child {
+#dkfyfymbhp .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#nvymhfbxfn .gt_row {
+#dkfyfymbhp .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1689,7 +1689,7 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   overflow-x: hidden;
 }
 
-#nvymhfbxfn .gt_stub {
+#dkfyfymbhp .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1701,7 +1701,7 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   padding-left: 12px;
 }
 
-#nvymhfbxfn .gt_summary_row {
+#dkfyfymbhp .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1711,7 +1711,7 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   padding-right: 5px;
 }
 
-#nvymhfbxfn .gt_first_summary_row {
+#dkfyfymbhp .gt_first_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1721,7 +1721,7 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   border-top-color: #D3D3D3;
 }
 
-#nvymhfbxfn .gt_grand_summary_row {
+#dkfyfymbhp .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1731,7 +1731,7 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   padding-right: 5px;
 }
 
-#nvymhfbxfn .gt_first_grand_summary_row {
+#dkfyfymbhp .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1741,11 +1741,11 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   border-top-color: #D3D3D3;
 }
 
-#nvymhfbxfn .gt_striped {
+#dkfyfymbhp .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#nvymhfbxfn .gt_table_body {
+#dkfyfymbhp .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1754,7 +1754,7 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   border-bottom-color: #D3D3D3;
 }
 
-#nvymhfbxfn .gt_footnotes {
+#dkfyfymbhp .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1768,13 +1768,13 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   border-right-color: #D3D3D3;
 }
 
-#nvymhfbxfn .gt_footnote {
+#dkfyfymbhp .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding: 4px;
 }
 
-#nvymhfbxfn .gt_sourcenotes {
+#dkfyfymbhp .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1788,46 +1788,46 @@ can, thanks to the powerful beauty of Rmarkdown).</p>
   border-right-color: #D3D3D3;
 }
 
-#nvymhfbxfn .gt_sourcenote {
+#dkfyfymbhp .gt_sourcenote {
   font-size: 90%;
   padding: 4px;
 }
 
-#nvymhfbxfn .gt_left {
+#dkfyfymbhp .gt_left {
   text-align: left;
 }
 
-#nvymhfbxfn .gt_center {
+#dkfyfymbhp .gt_center {
   text-align: center;
 }
 
-#nvymhfbxfn .gt_right {
+#dkfyfymbhp .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#nvymhfbxfn .gt_font_normal {
+#dkfyfymbhp .gt_font_normal {
   font-weight: normal;
 }
 
-#nvymhfbxfn .gt_font_bold {
+#dkfyfymbhp .gt_font_bold {
   font-weight: bold;
 }
 
-#nvymhfbxfn .gt_font_italic {
+#dkfyfymbhp .gt_font_italic {
   font-style: italic;
 }
 
-#nvymhfbxfn .gt_super {
+#dkfyfymbhp .gt_super {
   font-size: 65%;
 }
 
-#nvymhfbxfn .gt_footnote_marks {
+#dkfyfymbhp .gt_footnote_marks {
   font-style: italic;
   font-size: 65%;
 }
 </style>
-<div id="nvymhfbxfn" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
+<div id="dkfyfymbhp" style="overflow-x:auto;overflow-y:auto;width:auto;height:auto;"><table class="gt_table">
   
   <thead class="gt_col_headings">
     <tr>
